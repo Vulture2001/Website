@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowRightIcon } from '../icons/ArrowRightIcon'
 import { ImagePlaceholder } from "../ui/ImagePlaceholder"
 import {ActionButton} from "../ui/ActionButton";
+import { Badge } from "../ui/Badge"
 
 type HeroProps = {
     titleLines?: string[]
@@ -37,14 +38,17 @@ export function Hero({
                     <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
                         {/* Eyebrow */}
                         {eyebrow && (
-                            <div className="inline-flex mb-6 px-3 py-1 items-center gap-2 rounded-full border border-neutral-300/60 bg-white/40 backdrop-blur supports-[backdrop-filter]:bg-white/30 mx-auto lg:mx-0">
-                <span className="text-neutral-800 font-inter text-sm font-semibold leading-[22px]">
-                  {eyebrow}
-                </span>
-                            </div>
+                            <Badge
+                                variant="outline"
+                                tone="gray"   // renders black/neutral outline
+                                size="sm"
+                                shape="pill"
+                            >
+                                {eyebrow}
+                            </Badge>
                         )}
 
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl mt-10">
                             {titleLines.map((line, index) => (
                                 <span key={index} className="block">
                   {line}

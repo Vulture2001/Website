@@ -25,6 +25,8 @@ type ContentProps = {
     className?: string
     /** Children (checkbox list, buttons, anything else) */
     children?: React.ReactNode
+    titleClassName?: string
+
 }
 
 /**
@@ -42,6 +44,7 @@ export function Content({
                             textMaxWidthClassName = 'w-[547px] max-md:w-full max-md:max-w-[600px]',
                             className,
                             children,
+    titleClassName,
                         }: ContentProps) {
     const showImage = imagePosition !== 'none' && (imageSrc || renderImage)
 
@@ -91,7 +94,10 @@ export function Content({
                             {badge}
                             <h1
                                 id="content-title"
-                                className="relative self-stretch text-6xl font-semibold tracking-tighter leading-[63px] text-zinc-800 max-md:text-5xl max-md:leading-[50px] max-sm:text-3xl max-sm:tracking-tighter max-sm:leading-10"
+                                className={cn(
+                                    "relative self-stretch text-6xl font-semibold tracking-tighter leading-[63px] text-zinc-800 max-md:text-5xl max-md:leading-[50px] max-sm:text-3xl max-sm:tracking-tighter max-sm:leading-10",
+                                    titleClassName
+                                )}
                             >
                                 {title}
                             </h1>
@@ -113,5 +119,3 @@ export function Content({
         </section>
     )
 }
-
-export default Content

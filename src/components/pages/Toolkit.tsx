@@ -82,7 +82,7 @@ function ToolCard({
     catColor?: string
 }) {
     return (
-        <Card className="bg-[#F9FAFB] border-[#EAECF0] rounded-3xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+        <Card className="bg-[#F9FAFB] border-[#EAECF0] rounded-3xl transform transition-all duration-300 hover:shadow-sm">
             <CardBody className="p-8 space-y-6">
                 <div className="flex items-center gap-3">
                     <div
