@@ -21,7 +21,7 @@ const NAV: NavItem[] = [
 export function Navbar() {
     const pathname = usePathname()
     const [elevated, setElevated] = useState(false)
-
+    const [open, setOpen] = useState<boolean>(false)
     // subtle shadow on scroll
     useEffect(() => {
         const onScroll = () => setElevated(window.scrollY > 4)

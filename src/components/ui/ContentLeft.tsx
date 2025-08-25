@@ -2,7 +2,9 @@ import React from 'react';
 import { Badge } from './Badge';
 import { CheckboxItem } from './CheckboxItem';
 import { ActionButton } from './ActionButton';
+/*
 import {EmojiCard} from "@/components/ui/EmojiCard";
+*/
 
 export default function Content() {
     return (
@@ -29,7 +31,6 @@ export default function Content() {
 
                     <ActionButton>See Tookit</ActionButton>
                 </div>
-                <EmojiCard></EmojiCard>
 
             </div>
         </section>

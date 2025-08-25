@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { Input } from '@/components/ui/Input'
 import { Card, CardBody, CardHeader } from '@/components/ui/Card'
-import { EmojiCard } from '@/components/ui/EmojiCard'
 import { cn } from '@/lib/cn'
 
 /* ---------- helpers ---------- */
@@ -206,7 +205,6 @@ export default function Demo() {
                 {/* Specialized Cards */}
                 <Section title="Specialized Cards" subtitle="Custom card components with unique designs and interactions.">
                     <div className="flex justify-center">
-                        <EmojiCard />
                     </div>
                 </Section>
 
