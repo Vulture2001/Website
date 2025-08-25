@@ -2,25 +2,49 @@
 
 @layer base {
     :root {
-        --bg: #ffffff;
-        --surface: #ffffff;
-        --border: #e5e7eb; /* gray-200 */
-        --text: #0f172a;   /* slate-900-ish */
+        /* Brand hues (H S L — no commas, so Tailwind alpha works) */
+        --color-blue: 217 91% 60%;
+        --color-black: 222 6% 28%;
+        --color-cyan: 189 93% 54%;
+        --color-green: 152 45% 44%;
+        --color-indigo: 259 84% 56%;
+        --color-orange: 24 94% 53%;
+        --color-pink: 326 100% 67%;
+        --color-purple: 261 83% 63%;
+        --color-red: 0 84% 63%;
+        --color-teal: 173 61% 47%;
+        --color-yellow: 43 96% 56%;
 
-        /* you can add more semantic tokens later, e.g. --accent, --muted, etc. */
+        /* Semantic aliases */
+        --brand-primary: var(--color-indigo);
+        --brand-accent: var(--color-pink);
+
+        /* Surfaces / text */
+        --bg: 0 0% 100%;
+        --fg: 222 47% 11%;
+        --muted-fg: 215 16% 47%;
+        --text: 222 47% 11%;
     }
+
+    /* Dark theme overrides (using .dark class on <html>) */
     .dark {
-        --bg: #0b0f13;
-        --surface: #121821;
-        --border: #263041;
-        --text: #e5e7eb;
+        --bg: 222 47% 5%;
+        --surface: 222 40% 10%;
+        --border: 222 25% 25%;
+        --fg: 0 0% 100%;
+        --muted-fg: 215 16% 75%;
+        --text: 0 0% 100%;
     }
 
-    html, body { @apply bg-[var(--bg)] text-[var(--text)] antialiased; }
+    /* Base typography */
+    html,
+    body {
+        @apply bg-[hsl(var(--bg))] text-[hsl(var(--text))] antialiased;
+    }
 }
 
-/* grid helper for your 12col/32px gutter look */
 @layer utilities {
+    /* Grid helper for 12col / 32px gutter */
     .grid-12 {
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -28,6 +52,7 @@
     }
 }
 
+/* Hide scrollbars helper */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }

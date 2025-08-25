@@ -1,8 +1,9 @@
 'use client'
 
+import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { Slot } from '@radix-ui/react-slot'
 import { cn } from '@/lib/cn'
-import { forwardRef } from 'react'
 
 const button = cva(
     [
@@ -92,7 +93,7 @@ export type ButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'c
     asChild?: boolean
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLElement, ButtonProps>(
     (
         {
             className,
@@ -104,18 +105,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             loading,
             leftIcon,
             rightIcon,
+            asChild = false,
             children,
             ...props
         },
         ref
     ) => {
-        return (
-            <button
-                ref={ref}
-                aria-busy={!!loading}
-                className={cn(button({ variant, size, shape, color, inverted, loading }), className)}
-                {...props}
-            >
+        const Comp = asChild ? Slot : ('button' as const)
+
+        // When rendering asChild, we can’t reliably inject icons/loader
+        // because we’re handing control of the child structure to the consumer.
+        const content = (
+            <>
                 {loading ? (
                     <span className="mr-2 -ml-1">Loading…</span>
                 ) : leftIcon ? (
@@ -123,13 +124,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 ) : null}
                 {children}
                 {rightIcon && !loading && <span className="ml-2 -mr-1">{rightIcon}</span>}
-            </button>
+            </>
+        )
+
+        return (
+            <Comp
+                ref={ref as any}
+                aria-busy={!!loading}
+                className={cn(button({ variant, size, shape, color, inverted, loading }), className)}
+                {...props}
+            >
+                {asChild ? children : content}
+            </Comp>
         )
     }
 )
 Button.displayName = 'Button'
 
-/** ---- IconButton (now defined) ---- */
+/** ---- IconButton ---- */
 const sizeMap: Record<SizeKey, string> = {
     xs: 'h-8 w-8',
     sm: 'h-9 w-9',
@@ -139,7 +151,7 @@ const sizeMap: Record<SizeKey, string> = {
 }
 
 type IconButtonProps = Omit<ButtonProps, 'leftIcon' | 'rightIcon' | 'children'> & {
-    children: React.ReactNode // the icon itself
+    children: React.ReactNode
 }
 
 export function IconButton({

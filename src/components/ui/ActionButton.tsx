@@ -1,60 +1,41 @@
-import React from 'react';
-import {Button} from "@/components/ui/Button";
-import Link from "next/link";
+// ActionButton.tsx
+import Link from "next/link"
+import { Button } from "@/components/ui/Button"
+import { ArrowIcon } from "../icons/ArrowIcon";
 
-export function ArrowIcon() {
-    return (
-        <svg
-            width="20"
-            height="21"
-            viewBox="0 0 20 21"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="arrow-icon"
-            style={{width: '20px', height: '20px', position: 'relative'}}
-        >
-            <path
-                d="M4.16699 10.5H15.8337"
-                stroke="#282828"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M10.833 15.5L15.833 10.5"
-                stroke="#282828"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M10.833 5.5L15.833 10.5"
-                stroke="#282828"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-interface ActionButtonProps {
+type Props = {
+    href?: string;                // if provided -> renders a Link
     children: React.ReactNode;
+    className?: string;
 }
 
-export function ActionButton({ children }: ActionButtonProps) {
+export function ActionButton({ href, children, className }: Props) {
+    const content = (
+        <>
+            <span className="font-semibold">{children}</span>
+            <ArrowIcon />
+        </>
+    )
+
+    if (href) {
+        return (
+            <Button
+                asChild
+                variant="text"
+                color="neutral"
+                className={`inline-flex items-center gap-2 p-0 underline underline-offset-8 decoration-1 hover:decoration-2 ${className ?? ''}`}
+            >
+                <Link href={href}>{content}</Link>
+            </Button>
+        )
+    }
     return (
-
-        <Link href="/toolkit">
-            <button className="flex relative gap-1 items-center border-b border-solid border-b-zinc-800">
-                <div className="flex relative gap-1 items-center">
-        <span className="relative text-base font-semibold tracking-normal leading-7 text-zinc-800 max-sm:text-sm">
-          {children}
-        </span>
-                </div>
-                <ArrowIcon />
-            </button>
-        </Link>
-
-    );
+        <Button
+            variant="text"
+            color="neutral"
+            className={`inline-flex items-center gap-2 p-0 underline underline-offset-8 decoration-1 hover:decoration-2 ${className ?? ''}`}
+        >
+            {content}
+        </Button>
+    )
 }

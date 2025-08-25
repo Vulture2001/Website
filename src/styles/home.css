@@ -1,0 +1,55 @@
+.hero {
+    @apply relative overflow-hidden isolate py-32 sm:py-40 lg:py-52;
+    background-image: radial-gradient(
+            1200px 800px at 70% 10%,
+            rgba(59,130,246,0.18),
+            rgba(249,115,22,0.12) 35%,
+            rgba(168,85,247,0.10) 55%,
+            rgba(255,255,255,0) 75%
+    );
+}
+
+
+.hero-stage {
+    @apply absolute inset-0 z-0 pointer-events-none overflow-hidden;
+}
+
+
+.hero-container {
+    @apply relative z-10 mx-auto max-w-7xl px-6 lg:px-8;
+}
+
+
+.hero-grid {
+    @apply grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center;
+}
+
+
+.hero-left {
+    @apply mx-auto max-w-2xl text-center lg:mx-0 lg:text-left;
+}
+
+
+.hero-title {
+    @apply text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl;
+}
+
+
+.hero-desc {
+    @apply mt-6 text-lg leading-8 text-gray-600 max-w-xl;
+}
+
+
+.hero-ctaRow {
+    @apply mt-10 flex items-center justify-center gap-x-6 lg:justify-start;
+}
+
+
+.hero-secondaryLink {
+    @apply text-sm font-semibold leading-6 text-gray-900 hover:text-gray-700 transition-colors;
+}
+
+
+.hero-imageFrame {
+    @apply aspect-[4/3] w-full rounded-2xl bg-gray-100/80 ring-1 ring-inset ring-gray-200 flex items-center justify-center;
+}

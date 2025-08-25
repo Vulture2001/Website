@@ -8,16 +8,16 @@ export default function About() {
     return (
         <div id="about" className="relative flex flex-col min-h-screen bg-white">
             <Gradient
-                from="#FF57BC"
-                to="#FF358A"
+                from="hsl(var(--brand-primary))"
+                to="hsl(var(--brand-accent))"
                 width="100rem"
                 height="60rem"
                 opacity={0.5}
                 className="left-1/2 -translate-x-1/2 -top-40"
             />
             <Gradient
-                from="#B7CFFF"
-                to="#8BB3FF"
+                from="hsl(var(--brand-accent))"
+                to="hsl(var(--brand-primary))"
                 width="200rem"
                 height="80rem"
                 className="left-1/2 -translate-x-1/2 top-0"
