@@ -1,0 +1,8 @@
+[
+  { "label": "Explore", "value": "explore", "color": "#0EA5E9" },
+  { "label": "Frame", "value": "frame", "color": "#A855F7" },
+  { "label": "Prototype", "value": "prototyping", "color": "#22C55E" },
+  { "label": "Plan", "value": "plan", "color": "#F59E0B" },
+  { "label": "Develop", "value": "develop", "color": "#EF4444" },
+  { "label": "Guidelines", "value": "guidelines", "color": "#8B5CF6" }
+]

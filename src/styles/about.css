@@ -1,0 +1,38 @@
+/* The IDs let you target this page without leaking styles globally */
+#about {
+    --about-shadow: 0 4px 43px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Smooth color transitions when theming */
+#about,
+#about * {
+    transition: background-color 200ms, color 200ms, border-color 200ms;
+}
+
+/* Hero spacing fine-tunes on very wide screens */
+@media (min-width: 1440px) {
+    #about-hero {
+        margin-top: 0.25rem;
+    }
+}
+
+/* Profile card small hover lift (kept subtle) */
+#profile-card {
+    will-change: transform, box-shadow;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    box-shadow: var(--about-shadow);
+}
+#profile-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* Team card polishing */
+#team-card {
+    box-shadow: var(--about-shadow);
+}
+
+/* Cards section spacing on small screens */
+#about-cards {
+    row-gap: 2rem;
+}

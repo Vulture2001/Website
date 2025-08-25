@@ -1,0 +1,613 @@
+[
+  {
+    "id": "system-mapping",
+    "title": "System / Ecosystem Mapping",
+    "phase": "explore",
+    "overview": "This tool helps you map the broader system around your software: stakeholders, external systems, policies, data flows, and environmental factors. By making hidden relationships visible, you gain a deeper understanding of the context in which your software will live.",
+    "purpose": [
+      "Broaden your perspective and look beyond the code.",
+      "Understand interdependencies and anticipate unintended consequences.",
+      "Encourage systemic thinking for more resilient, sustainable solutions."
+    ],
+    "steps": [
+      {
+        "title": "Define the Core System",
+        "description": "Place your software or product at the center of the map."
+      },
+      {
+        "title": "Identify Direct Actors",
+        "description": "List immediate users, stakeholders, and primary interactions."
+      },
+      {
+        "title": "Expand Outwards",
+        "description": "Add secondary systems — platforms, partners, regulators, competitors, environmental factors."
+      },
+      {
+        "title": "Draw Relationships",
+        "description": "Show flows of data, resources, or power."
+      },
+      {
+        "title": "Spot Gaps & Tensions",
+        "description": "Highlight blind spots, risks, conflicts, and synergies."
+      },
+      {
+        "title": "Reflect",
+        "description": "Ask: 'What do we now see that was invisible before?'"
+      }
+    ],
+    "input": [
+      "A rough definition of the software concept, problem space, or target users",
+      "Background knowledge (research, expert interviews, documentation)",
+      "A team open to thinking beyond the product boundary"
+    ],
+    "prompts": [
+      "Who are the direct users of [Your System Name]? Who are the indirect stakeholders (regulators, suppliers, partners, communities)?",
+      "How might policies, market trends, or emerging technologies influence [Your System Name]?",
+      "If [Your System Name] is widely adopted, what changes might occur in your industry, community, or environment?",
+      "If a failure scenario (data breach, downtime, policy shift) happened, how would it ripple through users, organizations, and the wider system?",
+      "Beyond direct users, how might communities, ecosystems, or natural resources be affected by [Your System Name]?"
+    ],
+    "tips": [
+      "Think beyond the immediate user interface.",
+      "Use arrows, flows, and labels to visualize interdependencies.",
+      "Explore 'what if' scenarios to reveal risks and opportunities.",
+      "Don’t aim for perfection — the value lies in broadening perspective, not producing a polished diagram."
+    ],
+    "outputs": [
+      "A visual map (digital whiteboard, diagram, or paper sketch)",
+      "A list of insights (risks, opportunities, overlooked stakeholders)",
+      "New questions for further exploration"
+    ],
+    "templates": [
+      "https://miro.com/app/dashboard/",
+      "https://www.figma.com/"
+    ]
+  },
+
+  {
+    "id": "stakeholder-mapping",
+    "title": "Stakeholder Mapping",
+    "phase": "explore",
+    "overview": "Stakeholder Mapping goes beyond the 'usual suspects' to reveal the full spectrum of actors: human, non-human, neglected, and future stakeholders. It asks not only 'who’s included?' but also 'who’s excluded, and who’s affected?'",
+    "purpose": [
+      "Identify all relevant stakeholders around the system — not just direct users. ",
+      "Include indirect, neglected, and non-human actors. ",
+      "Highlight who is excluded, who benefits, and who bears the costs. ",
+      "Encourage ethical and systemic awareness in decision-making. "
+    ],
+    "steps": [
+      {
+        "title": "Start with the Core",
+        "description": "Place system in the center of the map."
+      },
+      {
+        "title": "Identify Direct Stakeholders",
+        "description": "List primary users and organizations."
+      },
+      {
+        "title": "Add Indirect Stakeholders",
+        "description": "Include secondary actors such as supply chains, regulators, and communities."
+      },
+      {
+        "title": "Surface Non-Human Stakeholders",
+        "description": "List ecosystems, species, resources, and infrastructures."
+      },
+      {
+        "title": "Surface Neglected/Invisible Stakeholders",
+        "description": "Identify marginalized groups, invisible workers, and future generations."
+      },
+      {
+        "title": "Map Power & Impact",
+        "description": "Ask who has influence, who is vulnerable, who gains, and who pays."
+      },
+      {
+        "title": "Spot Exclusion & Gaps",
+        "description": "Note explicitly who is excluded from benefits or who bears unintended costs."
+      },
+      {
+        "title": "Reflect & Iterate",
+        "description": "Ask: 'What perspectives are missing from this map?'"
+      }
+    ],
+    "input": [
+      "A clear definition of the problem space",
+      "Initial research (users, domain, environment)",
+      "Openness to go beyond obvious or dominant stakeholders"
+    ],
+    "outputs": [
+      "A stakeholder map (diagram or table) showing human, non-human, and neglected actors",
+      "A summary of who is excluded, who is most impacted, and where risks/opportunities lie",
+      "Questions for further research"
+    ],
+    "templates": [
+      "https://miro.com/app/dashboard/"
+    ],
+    "prompts": [
+      "Who are the direct users of [Your System Name]?",
+      "Which organizations, governments, or institutions interact with it?",
+      "What non-human stakeholders (e.g., [Ecosystem], [Infrastructure], [Species]) are affected?",
+      "Which marginalized or invisible groups (e.g., [Low-visibility Worker Group], [Future Generation]) might be overlooked?",
+      "Who benefits most from [Your System Name], and who pays the costs?",
+      "If this system fails, who will be most harmed — and who will be shielded?",
+      "Who is excluded from using or benefiting from [Your System Name], and why?",
+      "What assumptions are you making about who matters and who doesn’t?"
+    ],
+    "tips": [
+      "Push the team to think beyond obvious users — include non-human and invisible actors.",
+      "Map both inclusion and exclusion explicitly to surface ethical questions.",
+      "Use visuals (grids, circles, matrices) to reveal power and impact dynamics.",
+      "Revisit and iterate — stakeholder maps evolve as understanding deepens."
+    ]
+  },
+
+  {
+    "id": "sustainability-interviews",
+    "title": "Sustainability-Aware Interviews",
+    "phase": "explore",
+    "overview": "Interviews are conducted to reveal opportunities and risks often overlooked in purely technical discussions. By asking questions that highlight values, resource awareness, and ripple effects, teams can uncover how sustainability considerations are embedded in everyday practices — even if participants never mention 'sustainability' explicitly.",
+    "purpose": [
+      "Ensure your research surfaces not only functional needs but also environmental, social, and systemic impacts. ",
+      "Go beyond technical requirements to uncover hidden priorities, values, and trade-offs. ",
+      "Use these insights to guide your design choices toward more sustainable and equitable outcomes."
+    ],
+    "steps": [
+      {
+        "title": "Define Objective",
+        "description": "Specify what decision or design choice the interview should inform."
+      },
+      {
+        "title": "Identify Participants",
+        "description": "Record participant’s role, context, and relationship to the system."
+      },
+      {
+        "title": "Review Context",
+        "description": "Collect relevant issues, organizational goals, or policies."
+      },
+      {
+        "title": "Prepare Guiding Questions",
+        "description": "Frame open-ended questions that surface values, trade-offs, and sustainability considerations."
+      },
+      {
+        "title": "Conduct Interview",
+        "description": "Listen actively and probe for hidden priorities and trade-offs."
+      },
+      {
+        "title": "Extract Insights",
+        "description": "Note sustainability-relevant themes such as resources, impacts, and inclusion."
+      }
+    ],
+    "input": [
+      "Defined project or problem space of your system",
+      "Selected interview participants (users, stakeholders, or affected groups)",
+      "Background research on environmental and social context"
+    ],
+    "outputs": [
+      "Interview notes highlighting functional and sustainability insights",
+      "A summary of user priorities, hidden costs, and systemic ripple effects",
+      "Design considerations informed by both human and non-human impacts"
+    ],
+    "templates": [
+      "No templates provided"
+    ],
+    "prompts": [
+      "Generate 5–7 open-ended interview questions for people who use [system/product] that reveal their priorities, frustrations, and hidden trade-offs.",
+      "What kinds of environmental or social issues might be connected to [system/product] that I should keep in mind when designing interview questions?",
+      "List possible ways users of [system/product] may experience scarcity (time, money, energy, materials) that I can explore in interviews.",
+      "What secondary stakeholders (e.g., communities, ecosystems, workers, regulators) could be affected by [system/product] that I might ask interviewees about?",
+      "Who is often excluded from discussions about [system/product], and how could I design questions to surface their experiences?",
+      "Suggest interview questions that uncover what users value most in [task/system], while also hinting at long-term or systemic consequences."
+    ],
+    "tips": [
+      "Keep questions open-ended — avoid leading participants with explicit 'sustainability' language.",
+      "Listen for implicit values and hidden trade-offs rather than only explicit needs.",
+      "Probe around resources (time, money, energy) to surface sustainability tensions.",
+      "Look for who is excluded from benefits or who bears unintended costs.",
+      "Always reflect as a team after interviews to connect insights back to systemic impacts."
+    ]
+  },
+
+  {
+    "id": "inclusive-user-groups",
+    "title": "Inclusive User Groups",
+    "phase": "frame",
+    "overview": "Inclusive User Groups help you move beyond traditional personas by making privilege and exclusion visible. Instead of focusing on an imagined 'typical user,' this tool compares real groups systematically to reveal overlooked needs, highlight sustainability impacts, and ensure a wider range of voices are considered in the design process.",
+    "purpose": [
+      "Uncover the diversity of users beyond default or privileged assumptions. ",
+      "Make privilege explicit and surface neglected or invisible groups. ",
+      "Ensure social and environmental sustainability are considered early in the design process. ",
+      "Reveal who is included, who is excluded, and who is most affected — rather than idealizing a 'typical user'. "
+    ],
+    "steps": [
+      {
+        "title": "Define User Groups",
+        "description": "Identify 3–6 potential user groups. Avoid vague categories like 'diverse users'; be concrete (e.g., 'low-income migrant workers'). If data is scarce, use AI prompts or secondary sources to scaffold."
+      },
+      {
+        "title": "Identify Needs, Pains, Gains",
+        "description": "For each group, describe key needs, pains (barriers), and gains (benefits). Add a sustainability reflection: Which needs/pains/gains connect to social or environmental impacts?"
+      },
+      {
+        "title": "Privilege Mapping",
+        "description": "Place each group on the Privilege Wheel. Compare across groups: who is clustered in privilege, who is marginalized, who is missing?"
+      },
+      {
+        "title": "Matrix Evaluation",
+        "description": "Transfer group data into a comparison matrix. Add columns for Privilege Level and 'Excluded From…'. Look for blank spaces or weakly evidenced entries."
+      },
+      {
+        "title": "Reflect & Adjust",
+        "description": "Ask: Who is excluded? Whose voices are missing? Decide whether to adjust, merge, or add groups to address gaps."
+      }
+    ],
+    "input": [
+      "Project scope and early idea of the target system",
+      "Any available demographic or usage data (research, reports, surveys)",
+      "Willingness to challenge assumptions and identify gaps"
+    ],
+    "outputs": [
+      "A set of Inclusive User Group profiles (not full personas, but structured summaries)",
+      "Needs/Pains/Gains mapped with sustainability signals",
+      "Privilege Wheel analysis showing privilege gaps",
+      "A reflection note on missing perspectives and next steps"
+    ],
+    "templates": [
+      "Inclusive User Group Card (columns: Demographics / Needs / Pains / Gains / Privilege Level / Missing Data)",
+      "Privilege Wheel → compare groups visually",
+      "Coverage Map → Included vs. Excluded vs. Neglected groups"
+    ],
+    "prompts": [
+      "List possible user groups for [system/product] and describe their demographics (age, ability, social background, financial safety, etc.) with references or data sources.",
+      "Suggest marginalized or overlooked groups that might interact with [system/product], directly or indirectly.",
+      "What public reports, datasets, or research might provide demographic insights about [domain/industry]?",
+      "What common needs, frustrations, or barriers might [user group] face when using [system/product]?",
+      "What potential gains or benefits could [user group] experience if this system worked well?",
+      "How do these needs/pains/gains connect to social or environmental sustainability?",
+      "Place [user group] on a privilege spectrum (e.g., high privilege, mixed, marginalized) and explain why.",
+      "Which groups are likely overrepresented in design decisions for [system/product]? Which are underrepresented?",
+      "If only privileged groups were considered, what risks or exclusions might occur?"
+    ],
+    "tips": [
+      "Avoid generic labels like 'diverse users'; specificity reveals overlooked perspectives.",
+      "Balance human needs with environmental and systemic considerations.",
+      "Use privilege mapping explicitly — don’t assume equity is automatically considered.",
+      "Iterate as new research emerges; user groups may need to be refined or expanded."
+    ]
+  },
+
+  {
+    "id": "systemic-journey-map",
+    "title": "Systemic Journey Map",
+    "phase": "frame",
+    "overview": "Systemic Journey Map expands on classic UX journey maps by looking beyond linear 'happy paths. This makes hidden dynamics and trade-offs visible.",
+    "purpose": [
+      "Move beyond traditional user journey maps that focus only on individual experience. ",
+      "Trace how different stakeholders experience a system over time, including goals, needs, pains, and gains. ",
+      "Highlight the social and environmental consequences of each phase alongside user experience. ",
+      "Reveal opportunities, risks, and exclusions to inform more sustainable and inclusive design. "
+    ],
+    "steps": [
+      {
+        "title": "Define Phases",
+        "description": "Break the journey into meaningful stages for the chosen group. Use phases that reflect lived experience."
+      },
+      {
+        "title": "Core Activities",
+        "description": "List the essential actions this user group takes in each phase, including active tasks and passive experiences."
+      },
+      {
+        "title": "Goals & Jobs-to-be-Done",
+        "description": "For each phase, state the purpose: what the group is trying to achieve or solve."
+      },
+      {
+        "title": "Needs, Pains, Gains",
+        "description": "Describe detailed needs, barriers, and benefits for this group in each phase."
+      },
+      {
+        "title": "Touchpoints",
+        "description": "Identify where and how the user interacts with you software."
+      },
+      {
+        "title": "Social Impacts",
+        "description": "resource use, energy, waste, mobility, digital footprint."
+      },
+      {
+        "title": "Environmental Impacts",
+        "description": "inequality, accessibility, exclusion, labor conditions"
+      },
+      {
+        "title": "Reflection",
+        "description": "Ask: Which impacts are positive or negative?"
+      }
+    ],
+    "input": [
+      "A chosen user group from Inclusive User Groups",
+      "Broad needs/pains/gains (from earlier exercises)",
+      "Initial knowledge of the system context"
+    ],
+    "outputs": [
+      "A journey map for the chosen user group (phases, activities, purposes, pains/gains/needs, touchpoints, impacts)",
+      "A reflection on privilege and exclusion in the journey",
+      "Identified opportunities or risks for sustainable design"
+    ],
+    "templates": [
+      "Miro template"
+    ],
+    "prompts": [
+      "Suggest meaningful phases of the journey for [user group] interacting with [system/product] in [domain].",
+      "What actions or activities does [user group] typically perform in [phase]?",
+      "What specific needs, frustrations, and benefits does [user group] experience in [phase]?",
+      "How might these differ from more privileged groups in the same phase?",
+      "What social impacts (e.g., inequality, access, labor) might occur in [phase] for [user group]?",
+      "What environmental consequences (e.g., energy, waste, travel, resource use) might occur in [phase]?",
+      "Give concrete examples of sustainability impacts for similar systems in [domain]."
+    ],
+    "tips": [
+      "Anchor phases in real contexts; avoid generic funnel labels.",
+      "Always pair micro UX observations with systemic impact notes.",
+      "Call out inaccessible or missing touchpoints explicitly.",
+      "Tag each entry as 'assumption' or 'evidence' to guide next research.",
+      "Use outputs from Inclusive User Groups and Stakeholder Mapping to validate phases and impacts.",
+      "Remember: Inclusive User Groups = broad comparison; Systemic Journey Map = detailed, phase-by-phase exploration."
+    ]
+  },
+
+  {
+    "id": "sustainable-prototyping",
+    "title": "Sustainable Prototyping",
+    "overview": "Prototypes can be low-fidelity (paper sketches, sticky flows, storyboards) or high-fidelity (Figma mockups, interactive click-throughs). At both levels, students should integrate sustainability and inclusivity checks into how they represent the system, so harmful design choices don’t get 'baked in' too early.",
+    "phase": "prototyping",
+    "purpose": "To create early representations of ideas that are lightweight, inclusive, and mindful of sustainability. Prototypes are not finished products — they are ways to explore design decisions and make sustainability visible before building.",
+    "steps": [
+      {
+        "title": "Set the Prototype Goal",
+        "description": "Clarify what you want to explore or visualize (e.g., 'Onboarding flow for low-bandwidth users')."
+      },
+      {
+        "title": "Choose Fidelity",
+        "description": "Decide between Lo-Fi (fast, disposable, broad exploration) and Hi-Fi (detailed, interactive, focused refinement)."
+      },
+      {
+        "title": "Build with Sustainability in Mind",
+        "description": "Access & Inclusion → design flows usable for low literacy, accessibility needs, and low-end devices. Resource Awareness → avoid overcomplicated flows, heavy screens, or redundant steps. Social Awareness → show how multiple groups experience the flow, not just privileged users. Environmental Awareness → note where data load, device strain, or resource use could grow."
+      },
+      {
+        "title": "Annotate the Prototype",
+        "description": "On paper: add ⚡ (sustainable/inclusive choices) or ❌ (potential risks). On Figma: add sticky comments or a 'Sustainability Notes' layer."
+      }
+    ],
+    "input": [
+      "Decide what you are prototyping (flow, feature, journey slice, systemic effect)",
+      "Choose fidelity (paper sketch vs. Figma)",
+      "Select which user group(s) the prototype is built for"
+    ],
+    "outputs": [
+      "A lo-fi or hi-fi prototype annotated with sustainability notes",
+      "Clear indication of trade-offs (where inclusivity or sustainability is challenged)"
+    ],
+    "templates": [
+      "Prototype Planning Canvas: Goal | Fidelity | User Group | Sustainability Notes",
+      "Annotated Prototype Example (⚡ and ❌ marks)"
+    ],
+    "prompts": [
+      "Suggest low-fi ways to represent [feature/flow] without coding.",
+      "How could I adapt this prototype to be usable on [constraint: e.g., low bandwidth / old devices]?",
+      "Where in this flow might resource use or accessibility barriers occur?"
+    ],
+    "tips": [
+      "Start with quick, disposable prototypes to explore broadly before refining.",
+      "Always annotate sustainability trade-offs explicitly so they aren’t overlooked.",
+      "Prototype with marginalized and constrained user groups in mind, not only the privileged majority.",
+      "Use sustainability annotations (⚡ and ❌) consistently to communicate design choices."
+    ]
+  },
+  {
+    "id": "sustainable-testing",
+    "title": "Sustainable Testing",
+    "overview": "Testing is more than finding bugs. Sustainable testing checks: Do different user groups experience the prototype differently? Are any groups excluded or disadvantaged? What social/environmental impacts emerge from the flow or feature? What trade-offs need to be acknowledged before development?",
+    "phase": "prototyping",
+    "purpose": "To validate prototypes not only for usability but also for inclusion, privilege balance, and sustainability impacts. This tool ensures that feedback is gathered from diverse groups and that environmental and social consequences are explored, not just functionality.",
+    "steps": [
+      {
+        "title": "Set Test Objectives",
+        "description": "Define what you want to learn: usability, inclusivity, sustainability impacts, adoption risks. Link objectives to earlier insights (e.g., privilege gaps, journey pains)."
+      },
+      {
+        "title": "Select Test Participants",
+        "description": "Cover a range of Inclusive User Groups, not just privileged ones. If some groups can’t be reached, simulate their constraints (low bandwidth, accessibility needs)."
+      },
+      {
+        "title": "Prepare the Prototype",
+        "description": "Use annotated prototypes from Sustainable Prototyping (with ⚡ / ❌ marks). Decide if you’re testing lo-fi (broad flows) or hi-fi (details)."
+      },
+      {
+        "title": "Run the Test",
+        "description": "Observe participants interacting with the prototype. Ask about usability and sustainability: 'Does this reduce or increase effort/waste/time for you?' 'What resources does this demand (energy, attention, money, devices)?' 'Who benefits most, and who might be left behind?'"
+      },
+      {
+        "title": "Capture Insights",
+        "description": "Document notes on usability issues, privilege/exclusion risks, and sustainability impacts. Highlight tensions where solving one need creates costs elsewhere."
+      },
+      {
+        "title": "Reflect & Iterate",
+        "description": "Summarize: What worked? What excluded people? What impacts are unsustainable? Feed results back into prototyping → refine → test again."
+      }
+    ],
+    "input": [
+      "One or more prototypes (paper, Figma, or other)",
+      "Inclusive User Groups already identified",
+      "A testing plan (what’s being validated, and with whom)"
+    ],
+    "outputs": [
+      "Test notes covering usability, inclusion, and sustainability",
+      "A summary of privilege gaps and impact risks",
+      "Recommendations for prototype refinement"
+    ],
+    "templates": [
+      "Sustainable Testing Sheet: Prototype Tested | User Group | Test Goal | Observations | Inclusivity Notes | Sustainability Notes | Next Steps",
+      "Impact Reflection Grid: Positive Impacts | Negative Impacts | Privilege Gaps | Environmental Risks"
+    ],
+    "prompts": [
+      "Suggest test scenarios for [system/product] that would surface inclusion and sustainability issues.",
+      "Which user groups are most critical to involve when testing [feature/flow]?",
+      "Summarize likely social and environmental impacts of feedback from [user group] using [prototype type].",
+      "What hidden privilege or exclusion risks might this prototype create?",
+      "Based on these test results, how could [system/product] be refined to reduce sustainability risks?"
+    ],
+    "tips": [
+      "Recruit diverse participants — avoid testing only with the most accessible groups.",
+      "Simulate constraints (e.g., low bandwidth, accessibility needs) if certain groups are hard to reach.",
+      "Pay equal attention to what works and what excludes users.",
+      "Use structured sheets or grids to capture impacts systematically.",
+      "Feed testing results back into prototypes quickly — test → refine → test again."
+    ]
+  },
+  {
+    "id": "sustainable-metrics-framework",
+    "title": "Sustainable Metrics Framework",
+    "overview": "Traditional metrics track growth (users, revenue, churn). Sustainable metrics track who benefits, who is excluded, and what the ripple effects are. This framework offers five dimensions where students must define their own metrics: Reach & Representation, Equity & Inclusion, Resource Intensity, Resilience & Longevity, and Systemic Impact.",
+    "phase": "plan",
+    "purpose": "To help students define metrics that reflect not just functionality or growth, but social inclusion, privilege balance, and environmental responsibility. It encourages them to measure what matters systemically.",
+    "steps": [
+      {
+        "title": "Define Metrics per Dimension",
+        "description": "For your project, list 1–2 metrics under each of the five dimensions (Reach & Representation, Equity & Inclusion, Resource Intensity, Resilience & Longevity, Systemic Impact)."
+      },
+      {
+        "title": "Balance Quantitative and Qualitative",
+        "description": "Ensure metrics cover both quantitative (numbers) and qualitative (stories/experiences)."
+      },
+      {
+        "title": "Compare Across User Groups",
+        "description": "Check where privileged vs. marginalized groups diverge in outcomes."
+      },
+      {
+        "title": "Reflect on Outcomes",
+        "description": "Ask: Do these metrics encourage sustainable outcomes, or just efficiency? Are risks and burdens being tracked as well as benefits?"
+      }
+    ],
+    "input": [
+      "A prototype or system ready for evaluation",
+      "Insights from Inclusive User Groups and Sustainable Testing",
+      "Awareness of organizational or systemic sustainability goals (e.g., SDGs)"
+    ],
+    "outputs": [
+      "A Sustainable Metrics Canvas (rows = 5 dimensions, columns = student-defined metrics)",
+      "A shortlist of sustainability KPIs to guide development & evaluation"
+    ],
+    "templates": [
+      "Metrics Canvas with dimensions as rows: Reach & Representation, Equity & Inclusion, Resource Intensity, Resilience & Longevity, Systemic Impact",
+      "Columns for each dimension: Metric 1 | Metric 2 | Privilege Gap? | Environmental / Social Signal"
+    ],
+    "prompts": [
+      "Suggest sustainable success metrics for [system/product] under Reach & Representation.",
+      "How can we measure Equity & Inclusion outcomes for [user group]?",
+      "What Resource Intensity metrics are relevant for a software system in [domain]?",
+      "What systemic ripple effects might [system/product] have, and how can they be measured?"
+    ],
+    "tips": [
+      "Use both hard data (percentages, counts) and soft data (stories, quotes) for a fuller picture.",
+      "Check for privilege gaps: Do metrics look different across groups?",
+      "Avoid vanity metrics (e.g., total users) unless they’re paired with equity or sustainability signals.",
+      "Tie metrics to broader goals like the UN SDGs or organizational sustainability targets."
+    ],
+    "dimensions": [
+      {
+        "name": "Reach & Representation",
+        "examples": [
+          "% of marginalized groups reached",
+          "Diversity of representation in communications",
+          "Barriers to access (cost, device, literacy, language)"
+        ]
+      },
+      {
+        "name": "Equity & Inclusion",
+        "examples": [
+          "Distribution of value across user groups",
+          "Accessibility compliance (e.g., WCAG)",
+          "Privilege gap in adoption/retention"
+        ]
+      },
+      {
+        "name": "Resource Intensity",
+        "examples": [
+          "Data/energy per interaction",
+          "Server demand per user",
+          "Substitution of offline resource-heavy practices (e.g., travel reduction)"
+        ]
+      },
+      {
+        "name": "Resilience & Longevity",
+        "examples": [
+          "Retention across diverse groups (not just privileged ones)",
+          "Adaptability to new contexts/devices",
+          "Long-term environmental/social footprint"
+        ]
+      },
+      {
+        "name": "Systemic Impact",
+        "examples": [
+          "Positive: inclusion, empowerment, carbon reduction, community benefit",
+          "Negative: exclusion, overuse, e-waste, inequality reinforcement",
+          "Alignment with SDGs or organizational sustainability goals"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tradeoffs-matrix",
+    "title": "Trade-offs Matrix",
+    "overview": "Designing sustainably often means negotiating between user needs, cost, convenience, performance, accessibility, and environmental/social impacts. The Trade-offs Matrix makes these tensions visible, so teams can reflect: what are we optimizing, and at what cost?",
+    "phase": "plan",
+    "purpose": "To help students see, compare, and balance decisions where sustainability objectives conflict with other design or business priorities. It supports conscious trade-offs instead of hidden compromises.",
+    "steps": [
+      {
+        "title": "List Options",
+        "description": "Identify 2–4 design or system options you’re deciding between."
+      },
+      {
+        "title": "Capture Benefits",
+        "description": "List benefits for users, business, or functionality."
+      },
+      {
+        "title": "Capture Sustainability Signals",
+        "description": "Identify sustainability benefits (reduced energy use, improved equity, community benefit) and sustainability costs (higher resource load, exclusion risks, long-term harm)."
+      },
+      {
+        "title": "Capture Other Costs",
+        "description": "Note usability, time, money, technical debt, or short-term barriers for each option."
+      },
+      {
+        "title": "Compare & Reflect",
+        "description": "Ask: Where do sustainability goals align or conflict with other goals? Who wins and who loses with each choice?"
+      },
+      {
+        "title": "Decide & Document",
+        "description": "Make an explicit decision and record the rationale: Why did we prioritize X over Y?"
+      }
+    ],
+    "input": [
+      "Clarity on what decision is being made (e.g., which feature to build, which technology to use)"
+    ],
+    "outputs": [
+      "A completed Trade-offs Matrix for each key decision",
+      "A record of rationale (so compromises are transparent)",
+      "Insights into decision patterns (e.g., 'We consistently deprioritize low-bandwidth users — should we change that?')"
+    ],
+    "templates": [
+      "Matrix Table: Options | Benefits | Sustainability Benefits | Sustainability Costs | Other Costs | Notes",
+      "Decision Flow Diagram: optional visualization of how each option impacts users and sustainability"
+    ],
+    "prompts": [
+      "List sustainability benefits and costs of choosing [design option A] over [option B].",
+      "Who benefits most and who loses out if we prioritize speed over sustainability in [system/product]?",
+      "What are short-term vs. long-term consequences of [decision] for social and environmental impacts?",
+      "Suggest ways to balance usability with sustainability in [feature/system]."
+    ],
+    "tips": [
+      "Avoid treating sustainability as an afterthought — place it alongside usability, cost, and performance.",
+      "Document trade-offs explicitly so future teams understand the rationale.",
+      "Look for patterns in decisions over time (e.g., which groups or sustainability goals are consistently deprioritized).",
+      "Revisit earlier Inclusive User Groups and Systemic Journey Maps to ground trade-off reflections in real impacts."
+    ]
+  }
+]
