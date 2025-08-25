@@ -17,7 +17,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".", // 👈 add this
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
     },

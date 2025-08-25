@@ -1,0 +1,27 @@
+/* src/styles/hero.css */
+
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: radial-gradient(
+            1000px 600px at 70% 20%,
+            rgba(59, 130, 246, 0.30),
+            rgba(249, 115, 22, 0.25) 30%,
+            rgba(168, 85, 247, 0.20) 50%,
+            rgba(255, 255, 255, 0) 70%
+    );
+}
+
+.hero-section-padding {
+    padding-top: 8rem;   /* 32 */
+    padding-bottom: 8rem;
+}
+
+@media (min-width: 640px) {
+    .hero-section-padding { padding-top: 10rem; padding-bottom: 10rem; }
+}
+
+@media (min-width: 1024px) {
+    .hero-section-padding { padding-top: 12rem; padding-bottom: 12rem; }
+}

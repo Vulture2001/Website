@@ -1,12 +1,42 @@
 [
   {
-    "question": "What if I can't find good data?",
-    "answer": "At vero eos et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
+    "question": "What is Software 5.0?",
+    "answer": "Software 5.0 is a sustainability-oriented design framework developed to integrate social and ecological considerations into software engineering. It extends human-centred design and agile practices by embedding Conscious Service Design tools, making sustainability teachable and actionable in real-world projects.",
     "isOpen": true
   },
-  { "question": "Which payment methods are accepted?", "answer": "", "isOpen": false },
-  { "question": "How to get familiar with Figma?", "answer": "", "isOpen": false },
-  { "question": "Can I get a refund?", "answer": "", "isOpen": false },
-  { "question": "Where is my order?", "answer": "", "isOpen": false },
-  { "question": "I have a problem", "answer": "", "isOpen": false }
+  {
+    "question": "How is Software 5.0 different from Green Software Engineering?",
+    "answer": "Green Software Engineering focuses mainly on reducing energy use and environmental impact. Software 5.0 goes further by also addressing social sustainability — such as equity, inclusivity, well-being, and long-term societal impact — alongside ecological concerns.",
+    "isOpen": false
+  },
+  {
+    "question": "What are Conscious Service Design tools?",
+    "answer": "Conscious Service Design tools are methods that extend traditional design by explicitly considering sustainability. In this framework, two key tools are highlighted: the Systemic Journey Map (SJM), which maps environmental and social impacts of a product, and Inclusive Segment Cards (ISC), which ensure diverse and equitable user perspectives are addressed.",
+    "isOpen": false
+  },
+  {
+    "question": "How can students use the framework?",
+    "answer": "Students can apply Software 5.0 during project-based learning. The process involves mapping impacts with SJM, using ISC for inclusivity, reflecting on sustainability in design reviews, and iterating within agile workflows. Templates and guidelines are provided for easy adoption.",
+    "isOpen": false
+  },
+  {
+    "question": "How can educators integrate it into courses?",
+    "answer": "Educators can embed Software 5.0 as a module, a set of workshops, or as a layer across existing design and software engineering courses. The framework includes ready-to-use templates, teaching materials, and case study examples to simplify integration.",
+    "isOpen": false
+  },
+  {
+    "question": "Do I need special tools to apply this?",
+    "answer": "No. The framework is tool-agnostic. Templates can be used on whiteboards, Miro, Figma, Notion, or even paper. The important part is the process and reflection, not the software used.",
+    "isOpen": false
+  },
+  {
+    "question": "Where can I find case studies?",
+    "answer": "Case studies from the iPraktikum course at TUM are included in the Knowledge Base. They show how students applied CSD tools in real-client projects, what challenges they faced, and what improvements were suggested.",
+    "isOpen": false
+  },
+  {
+    "question": "Can practitioners outside academia use Software 5.0?",
+    "answer": "Yes. While it was designed with education in mind, the framework is applicable to professional software teams. It helps embed sustainability thinking into product discovery, design, and delivery phases.",
+    "isOpen": false
+  }
 ]

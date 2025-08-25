@@ -37,7 +37,7 @@ export function Footer({ className }: { className?: string }) {
         <footer className={cn('border-t border-[var(--border)] bg-[var(--bg)]', className)}>
             <div className="mx-auto max-w-[1336px] px-4 lg:px-6 py-12">
                 {/* Top: Brand + Sections */}
-                <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
                     {/* Brand / Mission */}
                     <div className="md:col-span-4 flex flex-col gap-3">
                         <Link href="/" className="text-lg font-semibold tracking-tight">
@@ -50,7 +50,7 @@ export function Footer({ className }: { className?: string }) {
                     </div>
 
                     {/* Link sections */}
-                    <div className="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    <div className="md:col-span-5 grid grid-cols-2 gap-2">
                         {FOOTER_SECTIONS.map((section) => (
                             <nav key={section.heading} className="space-y-3">
                                 <div className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
@@ -90,16 +90,9 @@ export function Footer({ className }: { className?: string }) {
                                 <div><span className="text-neutral-500 dark:text-neutral-400">Supervisor:</span> {THESIS.supervisor}</div>
 
                             </div>
-
-                            {/* If you publish the PDF at a route, link it here */}
-                            {/* <Link href="/thesis.pdf" className="mt-3 inline-flex text-sm underline underline-offset-4">Read thesis</Link> */}
                         </div>
                     </div>
                 </div>
-
-                {/* Divider */}
-                <div className="my-8 h-px w-full bg-[var(--border)]" />
-
                 {/* Bottom bar */}
                 <div className="flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
                     <div className="text-xs text-neutral-500 dark:text-neutral-400">

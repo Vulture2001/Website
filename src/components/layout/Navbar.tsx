@@ -14,8 +14,9 @@ const NAV: NavItem[] = [
     { label: 'Process', href: '/process' },
     { label: 'Toolkit', href: '/toolkit' },
     { label: 'AI Prompt Library', href: '/prompts' },
+    { label: 'For Education', href: '/design' },
     { label: 'About', href: '/about' },
-    { label: 'Design', href: '/design' }
+
 ]
 
 export function Navbar() {

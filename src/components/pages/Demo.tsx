@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { Input } from '@/components/ui/Input'
@@ -54,7 +53,6 @@ export default function Demo() {
 
     return (
         <main className={dark ? 'dark' : ''}>
-            <Container className="py-10">
                 {/* Top bar */}
                 <div className="flex items-center justify-between">
                     <div>
@@ -211,7 +209,6 @@ export default function Demo() {
                 <footer className="mt-16 border-t border-[var(--border)] pt-6 text-xs text-neutral-500">
                     Built with Next.js + Tailwind v4 · tokens via CSS variables
                 </footer>
-            </Container>
         </main>
     )
 }

@@ -2,6 +2,7 @@ import './globals.css'
 import { inter } from '@/fonts'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import React from "react";
 
 export const metadata = { title: 'Software 5.0', description: '—' }
 

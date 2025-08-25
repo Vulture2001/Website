@@ -21,6 +21,8 @@ type GradientProps = {
     className?: string
 }
 
+
+
 export function Gradient({
                              from,
                              to,
@@ -46,12 +48,9 @@ export function Gradient({
     const ery: Len = centered ? '40%' : ry
 
     return (
+
         <svg
-            className={cn(
-                // default "always in the background" behavior:
-                'absolute inset-0 -z-10 pointer-events-none',
-                className
-            )}
+            className={cn("absolute pointer-events-none", className)}
             viewBox={viewBox}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

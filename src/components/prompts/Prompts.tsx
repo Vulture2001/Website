@@ -132,7 +132,7 @@ export default function PromptLibrary() {
     return (
         <div className="relative flex flex-col min-h-screen bg-white">
             <div className="relative z-10 flex flex-col items-center pb-16 pt-14 gap-10">
-                {/* Hero */}
+                {/* HomeHero */}
                 <div className="flex flex-col items-center gap-4 max-w-[842px] px-4 mx-auto text-center">
                     <h1 className="text-[54px] font-semibold leading-[63px] tracking-[-1.5px] text-[#282828] font-inter">
                         AI Prompt Library

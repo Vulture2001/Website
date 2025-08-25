@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { Slot } from '@radix-ui/react-slot'
 import { cn } from '@/lib/cn'
 
 const button = cva(
@@ -90,10 +89,10 @@ export type ButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'c
     shape?: Shape
     leftIcon?: React.ReactNode
     rightIcon?: React.ReactNode
-    asChild?: boolean
+    // asChild removed to lock to native <button>
 }
 
-export const Button = React.forwardRef<HTMLElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
             className,
@@ -105,16 +104,11 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
             loading,
             leftIcon,
             rightIcon,
-            asChild = false,
             children,
             ...props
         },
         ref
     ) => {
-        const Comp = asChild ? Slot : ('button' as const)
-
-        // When rendering asChild, we can’t reliably inject icons/loader
-        // because we’re handing control of the child structure to the consumer.
         const content = (
             <>
                 {loading ? (
@@ -128,14 +122,14 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
         )
 
         return (
-            <Comp
-                ref={ref as any}
+            <button
+                ref={ref}
                 aria-busy={!!loading}
                 className={cn(button({ variant, size, shape, color, inverted, loading }), className)}
                 {...props}
             >
-                {asChild ? children : content}
-            </Comp>
+                {content}
+            </button>
         )
     }
 )

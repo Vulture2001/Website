@@ -10,10 +10,9 @@ import { Card, CardBody } from '@/components/ui/Card'
 import categoriesJson from '@/data/phases.json'
 import toolsJson from '@/data/tools.json'
 import faqs from '@/data/faqs.json'
-import {FaqList} from "@/components/toolkit/FAQ";
+import {FaqList} from "@/components/ui/FAQ";
 import {Tabs} from "@/components/ui/Tabs";
 
-/* ----------------------------- types ----------------------------- */
 type Category = { label: string; value: string; color: string }
 type Step = { title?: string; description?: string } | string
 type Tool = {

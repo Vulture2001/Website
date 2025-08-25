@@ -111,14 +111,14 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
         <div className="relative flex flex-col min-h-screen bg-white">
             {/* Breadcrumb (unchanged) */}
             <div className="max-w-8xl px-48 pt-10 text-sm text-[#5F6980]">
-                <Link href="/" className="hover:underline">Home</Link>
+                <Link href="/public" className="hover:underline">Home</Link>
                 <span className="mx-2">/</span>
                 <Link href="/toolkit" className="hover:underline">Toolkit</Link>
                 <span className="mx-2">/</span>
                 <span className="text-[#282828] font-medium">{tool.title}</span>
             </div>
 
-            {/* Hero + gradients (unchanged) */}
+            {/* HomeHero + gradients (unchanged) */}
             <div className="relative flex flex-col min-h-screen bg-white">
                 <Gradient
                     from="#FF57BC"
@@ -129,7 +129,7 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
                     className="left-1/2 -translate-x-1/2 -top-40"
                 />
                 <div className="relative z-10 flex flex-col items-center pb-20 pt-14 gap-14">
-                    {/* Hero */}
+                    {/* HomeHero */}
                     <div className="flex flex-col items-start gap-4 max-w-[842px] px-4">
                         <div className="flex px-[14px] py-1 justify-center items-center gap-[10px] rounded-full border border-[#282828] bg-transparent">
             <span className="text-[#282828] text-center font-inter text-sm font-semibold leading-[22px]">
@@ -254,12 +254,12 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
                             <div className="flex flex-wrap items-center gap-3 mb-4">
                                 {miroUrl && (
                                     <TemplateBadge href={miroUrl}>
-                                        <MiroIcon /> Miro Template
+                                        <MiroIcon /> Template
                                     </TemplateBadge>
                                 )}
                                 {figmaUrl && (
                                     <TemplateBadge href={figmaUrl}>
-                                        <FigmaIcon /> Figma Template
+                                        <FigmaIcon /> Template
                                     </TemplateBadge>
                                 )}
                             </div>
@@ -291,19 +291,28 @@ function TemplateBadge({ href, children }: { href: string; children: React.React
     )
 }
 
+
 function FigmaIcon() {
     return (
-        <svg width="14" height="14" viewBox="0 0 256 384" aria-hidden="true">
-            <path fill="currentColor" d="M128 128a64 64 0 1 0 0-128H64a64 64 0 0 0 0 128h64Zm0 0a64 64 0 1 1 0 128H64a64 64 0 0 1 0-128h64Zm0 128a64 64 0 1 1 0 128 64 64 0 0 1 0-128Zm64-256a64 64 0 1 1 0 128h-64V0h64Z"/>
-        </svg>
-    )
+        <Image
+            src="/figma-logo.svg"
+            alt="Figma Logo"
+            width={20}
+            height={20}
+            aria-hidden="true"
+        />
+    );
 }
 
 function MiroIcon() {
     return (
-        <svg width="14" height="14" viewBox="0 0 256 256" aria-hidden="true">
-            <path fill="currentColor" d="M44 24h168a20 20 0 0 1 20 20v168a20 20 0 0 1-20 20H44a20 20 0 0 1-20-20V44a20 20 0 0 1 20-20Zm32 28 40 28-40 28 40 28-40 28 40 28-40 28V52Zm48 0 40 28-40 28 40 28-40 28 40 28-40 28V52Zm48 0 40 28-40 28 40 28-40 28 40 28V52Z"/>
-        </svg>
-    )
+        <Image
+            src="/miro-logo.svg"
+            alt="Miro Logo"
+            width={20}
+            height={20}
+            aria-hidden="true"
+        />
+    );
 }
 
