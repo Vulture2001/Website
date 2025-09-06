@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/cn";
-import { Button } from "@/components/ui/Button";
 
 type NavItem = { label: string; href: string };
 
@@ -15,8 +14,6 @@ const NAV: NavItem[] = [
     { label: "Knowledge Base", href: "/knowledge-base" },
     { label: "Process", href: "/process" },
     { label: "Toolkit", href: "/toolkit" },
-    { label: "AI Prompt Library", href: "/prompts" },
-    { label: "For Education", href: "/design" },
     { label: "About", href: "/about" },
 ];
 

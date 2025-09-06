@@ -48,15 +48,6 @@ export default function Home() {
 
             {/* ===== Section 1: Process ===== */}
             <section className="relative mt-[1rem]">
-                <Gradient
-                    from="hsl(var(--brand-blue))"
-                    to="hsl(var(--brand-green))"
-                    width="clamp(20rem, 40vw, 40rem)"
-                    height="clamp(40rem, 70vh, 60rem)"
-                    opacity={0.3}
-                    className="absolute left-1/3 -translate-x-1/2 -top-40 -z-10"
-                />
-
                 <Header
                     id="kb-articles"
                     align="center"
@@ -78,7 +69,7 @@ export default function Home() {
                             title="From Idea to Impact"
                             titleClassName="text-[clamp(2rem,4vw,2.5rem)]"
                             imagePosition="left"
-                            imageSrc="process.png"
+                            imageSrc="svg/picture.svg"
                             imageAlt="Diagram showing Software 5.0 process"
                             description="Software 5.0 builds on the Double Diamond — a proven way to tackle complex problems."
                         >
@@ -118,7 +109,7 @@ export default function Home() {
                             titleClassName="text-[clamp(2rem,4vw,2.5rem)]"
                             description="The Software 5.0 Knowledge Base shows how ideas become real impact. Explore case studies, examples, and stories that connect sustainability and inclusion to everyday design and development."
                             imagePosition="right"
-                            imageSrc="toolkit.png"
+                            imageSrc="svg/toolkit.svg"
                             imageAlt="Preview of the Software 5.0 knowledge base toolkit"
                         >
                             <motion.div whileHover={{ y: -2, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -169,7 +160,6 @@ export default function Home() {
                     0%, 100% { transform: translateY(0) }
                     50% { transform: translateY(-10px) }
                 }
-                .animate-float { animation: float 10s ease-in-out infinite; }
             `}</style>
         </main>
     );

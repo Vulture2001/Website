@@ -4,7 +4,7 @@ import React from "react";
 export function FigmaIcon() {
     return (
         <Image
-            src="/figma-logo.svg"
+            src="/icons/figma-logo.svg"
             alt="Figma Logo"
             width={20}
             height={20}

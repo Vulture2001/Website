@@ -1,0 +1,125 @@
+---
+title: "Inclusive User Groups Explained"
+description: "A student guide to using Inclusive User Groups to design software with equity and accessibility in mind."
+date: "2025-09-06"
+heroSrc: "svg/ics.svg"
+heroAlt: "Inclusive User Groups template with equity and accessibility layers"
+lead: "Inclusive User Groups help software engineers think beyond the 'average user.' They structure diversity into design, making equity and accessibility part of the workflow from the very beginning."
+---
+
+## Introduction
+
+Designing only for the “average user” leaves many people behind. Real users differ in their abilities, resources, and backgrounds. Some rely on assistive technologies, some live with unstable internet, and others face cultural or language barriers.
+
+**Inclusive User Groups** give students and teams a way to capture this diversity in a structured way. Each group helps you think about equity, privilege, and accessibility in practical terms, and turn those reflections into design actions.
+
+This article explains what each section of the template means, how to use it in projects, and includes a worked example.
+
+## The Inclusive User Groups Template
+
+<Figure
+    src="/images/inclusive-groups-template.png"
+    alt="Inclusive User Groups template with data, privilege wheel, roles, needs, and gains"
+    caption="The template combines user data, privilege reflection, and design opportunities into one tool."
+/>
+
+## How to Use the Template in Figma
+
+We have prepared a digital version of the template so you can use it directly in workshops or coursework.
+
+👉 [Open the Inclusive User Groups Template in Figma](https://www.figma.com/)
+Once opened, just **Duplicate to your Projects** and adapt it to your case.
+
+## What Each Section Means
+
+<FeatureList
+    items={[
+        { title: "User Group Data", body: "Start with facts about the group (age, abilities, background, financial safety). Base everything on sources, not stereotypes." },
+        { title: "Wheel of Power", body: "Reflect on privileges this group has or lacks — such as access to resources, technical expertise, or influence on decisions." },
+        { title: "Role", body: "Describe the group’s role in relation to the product (e.g., daily users, testers, decision-makers)." },
+        { title: "Needs & Pains", body: "Identify barriers they face — lack of access, poor usability, or missing features." },
+        { title: "Gains", body: "Note positive outcomes they could achieve if the design works well for them." },
+        { title: "User Story", body: "Summarize as: ‘As a [role], I want [needs/pains], so that [gains].’" }
+    ]}
+/>
+
+## Step-by-Step Tutorial
+
+<FeatureList
+    items={[
+        { title: "Step 1 — Choose a group", body: "Pick a user group relevant to your project, or create a new one." },
+        { title: "Step 2 — Fill in data", body: "Use real sources where possible. Avoid assumptions and stereotypes." },
+        { title: "Step 3 — Reflect on privilege", body: "Check the Wheel of Power and ask: where is this group advantaged or disadvantaged?" },
+        { title: "Step 4 — Map role, needs, and gains", body: "Write down their role in the system, what they need, and what value they can gain." },
+        { title: "Step 5 — Create a user story", body: "Turn the insights into a simple, actionable story to guide design." }
+    ]}
+/>
+
+## Why Inclusive User Groups Matter
+
+<IconList
+    items={[
+        { title: "Make invisible users visible", body: "Ensure voices and contexts that are often ignored are part of the design process." },
+        { title: "Challenge privilege", body: "Recognize which groups benefit from current systems, and who is excluded." },
+        { title: "Turn empathy into action", body: "Insights from the template can feed directly into design requirements and backlog items." }
+    ]}
+/>
+
+## Example: Applying Inclusive User Groups to a Learning App
+
+Imagine you are designing a mobile app for online learning. You pick three Inclusive User Groups to guide your design.
+
+### Step 1 — Choose groups
+
+<IconList
+    items={[
+        { title: "Low-bandwidth learners", body: "Students in rural areas with unstable internet." },
+        { title: "Screen reader users", body: "Learners who rely on assistive technology." },
+        { title: "First-generation students", body: "Learners with limited financial safety and less access to mentoring." }
+    ]}
+/>
+
+### Step 2 — Fill the groups
+
+<Table
+    headers={["Group", "Needs", "Barriers", "Gains", "User Story"]}
+    rows={[
+        [
+            "Low-bandwidth learners",
+            "Efficient streaming, offline access.",
+            "High data use, app crashes on weak signals.",
+            "Affordable learning even with limited internet.",
+            "As a learner with poor internet, I want offline access so I can keep up with classes."
+        ],
+        [
+            "Screen reader users",
+            "Accessible labels, text alternatives.",
+            "Unlabeled buttons, inaccessible math content.",
+            "Equal access to content and tasks.",
+            "As a blind learner, I want clear screen reader labels so I can navigate lessons independently."
+        ],
+        [
+            "First-generation students",
+            "Clear guidance, affordable resources.",
+            "Complex instructions, high costs.",
+            "Confidence and progress without hidden obstacles.",
+            "As a first-generation student, I want simple, affordable access so I can complete my studies successfully."
+        ]
+    ]}
+/>
+
+### Step 3 — Translate to actions
+
+<FeatureList
+    items={[
+        { title: "Offline-first design", body: "Lessons downloadable under 20 MB with sync on Wi-Fi." },
+        { title: "Accessibility by default", body: "All interactive elements labeled and tested with screen readers." },
+        { title: "Affordable access", body: "Provide a free tier or low-cost options for first-generation students." }
+    ]}
+/>
+
+## Conclusion
+
+Inclusive User Groups help students **design with equity in mind**. They connect user diversity, privilege reflection, and accessibility into a clear workflow.
+
+By adding this tool to your design process, you can move from broad ideals of inclusion to **specific design choices** that make software fairer and more usable for everyone.

@@ -1,93 +1,85 @@
-'use client';
-
 import * as React from 'react';
 import { cn } from '@/lib/cn';
-import { WhiteCard } from '@/components/ui/WhiteCard';
 import '@/styles/carousel.css';
 
 type Props<T> = {
     items: T[];
-    renderItem: (item: T, baseIndex: number) => React.ReactNode;
+    children: (item: T, baseIndex: number) => React.ReactNode;
     slideWidth?: string;
+    gap?: number;
     ariaLabel?: string;
 };
 
 export function InfiniteCarousel<T>({
                                         items,
-                                        renderItem,
-                                        slideWidth = 'min(92vw, 520px)',
+                                        children,
+                                        slideWidth = 'clamp(320px, 92vw, 520px)',
+                                        gap = 24,
                                         ariaLabel = 'Carousel',
                                     }: Props<T>) {
     const trackRef = React.useRef<HTMLDivElement | null>(null);
     const [active, setActive] = React.useState(0);
 
-    const repeated = React.useMemo(() => (items?.length ? [...items, ...items, ...items] : []), [items]);
+    const repeated = React.useMemo(
+        () => (items?.length ? [...items, ...items, ...items] : []),
+        [items]
+    );
 
-    // --- sizing helpers -------------------------------------------------------
     const getSegmentWidth = React.useCallback(() => {
         const el = trackRef.current;
         return el ? el.scrollWidth / 3 : 0;
     }, []);
 
-    const getGapAndWidth = React.useCallback(() => {
-        const el = trackRef.current;
-        if (!el) return { gap: 0, width: 0 };
-        const first = el.querySelector<HTMLElement>('.carousel-slide');
-        const second = el.querySelectorAll<HTMLElement>('.carousel-slide')[1];
-        const width = first?.clientWidth ?? 0;
-        const gap = second && first ? second.offsetLeft - first.offsetLeft - width : 0; // ⭐ measure real gap
-        return { gap, width };
-    }, []);
+    const centerSlideAt = React.useCallback(
+        (globalIndex: number, behavior: ScrollBehavior = 'smooth') => {
+            const el = trackRef.current;
+            if (!el) return;
+            const child = el.children.item(globalIndex) as HTMLElement | null;
+            if (!child) return;
+            const left = child.offsetLeft - (el.clientWidth - child.clientWidth) / 2;
+            el.scrollTo({ left, behavior });
+        },
+        []
+    );
 
-    // center a specific slide (by global index in repeated array)
-    const centerSlideAt = React.useCallback((globalIndex: number, behavior: ScrollBehavior = 'smooth') => {
-        const el = trackRef.current;
-        if (!el) return;
-        const child = el.children.item(globalIndex) as HTMLElement | null;
-        if (!child) return;
-        const left = child.offsetLeft - (el.clientWidth - child.clientWidth) / 2; // ⭐ center math
-        el.scrollTo({ left, behavior });
-    }, []);
-
-    // find slide nearest to center of viewport
     const computeNearestToCenter = React.useCallback(() => {
         const el = trackRef.current;
         if (!el || !items.length) return { base: 0, global: 0 };
-        const seg = getSegmentWidth();
-        const startIdx = items.length; // middle segment start
-        const from = startIdx - 2;     // check a small window around visible area
-        const to = startIdx + items.length + 2;
-
+        const startIdx = items.length;
         const viewCenter = el.scrollLeft + el.clientWidth / 2;
+
         let best = { dist: Number.POSITIVE_INFINITY, global: startIdx, base: 0 };
 
-        for (let i = from; i < to; i++) {
+        for (let i = startIdx - 2; i < startIdx + items.length + 2; i++) {
             const child = el.children.item(i) as HTMLElement | null;
             if (!child) continue;
             const center = child.offsetLeft + child.clientWidth / 2;
             const dist = Math.abs(center - viewCenter);
-            if (dist < best.dist) {
+            if (dist < best.dist)
                 best = { dist, global: i, base: i % items.length };
-            }
         }
         return { base: best.base, global: best.global };
-    }, [getSegmentWidth, items.length]);
+    }, [items.length]);
 
-    // normalize scroll into middle segment & set active by nearest center
     const normalizeScroll = React.useCallback(() => {
         const el = trackRef.current;
         if (!el) return;
         const seg = getSegmentWidth();
         if (!seg) return;
 
-        if (el.scrollLeft <= 1) el.scrollTo({ left: el.scrollLeft + seg, behavior: 'auto' });
-        else if (el.scrollLeft >= seg * 2 - 1) el.scrollTo({ left: el.scrollLeft - seg, behavior: 'auto' });
+        const scrollLeft = el.scrollLeft;
+        const totalWidth = seg;
 
-        const { base } = computeNearestToCenter(); // ⭐ robust active detection
+        if (scrollLeft <= totalWidth * 0.2) {
+            el.scrollTo({ left: scrollLeft + totalWidth, behavior: 'auto' });
+        } else if (scrollLeft >= totalWidth * 1.8) {
+            el.scrollTo({ left: scrollLeft - totalWidth, behavior: 'auto' });
+        }
+
+        const { base } = computeNearestToCenter();
         setActive(base);
     }, [getSegmentWidth, computeNearestToCenter]);
 
-    // mount & resize: move to the **centered** first slide in the middle segment
     React.useEffect(() => {
         const el = trackRef.current;
         if (!el || !items.length) return;
@@ -95,13 +87,12 @@ export function InfiniteCarousel<T>({
         const centerInitial = () => {
             const seg = getSegmentWidth();
             if (!seg) return;
-            const firstMiddleIdx = items.length; // first item of middle segment
-            centerSlideAt(firstMiddleIdx, 'auto'); // ⭐ center on load
+            const firstMiddleIdx = items.length;
+            centerSlideAt(firstMiddleIdx, 'auto');
             setActive(0);
         };
 
         centerInitial();
-
         const onScroll = () => normalizeScroll();
         el.addEventListener('scroll', onScroll, { passive: true });
 
@@ -114,20 +105,20 @@ export function InfiniteCarousel<T>({
         };
     }, [items.length, getSegmentWidth, centerSlideAt, normalizeScroll]);
 
-    // buttons: scroll exactly one slide width so snap-center lands perfectly
     const scrollOne = (dir: 'left' | 'right') => {
         const el = trackRef.current;
         if (!el) return;
-        const { width, gap } = getGapAndWidth();
-        const step = width + gap || Math.min(el.clientWidth * 0.9, 480);
+        const first = el.querySelector<HTMLElement>('.carousel-slide');
+        const width = first?.clientWidth ?? 0;
+        const step = width + gap;
         el.scrollBy({ left: dir === 'left' ? -step : step, behavior: 'smooth' });
     };
 
     if (!items?.length) return null;
 
     return (
-        <div className="carousel">
-            <div className="carousel-container">
+        <div className="carousel relative flex flex-col items-center">
+            <div className="carousel-container relative w-full max-w-7xl px-6">
                 <div
                     id="infinite-carousel-track"
                     ref={trackRef}
@@ -135,8 +126,9 @@ export function InfiniteCarousel<T>({
                     aria-roledescription="carousel"
                     aria-label={ariaLabel}
                     tabIndex={0}
-                    className={cn('carousel-track', 'snap-x snap-mandatory')}
-                    style={{ WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
+                    className={cn(
+                        'carousel-track flex gap-6 md:gap-8 snap-x snap-mandatory scroll-smooth'
+                    )}
                 >
                     {repeated.map((item, i) => {
                         const baseIdx = i % items.length;
@@ -145,37 +137,62 @@ export function InfiniteCarousel<T>({
                             <div
                                 key={`${baseIdx}-${i}`}
                                 className={cn(
-                                    'carousel-slide snap-center',
-                                    isActive ? 'carousel-slide--active' : 'carousel-slide--inactive'
+                                    'carousel-slide snap-center transition-transform rounded-2xl',
+                                    isActive ? 'scale-105' : 'scale-100 opacity-70'
                                 )}
-                                style={{ width: slideWidth, transitionDuration: '400ms' }}
+                                style={{ width: slideWidth }}
+                                role="group"
+                                aria-roledescription="slide"
+                                aria-label={`Slide ${baseIdx + 1}`}
                                 aria-current={isActive ? 'true' : undefined}
+                                aria-setsize={items.length}
+                                aria-posinset={baseIdx + 1}
                             >
-                                <WhiteCard size={"full"}>{renderItem(item, baseIdx)}</WhiteCard>
+                                {children(item, baseIdx)}
                             </div>
                         );
                     })}
                 </div>
+
+                {/* Arrows */}
+                <button
+                    type="button"
+                    aria-label="Previous"
+                    aria-controls="infinite-carousel-track"
+                    className="carousel-button absolute top-1/2 left-0 -translate-y-1/2 transform rounded-full bg-[hsl(var(--surface))] shadow hover:bg-primary/10"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        scrollOne('left');
+                    }}
+                >
+                    ‹
+                </button>
+                <button
+                    type="button"
+                    aria-label="Next"
+                    aria-controls="infinite-carousel-track"
+                    className="carousel-button absolute top-1/2 right-0 -translate-y-1/2 transform rounded-full bg-[hsl(var(--surface))] shadow hover:bg-primary/10"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        scrollOne('right');
+                    }}
+                >
+                    ›
+                </button>
             </div>
 
-            <button
-                type="button"
-                aria-label="Previous"
-                aria-controls="infinite-carousel-track"
-                className="carousel-button carousel-button--prev"
-                onClick={(e) => { e.stopPropagation(); scrollOne('left'); }}
-            >
-                ‹
-            </button>
-            <button
-                type="button"
-                aria-label="Next"
-                aria-controls="infinite-carousel-track"
-                className="carousel-button carousel-button--next"
-                onClick={(e) => { e.stopPropagation(); scrollOne('right'); }}
-            >
-                ›
-            </button>
+            {/* Indicators */}
+            <div className="mt-6 flex gap-2">
+                {items.map((_, i) => (
+                    <span
+                        key={i}
+                        className={cn(
+                            'h-2 w-2 rounded-full transition',
+                            i === active ? 'bg-primary' : 'bg-gray-300'
+                        )}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

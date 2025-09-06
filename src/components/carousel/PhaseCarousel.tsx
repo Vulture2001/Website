@@ -11,7 +11,7 @@ type Phase = {
     color?: string
     description?: string
     disabled?: boolean
-    track?: 'Design' | 'Delivery'
+    track?: 'Design' | 'Development'
 }
 
 const PHASES = phasesJson as Phase[]
@@ -21,8 +21,10 @@ const CARDS: PhaseCardData[] = PHASES.map((p, i) => ({
     description: p.description,
     color: p.color,
     index1: i + 1,
-    track: p.track ?? (p.value?.toLowerCase() === 'develop' ? 'Delivery' : 'Design'),
-    disabled: p.disabled ?? (p.value?.toLowerCase() === 'develop'),
+    track:
+        p.track ??
+        (p.value?.toLowerCase() === 'development' ? 'Development' : 'Design'),
+    disabled: p.disabled ?? p.value?.toLowerCase() === 'development',
 }))
 
 export function PhaseCarousel() {
@@ -30,8 +32,10 @@ export function PhaseCarousel() {
         <InfiniteCarousel
             items={CARDS}
             ariaLabel="Framework phases carousel"
-            renderItem={(card) => <PhaseCard {...card} />}
-            slideWidth="min(92vw, 600px)"
-        />
+            slideWidth="max(350px, min(92vw, 500px))"
+            gap={24}
+        >
+            {(card) => <PhaseCard {...card} />}
+        </InfiniteCarousel>
     )
 }

@@ -1,319 +1,324 @@
-[
+[{
+  "id": "user-client-interviews",
+  "title": "User & Client Interviews",
+  "phase": "discover",
+  "templates": [
+    "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=0-1&t=foCdgGEIfyc4iDgN-1"
+  ],
+  "overview": "User and client interviews help you collect real insights about what people do, need, and value. Talking to both clients (who set goals and constraints) and users (who actually interact with the system) reveals not only functional requirements but also social and ecological impacts.",
+  "purpose": "User and client interviews help you uncover functional needs, goals, and success criteria while also surfacing social impacts (fairness, accessibility, well-being) and ecological impacts (resource use, environmental footprint). They highlight differences between client priorities and user realities, building empathy and evidence for ethical, responsible design decisions.",
+
+  "steps": [
+    {
+      "title": "Prepare Open Questions",
+      "description": "Write 3–5 open-ended questions. Mix functional, social, and ecological aspects."
+    },
+    {
+      "title": "Identify Interviewee Type",
+      "description": "Adapt your questions depending on whether you’re interviewing a client (strategic goals, risks) or a user (daily tasks, pains, accessibility)."
+    },
+    {
+      "title": "Run the Interview",
+      "description": "Interview one person at a time. Let them speak freely, avoid yes/no questions, and listen actively."
+    },
+    {
+      "title": "Capture Responses & Behaviors",
+      "description": "Note down answers, examples, and non-verbal cues like hesitations or emphasis."
+    },
+    {
+      "title": "Summarize Findings",
+      "description": "Bring the team together to review the notes and summarize key insights, needs, and sustainability considerations."
+    }
+
+  ],
+  "input": [
+    "Prepared interview questions.",
+    "A clear understanding of project context.",
+    "Notebook or template for capturing responses."
+  ],
+
+  "prompts": [
+    "I am preparing for an interview about [insert project description]. Suggest 5–7 open-ended questions I can ask to explore functional needs, social aspects (inclusion, fairness, well-being), and ecological aspects (resource use, environmental footprint). Make them clear and easy to understand.",
+
+    "I am interviewing a [client/user] about [insert project description]. Suggest polite follow-up questions I can ask when the interviewee gives short or vague answers, so I can get richer insights.",
+
+    "Here are my raw interview notes: [paste notes]. Summarize the key insights into three categories: functional needs, social impacts, and ecological impacts. Highlight overlaps, gaps, or surprises.",
+
+    "Based on these summarized interview findings: [paste summary], suggest what areas my team should explore further to better address sustainability in our design."
+  ],
+  "tips": [
+    "Start with 'Tell me about…' instead of yes/no questions.",
+    "Listen more, talk less — aim for 80% interviewee talking.",
+    "Ask follow-ups like 'Can you give an example?' to go deeper.",
+    "Afterward, check: did we capture both people and planet impacts?",
+    "For clients: focus on long-term goals, risks, and sustainability requirements.",
+    "For users: explore everyday routines, frustrations, and accessibility needs."
+  ]},
 
   {
-    "id": "interviews",
-    "title": "Interviews Guidelines",
+    "id": "stakeholder-impact-map",
+    "title": "Stakeholder Impact Map",
     "phase": "discover",
-    "overview": "At the start of your project, you’ll interview users or clients to capture functional requirements. Listen also for hidden priorities — trade-offs, long-term impacts, and values — that can spark conversation about sustainability.",
-    "purpose": [
-      "Use interviews to gather functional needs from users and clients while subtly introducing sustainability as a background theme. Pay attention to values, trade-offs, and hidden priorities to capture early signals if sustainability might become a requirement."
-
-    ],
-    "steps": [
-      { "title": "Set the Goal", "description": "Decide what you want to learn from the interview — e.g., clarifying requirements, understanding context, or exploring priorities." },
-      { "title": "Choose Participants", "description": "Pick the right people to talk to. Remember: a client (who requests or funds the project) is different from a user (who actually interacts with the system)." },
-      { "title": "Prepare Questions", "description": "Use the template to draft your interview guide. Focus on functional needs, and think about where you could also bring in sustainability — for example, by asking about resources, long-term effects, or excluded groups." },
-      { "title": "Run the Interview", "description": "Follow your guide, listen actively, and take notes directly in the template. Let sustainability come up naturally as part of the conversation." },
-      { "title": "Summarize Insights", "description": "Review your notes in the template. Capture functional requirements and highlight any signals of sustainability priorities, trade-offs, or hidden impacts." }
-    ],
-
-    "input": [
-      "Clear problem or project area to discuss.",
-      "Basic awareness of social or environmental sustainability."
-    ],
-    "outputs": [
-      "Functional requirements captured from interviews.",
-      "Notes on values, trade-offs, and hidden priorities.",
-      "Potential sustainability-related requirements or considerations."
-    ],
-    "templates": ["https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=0-1&t=nF0o5hIyW9Zo7srT-1"],
-    "prompts": [
-      "Suggest interview questions that help me capture core client priorities and functional requirements for [system/product].",
-      "Generate follow-up probes I can use to clarify user needs, goals, and pain points during an interview.",
-      "List subtle ways to ask about long-term impacts or resource trade-offs (time, money, energy) without directly using the word 'sustainability.'",
-      "Rewrite my interview guide so sustainability is woven naturally into functional questions instead of being a separate section."
-    ],
-    "tips": [
-      "Focus on functional needs first — let sustainability emerge in the background.",
-      "Use neutral language like resources, impacts, or long-term effects instead of repeating 'sustainability.'",
-      "Listen for hints about costs, effort, or risks — these often signal hidden trade-offs.",
-      "After the interview, review with your team whether any insights point to sustainability as a potential requirement."
-    ]
-  }
-
-
-,
-  {
-    "id": "stakeholder-impact--mapping",
-    "title": "Stakeholder Impact Mapping",
-    "phase": "discover",
-    "overview": "Stakeholder mapping helps you see who is connected to your system — not just the obvious users, but also indirect, invisible, and even non-human actors. It asks: Who’s included? Who’s excluded? Who benefits, and who bears the costs?",
-    "purpose": [
-      "Identify all relevant stakeholders, not just direct users. ",
-      "Include indirect, marginalized, and non-human actors. ",
-      "Surface who is excluded, who benefits, and who is most vulnerable. ",
-      "Encourage ethical and systemic awareness in design decisions. "
-    ],
+    "overview": "This tool helps you see who and what is affected by your product. It connects human, non-human, and systemic actors across different impact levels to make sure your design considers people, communities, and ecosystems.",
+    "purpose": "Identify human and non-human stakeholders, map their impacts at individual, social, and environmental levels, and uncover who might be excluded or vulnerable — helping you design with broader ethical and sustainability awareness.",
     "steps": [
       {
-        "title": "Put the System in the Center",
-        "description": "Write the name of your software or concept at the heart of the map."
+        "title": "Place Your System",
+        "description": "Write your product, service, or concept in the center of the map."
       },
       {
-        "title": "List Direct Stakeholders",
-        "description": "Add the main users and organizations that interact with it daily."
+        "title": "Add Human Actors",
+        "description": "Include users, clients, workers, and communities directly involved or affected."
       },
       {
-        "title": "Add Indirect Stakeholders",
-        "description": "Think about regulators, suppliers, communities, or other actors affected indirectly."
+        "title": "Add Non-human Actors",
+        "description": "List technologies, infrastructures, natural systems, data, rules, or species that are involved or impacted."
       },
       {
-        "title": "Include Neglected or Invisible Stakeholders",
-        "description": "Who’s usually left out — marginalized groups, invisible workers, or future generations?"
+        "title": "Map Impacts Across Levels",
+        "description": "Consider effects on: Individual (micro), Social (meso), and Environmental/Systemic (macro)."
       },
       {
-        "title": "Map Power & Impact",
-        "description": "Show who has influence, who benefits, and who bears risks or costs."
+        "title": "Review & Reflect",
+        "description": "Check who might be missing (marginalized groups, invisible workers, future generations) and refine the map."
       }
     ],
     "input": [
-      "A clear idea of your problem space.",
-      "Basic research (users, domain, environment)."
-    ],
-    "outputs": [
-      "A stakeholder map (diagram, table, or sketch) showing direct, indirect, and neglected actors.",
-      "Insights into who is excluded, who benefits, and where risks or opportunities exist.",
-      "Questions for deeper research."
+      "Basic understanding of your product or problem space.",
+      "Knowledge about potential users, stakeholders, and context.",
+      "Template or whiteboard for mapping actors and impacts."
     ],
     "templates": [
-      "https://miro.com/"
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-485&t=6nYVcXavfojhSjPX-1"
     ],
     "prompts": [
-      "Who are the direct users of [Your System Name]?",
-      "Which organizations, governments, or institutions interact with it?",
-      "What non-human stakeholders (e.g., ecosystems, infrastructures, species) are affected?",
-      "Which marginalized or invisible groups (e.g., low-visibility workers, future generations) might be overlooked?"
+      "I am mapping stakeholders for [insert project description]. Suggest human actors (users, workers, communities) and non-human actors (technology, ecosystems, infrastructures, rules) that could be relevant.",
+      "For this list of stakeholders [paste list], identify which might be excluded, marginalized, or less visible — including future generations or ecosystems.",
+      "For my system [insert system name], summarize likely impacts at three levels: Individual (micro), Social (meso), and Environmental/Systemic (macro).",
+      "Based on these mapped impacts [paste notes], suggest questions my team should ask to ensure we are not overlooking vulnerable groups or environmental risks."
     ],
     "tips": [
-      "Push yourself to think beyond obvious users — add invisible and non-human actors.",
-      "Map both inclusion and exclusion to raise ethical questions.",
-      "Revisit the map as your project evolves — it will change over time."
-    ],
-    "note": "🔎 Stakeholder mapping focuses on *who* is involved. Ecosystem mapping goes further, showing *how everything connects and interacts*."
+      "Be specific — instead of writing 'society,' name the actual group or community.",
+      "Push beyond obvious users to include invisible or non-human actors.",
+      "Always check impacts at all three levels (micro, meso, macro).",
+      "Revisit and update the map as your project evolves.",
+      "Use the Conscious Digital Product Principles as a guide for reflection."
+    ]
   },
   {
     "id": "inclusive-user-groups",
     "title": "Inclusive User Groups",
     "phase": "define",
-    "overview": "Inclusive User Groups move beyond traditional personas by making privilege and exclusion visible. Instead of designing for a 'typical user,' this tool helps compare real groups systematically to reveal overlooked needs and impacts.",
-    "purpose": [
-      "Uncover diverse user groups beyond default assumptions.",
-      "Make privilege and exclusion visible in design decisions.",
-      "Highlight neglected or invisible groups and their needs.",
-      "Ensure sustainability and inclusion are considered early."
-    ],
+    "overview": "This tool helps you design for real, diverse user groups. It highlights needs, pains, privileges, roles, and gains — so you avoid stereotypes and include marginalized voices.",
+    "purpose": "Make user groups visible without oversimplifying, check privilege and exclusion risks, and build user stories that balance needs and gains.",
     "steps": [
-      { "title": "Define User Groups", "description": "Identify 3–6 specific groups. Avoid vague categories like 'diverse users' — be concrete. Use data or research to support your choices." },
-      { "title": "Map Needs, Pains, Gains", "description": "For each group, describe key needs, barriers, and benefits. Reflect on how these link to social or environmental sustainability." },
-      { "title": "Privilege Mapping", "description": "Place groups on a Privilege Wheel. Compare who has high privilege, who is marginalized, and who is missing." },
-      { "title": "Matrix Evaluation", "description": "Use a matrix to compare groups across privilege and exclusion. Look for blank spaces or weak evidence." },
-      { "title": "Reflect & Adjust", "description": "Ask: Who is excluded? Whose voices are missing? Adjust, merge, or add groups to close gaps." }
+      {
+        "title": "Fill in User Group Data",
+        "description": "Add facts about the group’s age, gender, abilities, background, or financial safety. Use real data sources, not assumptions."
+      },
+      {
+        "title": "Check Privilege",
+        "description": "Use the Wheel of Power to critically reflect on the group’s advantages and disadvantages (e.g., access to resources, influence, technical expertise)."
+      },
+      {
+        "title": "Define the Group’s Role",
+        "description": "Describe the group’s role in relation to your product (e.g., daily user, tester, decision-maker)."
+      },
+      {
+        "title": "Capture Needs & Pains",
+        "description": "List what this group struggles with (e.g., access barriers, lack of time, ease-of-use problems)."
+      },
+      {
+        "title": "List Gains",
+        "description": "Identify benefits this group gets from your product."
+      },
+      {
+        "title": "Write a User Story",
+        "description": "Summarize the group’s perspective: 'As a [role], I want [needs/pains], so that [gains].'"
+      }
     ],
     "input": [
-      "Project scope and an early idea of the target system.",
-      "Any demographic or usage data (research, reports, surveys).",
-      "Willingness to challenge assumptions and identify gaps."
-    ],
-    "outputs": [
-      "Profiles of Inclusive User Groups (structured summaries, not personas).",
-      "Needs/Pains/Gains mapped with sustainability signals.",
-      "Privilege Wheel analysis showing privilege gaps.",
-      "Reflection notes on missing perspectives and next steps."
+      "User research data (demographics, behaviors, accessibility needs).",
+      "The Inclusive User Groups template."
     ],
     "templates": [
-      "https://miro.com/"
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-486"
     ],
     "prompts": [
-      "What user groups could interact with [system/product]?",
-      "Which marginalized or overlooked groups might be affected directly or indirectly?",
-      "What needs, barriers, or benefits might [user group] face?",
-      "How do these connect to social or environmental sustainability?",
-      "Which groups are overrepresented in design decisions? Which are underrepresented?",
-      "If only privileged groups are considered, what risks or exclusions might occur?"
+      "I am designing for a user group: [describe group]. Suggest key data points I should collect about this group (age, abilities, background, safety, etc.) without stereotyping.",
+      "For this user group [describe group], list potential struggles and barriers they may face when using [product/service].",
+      "Based on this description [insert group], analyze what privileges this group might have and what disadvantages they might face (access, influence, technical expertise).",
+      "Create a user story in the format: 'As a [role], I want [needs/pains], so that [gains]' for this group: [paste group info]."
     ],
     "tips": [
-      "Be specific — generic labels hide real perspectives.",
-      "Balance human needs with social and environmental impacts.",
-      "Use privilege mapping explicitly — don’t assume equity is automatic.",
-      "Iterate as new research emerges — groups may need refining."
-    ]
-  },
-
+      "Be specific, not generic (e.g., 'international student on a budget' instead of just 'students').",
+      "Avoid assumptions — base everything on data sources where possible.",
+      "Ask: Who is missing? Always consider marginalized groups and accessibility needs.",
+      "Combine with Systemic Journey Maps to see how different user groups interact over time."
+    ]},
   {
     "id": "systemic-journey-map",
     "title": "Systemic Journey Map",
     "phase": "define",
-    "overview": "The Systemic Journey Map is like a classic UX journey map, but zoomed out. Instead of only showing the ‘happy path’ of one user, it explores how different people, communities, and even the planet are affected along the way.",
-    "purpose": [
-      "Look beyond individual user journeys and consider the bigger picture.",
-      "Show how different groups experience the system over time, including their goals, struggles, and wins.",
-      "Make visible the social and environmental effects that happen alongside the user experience.",
-      "Spot opportunities, risks, and blind spots so designs can be more inclusive and sustainable."
-    ],
+    "overview": "This tool helps you map the user’s journey step by step while reflecting on functional, social, and ecological impacts. It connects what users do with who is affected and how design choices ripple across society and the environment.",
+    "purpose": "Break down user experiences into clear phases, link design choices to social and environmental impacts, and uncover not only what happens but also who is affected and in what way.",
     "steps": [
       {
-        "title": "Define Phases",
-        "description": "Break the journey into real-life stages that make sense for your chosen group."
+        "title": "Define a User Story or Scenario",
+        "description": "Start with a user story: 'As a [role], I want [needs/pains], so that [gains].' This anchors the journey map."
       },
       {
-        "title": "Core Activities",
-        "description": "List what this group is actually doing in each phase."
+        "title": "Set Journey Phases",
+        "description": "Break the experience into clear stages or steps."
       },
       {
-        "title": "Goals & Jobs-to-be-Done",
-        "description": "Ask: what is the group trying to achieve, solve, or move forward?"
+        "title": "Capture User Actions",
+        "description": "For each phase, write down what the user actually does."
       },
       {
-        "title": "Needs, Pains, Gains",
-        "description": "Note down detailed needs, frustrations, and benefits for the group."
+        "title": "Add User Goals",
+        "description": "Describe what the user wants to achieve at each phase."
       },
       {
-        "title": "Touchpoints",
-        "description": "Identify where and how the group connects with the product, service, or system (digital or physical)."
+        "title": "Identify Pain Points & Needs",
+        "description": "Note problems, struggles, or resources the user needs."
       },
       {
-        "title": "Social Impacts",
-        "description": "Think about inequality, accessibility, inclusion/exclusion, and labor conditions that can show up."
+        "title": "List Gains",
+        "description": "Highlight benefits or positive outcomes for the user at each phase."
       },
       {
-        "title": "Environmental Impacts",
-        "description": "Consider energy use, waste, travel, or resource consumption connected to this step."
+        "title": "Map Environmental Impacts",
+        "description": "Record how each phase affects the environment (e.g., energy use, waste, travel, resources)."
+      },
+      {
+        "title": "Map Social Impacts",
+        "description": "Record how each phase affects people or communities (e.g., inclusion, fairness, equity, collaboration)."
+      },
+      {
+        "title": "Consider Orders of Impact",
+        "description": "Look at first, second, and third-order impacts to see long-term and systemic effects."
+      },
+      {
+        "title": "Add Data & Insights",
+        "description": "Include any supporting data, research findings, or extra notes at the bottom."
       }
     ],
     "input": [
-      "A chosen user group (from your Inclusive User Groups exercise)",
-      "Broad needs, pains, and gains (from earlier exercises)",
-      "Your initial understanding of the system or context"
-    ],
-    "outputs": [
-      "A journey map that includes phases, activities, goals, needs/pains/gains, touchpoints, and impacts.",
-      "A reflection on privilege, access, and exclusion in the journey.",
-      "A list of opportunities and risks for designing more sustainably and inclusively."
+      "A clear user story or scenario.",
+      "Knowledge or idea of the product or service flow.",
+      "Awareness of possible social and environmental factors.",
+      "Systemic Journey Map template."
     ],
     "templates": [
-      "https://miro.com/"
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-485&t=6nYVcXavfojhSjPX-1"
     ],
     "prompts": [
-      "Suggest meaningful phases of the journey for [user group] interacting with [system/product] in [domain].",
-      "What actions or activities does [user group] typically perform in [phase]?",
-      "What specific needs, frustrations, and benefits does [user group] experience in [phase]?",
-      "How might these differ from more privileged groups in the same phase?",
-      "What social impacts (e.g., inequality, access, labor) might occur in [phase] for [user group]?",
-      "What environmental impacts (e.g., energy, waste, travel, resource use) might occur in [phase]?",
-      "Give concrete examples of sustainability impacts for similar systems in [domain]."
+      "I am mapping a user journey for [project description]. Suggest 5 possible phases of the journey and key user actions for each phase.",
+      "For this journey [paste phases + actions], list potential user goals, pain points, and gains at each phase.",
+      "For this user journey [paste details], identify possible social impacts (inclusion, fairness, collaboration) and environmental impacts (energy, waste, resource use) at each phase.",
+      "Based on this journey map [paste details], describe first-order, second-order, and third-order impacts that might emerge over time."
     ],
     "tips": [
-      "Ground your phases in real experiences—don’t just use marketing funnel stages.",
-      "Always pair UX observations with notes on social or environmental impacts.",
-      "Use insights from Inclusive User Groups and Stakeholder Mapping to double-check your phases and impacts.",
-      "Remember: Inclusive User Groups give a broad overview, while the Systemic Journey Map digs deep, phase by phase."
+      "Don’t just describe actions — ask why each step matters long term.",
+      "Start with simple examples to get going, then refine.",
+      "Push beyond individual impacts — consider community and environment.",
+      "Keep it visual and concise: icons or quick notes work better than long text.",
+      "Use the Conscious Digital Product Principles as a guide to check your thinking."
     ]
   },
   {
-    "id": "sustainable-user-stories",
+    "id": "conscious-requirements",
     "title": "Conscious Requirements",
-    "overview": "Designing sustainably often means negotiating between user needs, cost, convenience, performance, accessibility, and environmental/social impacts. The Trade-offs Matrix makes these tensions visible, so teams can reflect: what are we optimizing, and at what cost?",
     "phase": "deliver",
-    "purpose": "To help students see, compare, and balance decisions where sustainability objectives conflict with other design or business priorities. It supports conscious trade-offs instead of hidden compromises.",
+    "overview": "This tool helps you connect user stories to concrete interactions. It shows how different actors (people or systems) achieve goals, highlights dependencies, and surfaces sustainability risks early.",
+    "purpose": "Turn user needs into clear scenarios, map interactions between actors, and reveal risks, barriers, or sustainability issues before they become design flaws.",
     "steps": [
       {
-        "title": "List Options",
-        "description": "Identify 2–4 design or system options you’re deciding between."
+        "title": "Start with a User Story",
+        "description": "Write a user story in the format: 'As a [role], I want [needs/pains], so that [gains].'"
       },
       {
-        "title": "Capture Benefits",
-        "description": "List benefits for users, business, or functionality."
+        "title": "Add Actors",
+        "description": "Identify the people, systems, or tools involved in the interaction."
       },
       {
-        "title": "Capture Sustainability Signals",
-        "description": "Identify sustainability benefits (reduced energy use, improved equity, community benefit) and sustainability costs (higher resource load, exclusion risks, long-term harm)."
+        "title": "Create Use Cases",
+        "description": "For each actor, define what they do to achieve the goal."
       },
       {
-        "title": "Capture Other Costs",
-        "description": "Note usability, time, money, technical debt, or short-term barriers for each option."
-      },
-      {
-        "title": "Compare & Reflect",
-        "description": "Ask: Where do sustainability goals align or conflict with other goals? Who wins and who loses with each choice?"
-      },
-      {
-        "title": "Decide & Document",
-        "description": "Make an explicit decision and record the rationale: Why did we prioritize X over Y?"
+        "title": "Show Flows & Dependencies",
+        "description": "Connect use cases with arrows to show sequence, dependencies, or handovers between actors."
       }
     ],
     "input": [
-      "Clarity on what decision is being made (e.g., which feature to build, which technology to use)"
-    ],
-    "outputs": [
-      "A completed Trade-offs Matrix for each key decision",
-      "A record of rationale (so compromises are transparent)",
-      "Insights into decision patterns (e.g., 'We consistently deprioritize low-bandwidth users — should we change that?')"
+      "A clear user story or scenario.",
+      "Awareness of relevant human and non-human actors (e.g., users, systems, tools, environment).",
+      "Template for mapping actors and use cases."
     ],
     "templates": [
-      "Matrix Table: Options | Benefits | Sustainability Benefits | Sustainability Costs | Other Costs | Notes",
-      "Decision Flow Diagram: optional visualization of how each option impacts users and sustainability"
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
     ],
     "prompts": [
-      "List sustainability benefits and costs of choosing [design option A] over [option B].",
-      "Who benefits most and who loses out if we prioritize speed over sustainability in [system/product]?",
-      "What are short-term vs. long-term consequences of [decision] for social and environmental impacts?",
-      "Suggest ways to balance usability with sustainability in [feature/system]."
+      "This is my user story for [user story description]. Suggest 3–5 possible use cases",
+      "For this user story [paste story], list potential actors (people, systems, or tools) and what each does to reach the goal.",
+      "Based on these actors and use cases [paste list], suggest dependencies, handovers, or flows that might exist between them.",
+      "For this set of use cases [paste details], identify potential hidden impacts, such as resource needs, risks, or ecological trade-offs."
     ],
     "tips": [
-      "Avoid treating sustainability as an afterthought — place it alongside usability, cost, and performance.",
-      "Document trade-offs explicitly so future teams understand the rationale.",
-      "Look for patterns in decisions over time (e.g., which groups or sustainability goals are consistently deprioritized).",
-      "Revisit earlier Inclusive User Groups and Systemic Journey Maps to ground trade-off reflections in real impacts."
+      "Keep use cases short and action-focused (e.g., 'User uploads file,' not 'The system maybe allows…').",
+      "Always include non-human actors when relevant (e.g., tech, data, infrastructure, environment).",
+      "If multiple paths exist to achieve a goal, map them all.",
+      "Use this tool early to detect risks and sustainability gaps in your requirements."
     ]
   },
   {
-    "id": "sustainable-prototyping",
-    "title": "Prototyping Guidelines",
-    "overview": "Prototypes are quick ways to try out ideas before building. They can be super simple or more polished. At any level, it’s important to check for sustainability and inclusivity early—so design problems don’t get locked in too soon.",
+    "id": "prototyping-playground",
+    "title": "Prototyping Playground",
     "phase": "develop",
-    "purpose": "To make early versions of ideas that are lightweight, inclusive, and mindful of sustainability. Prototypes are not final products — they’re tools for exploring design choices and showing how sustainability fits in before anything is built.",
+    "overview": "This tool helps you quickly test ideas, layouts, and interactions. It’s about experimenting fast, not creating polished designs. Use it to explore inclusivity and sustainability in early design.",
+    "purpose": "Turn abstract concepts into something tangible, test different layouts and flows, and surface inclusivity or sustainability issues early without investing too much time.",
     "steps": [
       {
-        "title": "Set the Prototype Goal",
-        "description": "Be clear about what you want to test or visualize."
+        "title": "Use Elements & Placeholders",
+        "description": "Start with basic elements (buttons, inputs, text, placeholders) to build small parts."
       },
       {
-        "title": "Pick the Fidelity",
-        "description": "Decide if you need a Lo-Fi prototype or a Hi-Fi prototype (detailed, interactive, refining specifics)."
+        "title": "Build Screens",
+        "description": "Connect elements into simple screens that show the user flow."
       },
       {
-        "title": "Build with Sustainability in Mind",
-        "description": "Think about whether people with different needs and contexts could actually use it."
+        "title": "Test with Others",
+        "description": "Share prototypes to check: Is it clear? Is it accessible?"
+      },
+      {
+        "title": "Adjust Quickly",
+        "description": "Iterate fast — this stage is for learning and improving, not polishing designs."
       }
     ],
     "input": [
-      "Decide what you’re prototyping (a flow, feature, journey step, or system effect).",
-      "Choose fidelity (quick sketch vs. Figma mockup).",
-      "Pick the user group(s) you’re designing for."
+      "Rough concept or idea.",
+      "Prototyping Playground template.",
+      "Basic elements like text, buttons, and placeholders."
     ],
-    "outputs": [
-      "A low-fi or hi-fi prototype with sustainability notes added.",
-      "Clear spots where inclusivity or sustainability might be challenged."
+    "templates": [
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
     ],
-    "templates": [],
     "prompts": [
-      "What are some low-fi ways to show [feature/flow] without coding?",
-      "How could I adapt this prototype for [constraint: e.g., low bandwidth / older devices]?",
-      "Where in this flow might resource use or accessibility barriers appear?"
+      "I want to prototype [describe feature/idea]. Suggest 3–5 simple layouts I could try to test different user flows.",
+      "Here’s my prototype description [paste details]. Suggest quick accessibility checks (color, font size, clarity) I should run.",
+      "For this prototype [paste description], suggest ways to make it more inclusive (different abilities, contexts) and more sustainable (reduce waste, simplify interactions)."
     ],
     "tips": [
-      "Start with quick, disposable prototypes to explore lots of ideas before refining.",
-      "Prototype for marginalized or constrained groups first—not just the majority."
+      "Keep prototypes low-fi first — sketchy, simple shapes are enough.",
+      "Check accessibility: color contrast, font size, readability.",
+      "Avoid waste by keeping interactions simple — don’t overcomplicate.",
+      "Ask: Would this design work for people with different abilities or contexts?"
     ]
   }
+
+
+
+
+
 ]

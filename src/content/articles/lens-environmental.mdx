@@ -1,0 +1,123 @@
+---
+title: "The Environmental Dimension of Sustainable Software"
+description: "A deep dive into the environmental impacts of software across first, second, and third order effects, and how engineers can apply this lens in practice."
+date: "2025-09-06"
+heroSrc: "svg/green.svg"
+heroAlt: "Illustration of environmental impacts in software engineering"
+lead: "The environmental dimension of sustainability looks at how software affects energy, materials, waste, and emissions — not just directly, but also through the behaviors and systems it enables."
+---
+
+## Introduction
+
+The environmental dimension of sustainability asks a simple but powerful question:  
+**How does this software affect the planet’s resources and ecosystems?**
+
+In software engineering, this means looking beyond just “green IT.” It requires a systemic lens: energy consumed while the software runs, emissions from the infrastructure it uses, and the broader changes it drives in society.
+
+## What to Consider in the Environmental Dimension
+
+<FeatureList
+    items={[
+        { title: "Energy use", body: "Electricity consumed by servers, devices, and networks while software runs." },
+        { title: "Hardware and materials", body: "The devices and infrastructure needed to support software, and their embodied carbon footprint." },
+        { title: "Waste and end-of-life", body: "Obsolete devices, e-waste, and how quickly software drives hardware turnover." },
+        { title: "Emissions", body: "Greenhouse gases produced across the lifecycle, from manufacturing to data center operations." }
+    ]}
+/>
+
+These questions matter at every stage of software design and operation.
+
+## First, Second, and Third Order Impacts
+
+Environmental impacts of software can be understood across three levels.
+
+<Table
+    headers={["Impact Order", "Definition", "Example in Software"]}
+    rows={[
+        [
+            "First order",
+            "Direct resource use when the software runs.",
+            "Electricity used to stream a video; battery drain from a mobile app; CPU cycles for a background task."
+        ],
+        [
+            "Second order",
+            "Changes in user behavior enabled by the software.",
+            "Video conferencing replacing business flights (reduces emissions); autoplay encouraging longer sessions (increases emissions)."
+        ],
+        [
+            "Third order",
+            "Long-term systemic effects in society and industry.",
+            "Shifts toward remote work reducing commuting; culture of constant video consumption increasing global network demand."
+        ]
+    ]}
+/>
+
+<IconList
+    items={[
+        { title: "First order", body: "Think about runtime efficiency, algorithms, caching, and infrastructure choices." },
+        { title: "Second order", body: "Consider how your product changes user behavior in ways that increase or decrease environmental impact." },
+        { title: "Third order", body: "Reflect on the bigger picture: how entire industries or lifestyles change because of your software." }
+    ]}
+/>
+
+## When to Apply the Environmental Lens
+
+It is not always realistic to account for everything, so here are key moments when the environmental dimension should guide decisions:
+
+<FeatureList
+    items={[
+        { title: "Early design", body: "Choices about features, defaults, and infrastructures lock in long-term resource use." },
+        { title: "Architecture and infrastructure", body: "Cloud provider, data center location, and coding efficiency directly shape first-order impacts." },
+        { title: "User experience design", body: "Decisions like autoplay, preloading, and refresh frequency can multiply second-order impacts." },
+        { title: "Product strategy", body: "Business models (ad-driven, subscription, open source) influence how much content is produced, consumed, and stored — shaping third-order impacts." }
+    ]}
+/>
+
+## Example: Environmental Lens on a Messaging App
+
+Imagine applying the environmental lens to a simple group chat app.
+
+<Table
+    headers={["Phase", "First Order Impact", "Second Order Impact", "Third Order Impact"]}
+    rows={[
+        [
+            "Message sending",
+            "Energy used by device radios and data center routing.",
+            "Encourages short, frequent messages, increasing traffic.",
+            "Shifts cultural norms from email to constant, energy-intensive micro-communication."
+        ],
+        [
+            "Image sharing",
+            "High data use for sending images and videos.",
+            "More sharing because of frictionless uploads.",
+            "Increased demand for cloud storage and long-term data retention."
+        ],
+        [
+            "Notifications",
+            "Device wakes up, draining battery repeatedly.",
+            "Pushes users to check phones more often.",
+            "Creates expectations of 24/7 availability and device dependency."
+        ]
+    ]}
+/>
+
+This shows how even simple features can add up across the three orders of impact.
+
+## Why the Environmental Dimension Matters
+
+<IconList
+    items={[
+        { title: "Planetary limits", body: "The ICT sector already accounts for around 2–4% of global greenhouse gas emissions." },
+        { title: "Hidden costs", body: "Small design choices like autoplay or preloading can multiply resource use at scale." },
+        { title: "Systemic influence", body: "Software does not just use energy — it shapes behaviors, industries, and infrastructure demand." }
+    ]}
+/>
+
+## Conclusion
+
+The environmental dimension reminds us that software is not weightless.  
+Every feature has an ecological footprint, from energy use today to systemic effects decades later.
+
+For software engineering students, the lesson is clear: **design with the planet in mind.** Ask at each stage — *what are the first, second, and third order impacts of this decision?*
+
+By using this lens, we can move beyond small efficiency fixes toward systemic responsibility, ensuring that the digital world supports — rather than undermines — a sustainable future.

@@ -1,0 +1,184 @@
+---
+title: "How to Use the Systemic Journey Map: A Student Guide"
+description: "A hands-on guide for software engineering students on using the Systemic Journey Map to spot ecological and social impacts in their projects."
+date: "2025-09-06"
+heroSrc: "svg/map.svg"
+heroAlt: "Systemic Journey Map template with ecological and social layers"
+lead: "The Systemic Journey Map adds environmental and social perspectives to a normal journey map. For software engineering students, it’s a simple tool to think about sustainability while designing apps and systems."
+---
+
+## Introduction
+
+As software engineers, we usually focus on **features, usability, and deadlines**. But every app we build also has **wider impacts** — it uses energy, shapes behavior, and affects society in ways we often do not think about.
+
+The **Systemic Journey Map** is a lightweight tool to make these hidden effects visible. It takes the journey maps you may already know and adds two extra rows: **environmental impact** and **social impact**.
+
+This guide shows you step by step how to use the Systemic Journey Map, and ends with a worked example based on a short-form video app.
+
+## The Systemic Journey Map Template
+
+<Figure
+    src="/img_3.png"
+    alt="Systemic Journey Map template with user, ecological, and social layers"
+    caption="The template builds on classic journey maps by adding environmental and social impact rows."
+/>
+
+## How to Use the Template in Figma
+
+We have prepared a ready-to-use template in Figma.
+
+👉 [Open the Systemic Journey Map Template in Figma](https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=407-996&t=nZRibeC68k3CMPz4-1).
+Once opened, just **Duplicate to your Projects** and start filling it in with your own case.
+
+## What the Rows Mean
+
+<FeatureList
+    items={[
+        { title: "Journey Phases", body: "The main steps of the experience — onboarding, everyday use, and end-of-life." },
+        { title: "User Actions", body: "What people actually do at each step." },
+        { title: "User Goals", body: "What they are trying to achieve." },
+        { title: "Pain Points / Needs", body: "What frustrates them or makes the step harder." },
+        { title: "Gains", body: "What good things happen at this stage." },
+        { title: "Environmental Impact", body: "How this step uses resources like energy, storage, or bandwidth." },
+        { title: "Social Impact", body: "How this step affects fairness, inclusion, safety, or accessibility." },
+        { title: "Data / Others", body: "Extra notes like data handling, privacy, or governance." }
+    ]}
+/>
+
+The Systemic Journey Map also helps you classify impacts:
+
+<IconList
+    items={[
+        { title: "First order", body: "Direct effects, like battery drain or server energy use." },
+        { title: "Second order", body: "Behavior changes, like people spending more time scrolling." },
+        { title: "Third order", body: "Long-term shifts, like how an app shapes culture or attention." }
+    ]}
+/>
+
+## Step-by-Step Tutorial
+
+<FeatureList
+    items={[
+        { title: "Step 1 — Define the scope", body: "Pick the product or feature you want to map, and write down who is involved — users, non-users, and stakeholders." },
+        { title: "Step 2 — Map the core journey", body: "Sketch out the key phases and add user actions, goals, pains, and gains." },
+        { title: "Step 3 — Add environmental and social layers", body: "For each phase, note ecological effects (like energy or storage) and social effects (like inclusion or risks)." },
+        { title: "Step 4 — Classify impacts", body: "Mark each as first, second, or third order to show whether it is immediate, behavioral, or systemic." },
+        { title: "Step 5 — Spot opportunities", body: "See where you can reduce harm or add positive impact." },
+        { title: "Step 6 — Turn insights into actions", body: "Translate findings into backlog items, requirements, or design improvements." }
+    ]}
+/>
+
+## Why This Tool Matters for Students
+
+<IconList
+    items={[
+        { title: "Make impacts visible", body: "Instead of guessing, you can map out where energy use, exclusion, or bias might appear." },
+        { title: "Think bigger than features", body: "It is not only about usability — your design choices affect people and the planet." },
+        { title: "Bridge design and coding", body: "By adding impacts to your backlog, you connect sustainability with the actual work of building software." }
+    ]}
+/>
+
+## Example: Applying the Systemic Journey Map to a Short-Form Video App
+
+Let’s apply the Systemic Journey Map to a fictional short-form video app (similar to TikTok).
+This is not about one company — it is just a practical demo of how students could use the tool.
+
+### Step 1 — Define the Scope and Stakeholders
+
+<IconList
+    items={[
+        { title: "Scope", body: "Mobile app experience from installation to account deletion." },
+        { title: "Primary stakeholders", body: "Viewers, creators, and moderators." },
+        { title: "Secondary stakeholders", body: "Families, advertisers, cultural groups, network providers, and the environment." }
+    ]}
+/>
+
+### Step 2 — Map Core Phases
+
+<IconList
+    items={[
+        { title: "Install and onboarding", body: "Download, account creation, data consent, preference setup." },
+        { title: "Feed consumption", body: "Scrolling, autoplay, reactions, and follows." },
+        { title: "Creation and upload", body: "Recording, editing, captioning, applying effects, and publishing." },
+        { title: "Sharing and interaction", body: "Comments, duets, stitching, and private messages." },
+        { title: "Downtime and well-being", body: "Breaks, reminders, and session end." },
+        { title: "End-of-life", body: "Account deletion, data export, and clearing cached files." }
+    ]}
+/>
+
+### Step 3 — Add Environmental and Social Layers
+
+<Table
+    headers={["Phase", "Environmental Impact", "Social Impact"]}
+    rows={[
+        [
+            "Install and onboarding",
+            "Network transfer and updates.",
+            "Accessibility of forms, clarity of consent, parental controls."
+        ],
+        [
+            "Feed consumption",
+            "Continuous video streaming and high-bitrate defaults.",
+            "Addictive patterns, algorithmic bias, missing captions."
+        ],
+        [
+            "Creation and upload",
+            "Energy for editing, processing, and multiple transcodes.",
+            "Harassment risks, visibility issues for marginalized creators, tough moderation work."
+        ],
+        [
+            "Sharing and interaction",
+            "Extra load from notifications.",
+            "Privacy concerns, misinformation risks, cultural sensitivity."
+        ],
+        [
+            "Downtime and well-being",
+            "Background refresh drains energy.",
+            "Sleep disruption, excessive screen time, well-being risks."
+        ],
+        [
+            "End-of-life",
+            "Leftover media files and cloud storage.",
+            "Difficulty leaving the platform, unclear data deletion."
+        ]
+    ]}
+/>
+
+
+### Step 4 — Classify Impact Orders
+
+<IconList
+    items={[
+        { title: "First order", body: "Energy use from streaming and notifications; device battery drain." },
+        { title: "Second order", body: "Users spend longer sessions because of autoplay; creators adapt to algorithms; comment culture changes." },
+        { title: "Third order", body: "Attention economy shifts, cultural norms about identity and performance, infrastructure demand for high-quality video." }
+    ]}
+/>
+
+### Step 5 — Identify Opportunities
+
+<FeatureList
+    items={[
+        { title: "Ecological", body: "Enable adaptive video quality, prefetch only on Wi-Fi, compress cached media, reduce background refresh." },
+        { title: "Social", body: "Auto-enable captions, provide break reminders, explain how ranking works, improve safety features." }
+    ]}
+/>
+
+### Step 6 — Translate into Design Actions
+
+<FeatureList
+    items={[
+        { title: "Non-functional requirement", body: "Respect data-saver mode with adaptive video quality." },
+        { title: "Design change", body: "Autoplay pauses after a few videos with an option to continue." },
+        { title: "Accessibility", body: "Auto-generate captions that can be edited before publishing." },
+        { title: "Transparency", body: "‘Why am I seeing this?’ button explains ranking in plain language." },
+        { title: "End-of-life", body: "One-screen account deletion with instant cache removal and clear timelines for full data removal." }
+    ]}
+/>
+
+## Conclusion
+
+For students in software engineering, the **Systemic Journey Map** is a practical way to connect your code with real-world impact.
+It helps you see not only how people use your product, but also how it affects **the environment, society, and long-term systems**.
+
+By adding just two extra rows to a standard journey map, you can turn sustainability from an abstract value into **concrete design actions**. And that means your projects can be both functional **and** responsible.

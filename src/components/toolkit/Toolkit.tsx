@@ -3,15 +3,14 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { truncate } from '@/lib/truncate'
-import  Header  from '@/components/ui/Header'
-import { Gradient } from '@/components/ui/Gradient'
+import Header from '@/components/ui/Header'
 import { Input } from '@/components/ui/Input'
 import { Card, CardBody } from '@/components/ui/Card'
 import categoriesJson from '@/data/phases.json'
 import toolsJson from '@/data/tools.json'
 import faqs from '@/data/faqs.json'
-import {FaqList} from "@/components/ui/FAQ";
-import {Tabs} from "@/components/ui/Tabs";
+import { FaqList } from '@/components/ui/FAQ'
+import { Tabs } from '@/components/ui/Tabs'
 
 type Category = { label: string; value: string; color: string }
 type Step = { title?: string; description?: string } | string
@@ -26,7 +25,6 @@ type Tool = {
     steps?: Step[]
 }
 
-
 const buildCategoryMaps = (cats: Category[]) => {
     const labelByValue = new Map<string, string>()
     const colorByValue = new Map<string, string>()
@@ -39,24 +37,7 @@ const buildCategoryMaps = (cats: Category[]) => {
 
 function ToolkitHero() {
     return (
-        <section className="relative bg-[#F9FAFB] py-20 text-center overflow-hidden">
-            {/* Gradients */}
-            <Gradient
-                from="#FF57BC"
-                to="#FF358A"
-                width="100rem"
-                height="60rem"
-                opacity={0.8}
-                className="left-1/2 -translate-x-1/2 -top-40"
-            />
-            <Gradient
-                from="#B7CFFF"
-                to="#8BB3FF"
-                width="100rem"
-                height="60rem"
-                className="left-1/2 -translate-x-1/2 top-0"
-            />
-
+        <section className="relative py-20 text-center overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto px-4">
                 <Header
                     align="center"
@@ -81,11 +62,12 @@ function ToolCard({
     catColor?: string
 }) {
     return (
-        <Card className="bg-[#F9FAFB] border-[#EAECF0] rounded-3xl transform transition-all duration-300 hover:shadow-sm">
-            <CardBody className="p-8 space-y-6">
-                <div className="flex items-center gap-3">
+        <Card className="bg-[#F9FAFB] border-[#EAECF0] rounded-3xl h-full flex flex-col transition-all duration-300 hover:shadow-md">
+            <CardBody className="p-6 sm:p-8 flex flex-col flex-1">
+                {/* Category dot + label */}
+                <div className="flex items-center gap-3 mb-4">
                     <div
-                        className="w-8 h-8 rounded-full"
+                        className="w-8 h-8 rounded-full shrink-0"
                         style={{ backgroundColor: catColor ?? '#64748B' }}
                     />
                     {tool._category && tool._category !== 'uncategorized' && (
@@ -95,15 +77,18 @@ function ToolCard({
                     )}
                 </div>
 
-                <h3 className="text-lg font-semibold text-[#282828] leading-snug">
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-[#282828] leading-snug min-h-[3.5rem] line-clamp-2">
                     {tool.title}
                 </h3>
 
-                <p className="text-sm text-[#5F6980] leading-relaxed">
+                {/* Blurb */}
+                <p className="mt-3 text-sm text-[#5F6980] leading-relaxed line-clamp-3 flex-1">
                     {truncate(tool._blurb, 100)}
                 </p>
 
-                <div className="flex items-center justify-between pt-2">
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-4">
                     <Link
                         href={`/toolkit/${encodeURIComponent(String(tool.id))}`}
                         className="text-[#0D6EFD] text-sm font-semibold"
@@ -115,9 +100,6 @@ function ToolCard({
         </Card>
     )
 }
-
-
-
 
 export default function Toolkit() {
     const [activeCategory, setActiveCategory] = useState<string>('all')
@@ -151,15 +133,19 @@ export default function Toolkit() {
         })
     }, [normalizedTools, activeCategory, searchTerm])
 
-
     return (
         <div className="min-h-screen bg-white">
+            {/* Hero */}
             <ToolkitHero />
 
+            {/* Tools Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4">
+                    {/* Header Row */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                        <h2 className="text-3xl font-semibold text-[#282828]">Tool library</h2>
+                        <h2 className="text-3xl font-semibold text-[#282828]">
+                            Tool Library
+                        </h2>
                         <div className="w-full md:w-96">
                             <Input
                                 placeholder="Search tools, purposes, overviews"
@@ -170,6 +156,7 @@ export default function Toolkit() {
                         </div>
                     </div>
 
+                    {/* Category Tabs */}
                     <Tabs
                         items={categories.map((c) => ({
                             value: c.value,
@@ -180,7 +167,8 @@ export default function Toolkit() {
                         onChange={setActiveCategory}
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8">
                         {filteredTools.map((tool) => (
                             <ToolCard
                                 key={tool.id}
@@ -193,16 +181,15 @@ export default function Toolkit() {
                 </div>
             </section>
 
+            {/* FAQs Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-4xl mx-auto px-4">
-                    <section className="py-20 bg-white">
-                        <div className="max-w-4xl mx-auto px-4">
-                            <div className="text-center mb-16">
-                                <h2 className="text-4xl font-semibold text-[#282828] mb-4">FAQs</h2>
-                            </div>
-                            <FaqList items={faqs} />
-                        </div>
-                    </section>
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-semibold text-[#282828] mb-4">
+                            FAQs
+                        </h2>
+                    </div>
+                    <FaqList items={faqs} />
                 </div>
             </section>
         </div>

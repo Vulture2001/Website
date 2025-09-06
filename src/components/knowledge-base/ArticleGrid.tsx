@@ -1,5 +1,5 @@
 import type { ArticleSummary } from "@/types/Article";
-import {ArticleCard} from "./ArticleCard"; // assuming ArticleCard is default export
+import { ArticleCard } from "./ArticleCard";
 
 type Props = {
     articles: ArticleSummary[];
@@ -25,15 +25,17 @@ export default function ArticleGrid({ articles, title, id }: Props) {
             ) : null}
 
             {hasItems ? (
-                <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <ul className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {articles.map((article) => (
-                        <ArticleCard key={article.slug} article={article} />
+                        <li key={article.slug} className="list-none">
+                            <ArticleCard article={article} />
+                        </li>
                     ))}
-                </div>
+                </ul>
             ) : (
-                <p className="text-sm text-[hsl(var(--muted-fg))]">
+                <div className="flex h-24 items-center justify-center text-sm text-[hsl(var(--muted-fg))] border border-dashed rounded-lg">
                     No articles yet. Check back soon.
-                </p>
+                </div>
             )}
         </section>
     );

@@ -1,10 +1,10 @@
-// app/knowledge-base/page.tsx
-import KnowledgeHero from "@/components/knowledge-base/KnowledgeHero";
-import SweetSpot from "@/components/knowledge-base/SweetSpot";
-import ArticleGrid from "@/components/knowledge-base/ArticleGrid";
+// app/knowledge-base/KnowledgeBaseClient.tsx
+'use client';
+
 import { motion, type Variants } from "framer-motion";
-import getAllSummaries from "@/data/articleService";
 import Header from "@/components/ui/Header";
+import ArticleGrid from "@/components/knowledge-base/ArticleGrid";
+import type { ArticleMeta } from "@/lib/mdx";
 
 const container = "relative z-10 mx-auto max-w-7xl px-4 lg:px-6";
 
@@ -26,30 +26,9 @@ const staggerContainer: Variants = {
     },
 };
 
-export default async function KnowledgeBase() {
-    const items = await getAllSummaries(); // ✅ now safe
-
+export default function KnowledgeBaseClient({ articles }: { articles: ArticleMeta[] }) {
     return (
-        <main className="relative isolate">
-            {/* Intro */}
-            {/**/}
-
-            {/* Hero + SweetSpot */}
-            <motion.section
-                aria-labelledby="kb-hero"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={staggerContainer}
-            >
-                <motion.div variants={fadeInUp}>
-                    <KnowledgeHero />
-                </motion.div>
-                <motion.div variants={fadeInUp}>
-                    <SweetSpot />
-                </motion.div>
-            </motion.section>
-
+        <main className="relative isolate mt-[4rem]">
             {/* Articles header */}
             <motion.section
                 className={container}
@@ -81,7 +60,7 @@ export default async function KnowledgeBase() {
                 variants={staggerContainer}
             >
                 <motion.div variants={fadeInUp}>
-                    <ArticleGrid articles={items} />
+                    <ArticleGrid articles={articles} />
                 </motion.div>
             </motion.section>
         </main>
