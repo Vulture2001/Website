@@ -5,34 +5,63 @@ import { cn } from '@/lib/cn'
 
 type ImagePosition = 'left' | 'right' | 'none'
 
-type ContentProps = {
-    /** Label above the title (e.g., your Badge) */
+export type ContentProps = {
     badge?: React.ReactNode
-    /** Main heading */
     title: React.ReactNode
-    /** Supporting copy */
     description?: React.ReactNode
-    /** Provide either an image src OR a custom React node via renderImage */
     imageSrc?: string
     imageAlt?: string
-    /** Override the image markup entirely (e.g., <Image ... />). Ignored if imagePosition==='none' */
     renderImage?: React.ReactNode
-    /** Where to place the image (or 'none' to hide) */
     imagePosition?: ImagePosition
-    /** Optional width to constrain the text column (defaults to ~547px you used) */
     textMaxWidthClassName?: string
-    /** Additional classes for the outer section */
     className?: string
-    /** Children (checkbox list, buttons, anything else) */
     children?: React.ReactNode
     titleClassName?: string
 
+    // overrides
+    sectionPaddingClassName?: string
+    columnsWrapperClassName?: string
+    textColumnClassName?: string
+    headerStackClassName?: string
+    titleBlockClassName?: string
 }
 
-/**
- * Reusable feature section with optional image (left/right) and a text column.
- * Title + description are explicit props; anything else goes in `children`.
- */
+/* ---------------------------------- */
+/* Internal: Image block              */
+/* ---------------------------------- */
+function ContentImage({
+                          imageSrc,
+                          imageAlt = 'Feature image',
+                          renderImage,
+                      }: {
+    imageSrc?: string
+    imageAlt?: string
+    renderImage?: React.ReactNode
+}) {
+    if (renderImage) return <>{renderImage}</>
+
+    if (imageSrc) {
+        return (
+            <img
+                src={imageSrc}
+                alt={imageAlt}
+                className="w-full max-w-[520px] aspect-[4/3] rounded-xl object-cover h-auto"
+                loading="lazy"
+            />
+        )
+    }
+
+    return (
+        <div
+            aria-hidden
+            className="w-full max-w-[520px] aspect-[4/3] rounded-xl bg-gray-100"
+        />
+    )
+}
+
+/* ---------------------------------- */
+/* Public: Content                    */
+/* ---------------------------------- */
 export function Content({
                             badge,
                             title,
@@ -41,80 +70,99 @@ export function Content({
                             imageAlt = 'Feature image',
                             renderImage,
                             imagePosition = 'none',
-                            textMaxWidthClassName = 'w-[547px] max-md:w-full max-md:max-w-[600px]',
+                            textMaxWidthClassName = 'max-w-[650px] w-full',
                             className,
                             children,
-    titleClassName,
+                            titleClassName,
+
+                            sectionPaddingClassName,
+                            columnsWrapperClassName,
+                            textColumnClassName,
+                            headerStackClassName,
+                            titleBlockClassName,
                         }: ContentProps) {
     const showImage = imagePosition !== 'none' && (imageSrc || renderImage)
-
-    const ImageBlock = (
-        <div>
-            {renderImage ?? (
-                <div
-                    className="bg-gray-100 rounded-xl w-[520px] aspect-[4/3] max-md:w-full"
-                    role="img"
-                    aria-label={imageAlt}
-                    style={
-                        imageSrc
-                            ? {
-                                backgroundImage: `url(${imageSrc})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }
-                            : undefined
-                    }
-                />
-            )}
-        </div>
-    )
+    const headingId = React.useId()
 
     return (
         <section
             className={cn(
-                'flex relative flex-col gap-2 justify-center items-center self-stretch px-20 py-24 mb-24',
-                'max-md:gap-10 max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10',
+                'mb-14 flex flex-col items-center justify-center',
+                // padding that scales per screen size
+                'px-6 py-12 sm:px-10 sm:py-16 lg:px-20 lg:py-24',
+                sectionPaddingClassName,
                 className
             )}
-            aria-labelledby="content-title"
+            aria-labelledby={headingId}
         >
             <div
                 className={cn(
-                    'flex relative gap-20 justify-center items-center',
-                    'max-md:flex-col max-md:gap-10'
+                    // grid layout instead of flex for more control
+                    'grid items-center justify-center gap-12 sm:gap-16 lg:gap-20',
+                    showImage && imagePosition !== null
+                        ? 'lg:grid-cols-2'
+                        : 'lg:grid-cols-1',
+                    columnsWrapperClassName
                 )}
             >
-                {/* Image (left) */}
-                {showImage && imagePosition === 'left' && ImageBlock}
+                {showImage && imagePosition === 'left' && (
+                    <ContentImage
+                        imageSrc={imageSrc}
+                        imageAlt={imageAlt}
+                        renderImage={renderImage}
+                    />
+                )}
 
-                {/* Text column */}
-                <div className={cn('flex relative flex-col gap-10 items-start', textMaxWidthClassName)}>
-                    <header className="flex relative flex-col gap-6 items-start self-stretch">
-                        <div className="flex relative flex-col gap-4 items-start self-stretch">
-                            {badge}
+                <div
+                    className={cn(
+                        'flex flex-col items-start gap-6',
+                        textMaxWidthClassName,
+                        textColumnClassName
+                    )}
+                >
+                    <header
+                        className={cn(
+                            'flex flex-col items-start self-stretch gap-6',
+                            headerStackClassName
+                        )}
+                    >
+                        <div
+                            className={cn(
+                                'flex flex-col items-start self-stretch mt-2 gap-2',
+                                titleBlockClassName
+                            )}
+                        >
+                            {badge && <div className="mb-4">{badge}</div>}
                             <h1
-                                id="content-title"
+                                id={headingId}
                                 className={cn(
-                                    "relative self-stretch text-6xl font-semibold tracking-tighter leading-[63px] text-zinc-800 max-md:text-5xl max-md:leading-[50px] max-sm:text-3xl max-sm:tracking-tighter max-sm:leading-10",
+                                    // responsive typography with clamp
+                                    'font-semibold tracking-tighter text-zinc-800',
+                                    'text-[clamp(2rem,5vw,4rem)] leading-[1.1]',
                                     titleClassName
                                 )}
                             >
                                 {title}
                             </h1>
                         </div>
+
                         {description ? (
-                            <p className="relative self-stretch text-lg leading-8 text-gray-500 max-md:text-base max-md:leading-7 max-sm:text-sm max-sm:leading-6">
+                            <p className="self-stretch text-base sm:text-lg leading-relaxed text-gray-500">
                                 {description}
                             </p>
                         ) : null}
                     </header>
 
-                    {/* Anything you want: checkboxes, CTAs, etc. */}
                     {children}
                 </div>
 
-                {/* Image (right) */}
-                {showImage && imagePosition === 'right' && ImageBlock}
+                {showImage && imagePosition === 'right' && (
+                    <ContentImage
+                        imageSrc={imageSrc}
+                        imageAlt={imageAlt}
+                        renderImage={renderImage}
+                    />
+                )}
             </div>
         </section>
     )

@@ -38,3 +38,12 @@ export function Badge({ className, leftIcon, rightIcon, children, ...props }: Ba
     </span>
     )
 }
+
+
+export function NumBadge({ n }: { n: number }) {
+    return (
+        <span className="inline-flex w-8 h-8 items-center justify-center rounded-full border border-black text-sm font-semibold text-[#5F6980]">
+      {n}
+    </span>
+    )
+}

@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { truncate } from '@/lib/truncate'
-import { Header } from '@/components/ui/Header'
+import  Header  from '@/components/ui/Header'
 import { Gradient } from '@/components/ui/Gradient'
 import { Input } from '@/components/ui/Input'
 import { Card, CardBody } from '@/components/ui/Card'

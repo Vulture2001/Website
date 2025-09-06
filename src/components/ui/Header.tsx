@@ -38,7 +38,7 @@ const maxWidthMap = {
     "5xl": "max-w-5xl", "6xl": "max-w-6xl", "7xl": "max-w-7xl",
 };
 
-export function Header({
+export default function Header({
                            id,
                            className,
                            eyebrow,
@@ -67,7 +67,7 @@ export function Header({
                 <Badge
                     variant="outline"
                     tone="gray"   // renders black/neutral outline
-                    size="sm"
+                    size="lg"
                     shape="pill"
                 >
                     {eyebrow}

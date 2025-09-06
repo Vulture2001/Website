@@ -1,9 +1,9 @@
 import { Gradient } from "@/components/ui/Gradient";
-import { Header } from "@/components/ui/Header";
+import Header from "@/components/ui/Header";
 import { ProfileCard } from "@/components/about/ProfileCard";
-import { TeamCard } from "@/components/about/TeamCard";
+import { WhiteCard } from "@/components/ui/WhiteCard";
 
-const MOCK_TEAM = [
+const TEAM = [
     {
         name: "Monika Zielińska",
         role: "Masters Thesis Author & Framework Developer",
@@ -25,27 +25,6 @@ const MOCK_TEAM = [
             "https://api.builder.io/api/v1/image/assets/TEMP/b513a6ac364625b112024254538ce20b34942261?width=75",
         statusColor: "#9D9FA1",
     },
-    {
-        name: "Amira",
-        role: "Research Assistant",
-        avatar:
-            "https://api.builder.io/api/v1/image/assets/TEMP/88c8704e6a72ac2a9ce9a584707fa3d0d5f89ef1?width=75",
-        statusColor: "#4dabf7",
-    },
-    {
-        name: "Kenji",
-        role: "Data Analyst",
-        avatar:
-            "https://api.builder.io/api/v1/image/assets/TEMP/1cabc7b9f94702b37976d65bb4f8f7d5bfb6b3e4?width=75",
-        statusColor: "#f59f00",
-    },
-    {
-        name: "Elena",
-        role: "UX Designer",
-        avatar:
-            "https://api.builder.io/api/v1/image/assets/TEMP/0cf2156d5d60abf11f6bc5a25b19cdb4472de671?width=75",
-        statusColor: "#ae3ec9",
-    },
 ];
 
 export default function About() {
@@ -54,6 +33,7 @@ export default function About() {
             id="about"
             className="relative isolate flex flex-col min-h-screen bg-white"
         >
+            {/* background gradients */}
             <Gradient
                 from="hsl(var(--brand-primary))"
                 to="hsl(var(--brand-accent))"
@@ -69,23 +49,48 @@ export default function About() {
                 height="80rem"
                 className="left-1/2 -translate-x-1/2 top-0"
             />
+
             <main className="relative z-10 flex flex-col items-center pb-20 pt-14 gap-14">
                 <Header
                     id="about-hero"
-                    eyebrow="About"
-                    title="This framework emerged from research into how software design decisions can better account for social and environmental impacts."
-                    subtitle="As digital products become central to our lives, sustainable approaches become urgent."
+                    align="center"
                     size="xl"
                     maxWidth="5xl"
+                    title="About the Framework"
+                    subtitle="Learn who created Software 5.0 and the team behind its development and research."
                 />
 
                 <section
                     id="about-cards"
                     className="grid grid-cols-1 md:grid-cols-[296px_minmax(0,1fr)] items-start gap-8 max-w-[1280px] w-full px-4"
-                    aria-label="About cards"
+                    aria-label="About section"
                 >
+                    {/* left column: profile */}
                     <ProfileCard />
-                    <TeamCard title="Thesis Team" team={MOCK_TEAM} />
+
+                    {/* right column: team */}
+                    <WhiteCard>
+                        <h3 className="text-[#282828] font-semibold text-lg mb-4">
+                            Thesis Team
+                        </h3>
+                        <ul className="space-y-4">
+                            {TEAM.map((member) => (
+                                <li key={member.name} className="flex items-center gap-3">
+                                    <img
+                                        src={member.avatar}
+                                        alt={member.name}
+                                        className="w-10 h-10 rounded-full"
+                                    />
+                                    <div>
+                                        <p className="font-medium">{member.name}</p>
+                                        <p className="text-sm text-muted-foreground">
+                                            {member.role}
+                                        </p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </WhiteCard>
                 </section>
             </main>
         </div>
