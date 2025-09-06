@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/cn'
+import React from "react";
 
 const badge = cva('inline-flex items-center gap-1 font-medium', {
     variants: {
@@ -34,6 +35,15 @@ export function Badge({ className, leftIcon, rightIcon, children, ...props }: Ba
       {leftIcon}
             {children}
             {rightIcon}
+    </span>
+    )
+}
+
+
+export function NumBadge({ n }: { n: number }) {
+    return (
+        <span className="inline-flex w-8 h-8 items-center justify-center rounded-full border border-black text-sm font-semibold ">
+      {n}
     </span>
     )
 }

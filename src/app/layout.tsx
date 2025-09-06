@@ -1,9 +1,14 @@
 import './globals.css'
-import { inter } from '@/fonts'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
+import { inter } from '@styles/fonts'
+import { Navbar } from '@/components/ui/layout/Navbar'
+import { Footer } from '@/components/ui/layout/Footer'
+import React from 'react'
+import type { Metadata } from 'next'
 
-export const metadata = { title: 'Software 5.0', description: '—' }
+export const metadata: Metadata = {
+    title: 'Software 5.0',
+    description: '—',
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (

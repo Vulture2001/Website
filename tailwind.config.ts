@@ -1,44 +1,46 @@
-import type { Config } from 'tailwindcss'
+// tailwind.config.ts
+import type { Config } from "tailwindcss"
 
 const config: Config = {
     content: [
-        './app/**/*.{js,ts,jsx,tsx,mdx}',
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/styles/**/*.{css}"
     ],
     theme: {
         extend: {
             colors: {
-                // direct palette (from :root tokens)
-                blue:   'hsl(var(--color-blue) / <alpha-value>)',
-                black:  'hsl(var(--color-black) / <alpha-value>)',
-                cyan:   'hsl(var(--color-cyan) / <alpha-value>)',
-                green:  'hsl(var(--color-green) / <alpha-value>)',
-                indigo: 'hsl(var(--color-indigo) / <alpha-value>)',
-                orange: 'hsl(var(--color-orange) / <alpha-value>)',
-                pink:   'hsl(var(--color-pink) / <alpha-value>)',
-                purple: 'hsl(var(--color-purple) / <alpha-value>)',
-                red:    'hsl(var(--color-red) / <alpha-value>)',
-                teal:   'hsl(var(--color-teal) / <alpha-value>)',
-                yellow: 'hsl(var(--color-yellow) / <alpha-value>)',
-
-                // semantic aliases
-                brand: {
-                    primary: 'hsl(var(--brand-primary) / <alpha-value>)',
-                    accent:  'hsl(var(--brand-accent) / <alpha-value>)',
+                surface: {
+                    DEFAULT: "hsl(var(--surface) / <alpha-value>)",
+                    fg: "hsl(var(--fg) / <alpha-value>)",
+                    border: "hsl(var(--border) / <alpha-value>)",
+                    muted: "hsl(var(--muted-fg) / <alpha-value>)",
                 },
-
-                // surfaces / text
-                bg:        'hsl(var(--bg) / <alpha-value>)',
-                surface:   'hsl(var(--surface) / <alpha-value>)',
-                border:    'hsl(var(--border) / <alpha-value>)',
-                fg:        'hsl(var(--fg) / <alpha-value>)',
-                'muted-fg':'hsl(var(--muted-fg) / <alpha-value>)',
-                text:      'hsl(var(--text) / <alpha-value>)',
+                text: "hsl(var(--text) / <alpha-value>)",
+                brand: {
+                    primary: "hsl(var(--brand-primary) / <alpha-value>)",
+                    accent: "hsl(var(--brand-accent) / <alpha-value>)",
+                    blue: "hsl(var(--brand-blue) / <alpha-value>)",
+                    black: "hsl(var(--brand-black) / <alpha-value>)",
+                    cyan: "hsl(var(--brand-cyan) / <alpha-value>)",
+                    green: "hsl(var(--brand-green) / <alpha-value>)",
+                    indigo: "hsl(var(--brand-indigo) / <alpha-value>)",
+                    orange: "hsl(var(--brand-orange) / <alpha-value>)",
+                    pink: "hsl(var(--brand-pink) / <alpha-value>)",
+                    purple: "hsl(var(--brand-purple) / <alpha-value>)",
+                    red: "hsl(var(--brand-red) / <alpha-value>)",
+                    teal: "hsl(var(--brand-teal) / <alpha-value>)",
+                    yellow: "hsl(var(--brand-yellow) / <alpha-value>)",
+                },
             },
         },
     },
-    plugins: [],
+    darkMode: "class",
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/typography"),
+        require("@tailwindcss/aspect-ratio"),
+    ],
 }
 
 export default config

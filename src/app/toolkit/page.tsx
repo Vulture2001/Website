@@ -1,4 +1,4 @@
-import Toolkit from "@/components/pages/Toolkit";
+import Toolkit from "@/components/toolkit/Toolkit";
 
 export default function ToolkitPage() {
     return <Toolkit />

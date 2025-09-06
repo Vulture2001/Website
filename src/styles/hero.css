@@ -1,0 +1,28 @@
+/* src/styles/hero.css */
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    /* Use your brand variables via HSL to keep alpha controllable */
+    background:
+            radial-gradient(
+                    1000px 600px at 70% 50%,
+                    hsl(var(--brand-primary) / 0.30),
+                    hsl(var(--brand-accent) / 0.25) 30%,
+                    hsl(var(--brand-orange) / 0.20) 50%,
+                    hsl(var(--bg) / 0) 70%
+            );
+}
+
+.hero-padding {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+@media (min-width: 640px) {
+    .hero-padding { padding-top: 10rem; padding-bottom: 10rem; }
+}
+
+@media (min-width: 1024px) {
+    .hero-padding { padding-top: 12rem; padding-bottom: 12rem; }
+}

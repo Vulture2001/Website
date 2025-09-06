@@ -6,39 +6,23 @@ import { cn } from '@/lib/cn'
 type Len = number | string
 
 type GradientProps = {
-    /** Start/End colors — works great with your CSS vars: e.g. "hsl(var(--color-blue))" */
     from: string
     to: string
-
-    /** SVG box size (can be '100%', 'rem', px numbers, etc.) */
     width?: Len
     height?: Len
-
-    /** Overall opacity (0..1) and blur strength */
     opacity?: number
     blur?: number
-
-    /**
-     * Ellipse geometry. Accepts numbers (px in viewBox space) or strings (e.g. '50%').
-     * If `centered` is true, these are ignored and we use % values that auto-fit the box.
-     */
     cx?: Len
     cy?: Len
     rx?: Len
     ry?: Len
-
-    /** If true, auto-center the ellipse with % radii (nice for full-section backgrounds) */
     centered?: boolean
-
-    /** Extra classes (positioning, z-index, etc.) */
+    /** Extra classes (added on top of the default background classes) */
     className?: string
 }
 
-/**
- * Blurred gradient blob (SVG) with optional auto-centering.
- * - Use CSS variables for colors: from="hsl(var(--color-blue))"
- * - Place with absolute positioning: className="absolute inset-0 -z-10"
- */
+
+
 export function Gradient({
                              from,
                              to,
@@ -57,18 +41,16 @@ export function Gradient({
     const filterId = `grad-filter-${uid}`
     const gradId = `grad-fill-${uid}`
 
-    // ViewBox matches your original; works well as a scalable canvas.
     const viewBox = '0 0 1440 1332'
-
-    // If centered, use % so the ellipse always sits in the middle and scales with the box.
     const ecx: Len = centered ? '50%' : cx
     const ecy: Len = centered ? '50%' : cy
     const erx: Len = centered ? '55%' : rx
     const ery: Len = centered ? '40%' : ry
 
     return (
+
         <svg
-            className={cn('pointer-events-none', className)}
+            className={cn("absolute pointer-events-none", className)}
             viewBox={viewBox}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -96,13 +78,8 @@ export function Gradient({
                 >
                     <feGaussianBlur stdDeviation={blur} />
                 </filter>
-                <linearGradient
-                    id={gradId}
-                    x1="100%" y1="0%"
-                    x2="0%"   y2="0%"
-                    gradientUnits="objectBoundingBox"
-                >
-                    <stop offset="0%"   stopColor={from} />
+                <linearGradient id={gradId} x1="100%" y1="0%" x2="0%" y2="0%" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stopColor={from} />
                     <stop offset="100%" stopColor={to} />
                 </linearGradient>
             </defs>

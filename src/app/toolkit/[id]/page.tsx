@@ -1,4 +1,4 @@
-import ToolDetail from '@/components/pages/ToolDetail'
+import ToolDetail from '@/components/toolkit/ToolDetail'
 import { getToolById, getStaticToolParams, getToolSeoMeta } from '@/lib/tools'
 import { notFound } from 'next/navigation'
 

@@ -3,21 +3,33 @@
 @layer base {
     :root {
         /* Brand hues (H S L — no commas, so Tailwind alpha works) */
-        --color-blue: 217 91% 60%;
-        --color-black: 222 6% 28%;
-        --color-cyan: 189 93% 54%;
-        --color-green: 152 45% 44%;
+        --color-blue:   217 91% 60%;
+        --color-black:  222 6% 28%;
+        --color-cyan:   189 93% 54%;
+        --color-green:  152 45% 44%;
         --color-indigo: 259 84% 56%;
         --color-orange: 24 94% 53%;
-        --color-pink: 326 100% 67%;
+        --color-pink:   326 100% 67%;
         --color-purple: 261 83% 63%;
-        --color-red: 0 84% 63%;
-        --color-teal: 173 61% 47%;
+        --color-red:    0 84% 63%;
+        --color-teal:   173 61% 47%;
         --color-yellow: 43 96% 56%;
 
         /* Semantic aliases */
         --brand-primary: var(--color-indigo);
-        --brand-accent: var(--color-pink);
+        --brand-accent:  var(--color-pink);
+
+        --brand-blue:    var(--color-blue);
+        --brand-black:   var(--color-black);
+        --brand-cyan:    var(--color-cyan);
+        --brand-green:   var(--color-green);
+        --brand-indigo:  var(--color-indigo);
+        --brand-orange:  var(--color-orange);
+        --brand-pink:    var(--color-pink);
+        --brand-purple:  var(--color-purple);
+        --brand-red:     var(--color-red);
+        --brand-teal:    var(--color-teal);
+        --brand-yellow:  var(--color-yellow);
 
         /* Surfaces / text */
         --bg: 0 0% 100%;
@@ -43,16 +55,8 @@
     }
 }
 
-@layer utilities {
-    /* Grid helper for 12col / 32px gutter */
-    .grid-12 {
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 2rem; /* 32px */
-    }
-}
-
 /* Hide scrollbars helper */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+

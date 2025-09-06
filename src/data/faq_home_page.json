@@ -1,12 +1,22 @@
 [
   {
-    "question": "What if I can't find good data?",
-    "answer": "At vero eos et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
+    "question": "What is Software 5.0?",
+    "answer": "A framework that weaves sustainability into software design and development, making products more inclusive, responsible, and future-ready.",
     "isOpen": true
   },
-  { "question": "Which payment methods are accepted?", "answer": "", "isOpen": false },
-  { "question": "How to get familiar with Figma?", "answer": "", "isOpen": false },
-  { "question": "Can I get a refund?", "answer": "", "isOpen": false },
-  { "question": "Where is my order?", "answer": "", "isOpen": false },
-  { "question": "I have a problem", "answer": "", "isOpen": false }
+  {
+    "question": "How can I use it as a student?",
+    "answer": "You can apply it in class projects, workshops, or your own ideas. The toolkit gives you step-by-step methods to explore, design, and test while keeping people and the planet in mind.",
+    "isOpen": false
+  },
+  {
+    "question": "How can educators use it?",
+    "answer": "Teachers can run workshops or integrate the tools into projects. It makes learning about sustainable and inclusive design hands-on and practical.",
+    "isOpen": false
+  },
+  {
+    "question": "Where can I see examples?",
+    "answer": "Check the Knowledge Base — it’s full of case studies and examples that show how the framework has been applied in real projects.",
+    "isOpen": false
+  }
 ]
