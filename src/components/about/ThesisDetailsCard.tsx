@@ -1,40 +1,25 @@
-import { GraduationCap, University, FileText } from "lucide-react";
+import styles from "@styles/about/ThesisDetailsCard.module.css";
+
 
 export function ThesisDetailsCard() {
     return (
-        <div className="rounded-2xl bg-[hsl(var(--surface)/0.8)] p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-fg flex items-center gap-2">
-                <GraduationCap className="h-5 w-5 text-primary" />
+        <div className={styles.card}>
+            <h3 className={styles.title}>
                 Master’s Thesis
             </h3>
 
-            <p className="mt-3 text-sm text-[hsl(var(--muted-fg))]">
-                <strong>Title:</strong> Integrating Social and Ecological Sustainability
-                in Software Product Development
-            </p>
-            <p className="mt-2 text-sm text-[hsl(var(--muted-fg))]">
-                <strong>University:</strong> Technical University of Munich
-            </p>
-            <p className="mt-2 text-sm text-[hsl(var(--muted-fg))]">
-                <strong>Author:</strong> Monika Zielińska
-            </p>
-            <p className="mt-2 text-sm text-[hsl(var(--muted-fg))]">
-                <strong>Advisor:</strong> Elisabeth Freisinger
-                <br />
-                <strong>Supervisor:</strong> Prof. Dr. Stephan Krusche
-            </p>
+            <dl className={styles.details}>
+                <div><dt>Title:</dt><dd>Integrating Social and Ecological Sustainability in Software Product Development</dd></div>
+                <div><dt>University:</dt><dd>Technical University of Munich</dd></div>
+                <div><dt>Author:</dt><dd>Monika Zielińska</dd></div>
+                <div><dt>Advisor:</dt><dd>Elisabeth Freisinger</dd></div>
+                <div><dt>Supervisor:</dt><dd>Prof. Dr. Stephan Krusche</dd></div>
 
-            {/* Download Thesis */}
-            <div className="mt-4">
-                <a
-                    href="/files/monika-zielinska-thesis.pdf"
-                    download
-                    className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90"
-                >
-                    <FileText className="h-4 w-4" />
-                    Download Thesis
-                </a>
-            </div>
+            </dl>
+            <a href="/files/thesis.pdf" download className={styles.button} >
+                Download
+            </a>
+
         </div>
     );
 }

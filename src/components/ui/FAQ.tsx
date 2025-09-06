@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import { cn } from '@/lib/cn'
-import { PlusIcon } from '@/components/icons/PlusIcon'
-import { MinusIcon } from '@/components/icons/MinusIcon'
+import { PlusIcon } from '@/components/ui/icons/PlusIcon'
+import { MinusIcon } from '@/components/ui/icons/MinusIcon'
 
 export type Faq = {
     question: string

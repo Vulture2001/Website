@@ -2,7 +2,17 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-const articlesDir = path.join(process.cwd(), "src/content/articles")
+const articlesDir = path.join(process.cwd(), "src/articles")
+
+export type ArticleSummary = {
+    slug: string;
+    title: string;
+    heroSrc?: string;
+    heroAlt?: string;
+    lead?: string;
+    date?: string; // ISO string
+};
+
 
 export type ArticleMeta = {
     slug: string

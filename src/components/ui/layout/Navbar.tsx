@@ -1,6 +1,6 @@
 'use client';
 
-import "@/styles/navbar.css";
+import "@styles/navbar.css";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -43,7 +43,7 @@ export function Navbar() {
             <nav className="mx-auto w-full max-w-[1336px] px-4 lg:px-6" aria-label="Global">
                 <div className="h-16 flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Software 5.0 home">
+                    <Link href="/public" className="flex items-center gap-2 shrink-0" aria-label="Software 5.0 home">
                         <span className="text-[1.125rem] font-semibold tracking-tight text-fg">Software 5.0</span>
                     </Link>
 

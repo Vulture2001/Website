@@ -1,0 +1,24 @@
+@reference "tailwindcss";
+
+.card {
+    composes: cardBase from "@styles/Card.module.css";
+}
+
+.title {
+    @apply text-lg font-semibold flex items-center gap-2 mb-4;
+    color: hsl(var(--fg));
+}
+
+.details {
+    @apply space-y-3 text-sm mb-10;
+    color: hsl(var(--muted-fg));
+}
+
+.details dt {
+    @apply font-medium;
+    color: hsl(var(--fg));
+}
+
+.button {
+    @apply text-sm font-semibold ;
+}

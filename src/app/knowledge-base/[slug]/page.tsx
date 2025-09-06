@@ -3,7 +3,7 @@ import { getArticleBySlug } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import { ArticleLayout } from "@/components/knowledge-base/ArticleLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { mdxComponents } from "@/components/mdx-components";
+import { mdxComponents } from "@/components/ui/mdx-components";
 
 export default function ArticleSlugPage({ params }: { params: { slug: string } }) {
     const article = getArticleBySlug(params.slug);

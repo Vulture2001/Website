@@ -1,7 +1,7 @@
 import './globals.css'
-import { inter } from '@/fonts'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
+import { inter } from '@styles/fonts'
+import { Navbar } from '@/components/ui/layout/Navbar'
+import { Footer } from '@/components/ui/layout/Footer'
 import React from 'react'
 import type { Metadata } from 'next'
 

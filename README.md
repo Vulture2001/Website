@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Software 5.0 – Documentation Website
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61dafb?logo=react)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38b2ac?logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-animations-ff69b4?logo=framer)
+![MDX](https://img.shields.io/badge/MDX-docs-orange?logo=mdx)
 
-First, run the development server:
+---
 
-```bash
+This repository contains the documentation website for the **Software 5.0 Framework**, developed as part of the Master’s thesis:
+
+> **Integrating Social and Ecological Sustainability in Software Product Development**  
+> Technical University of Munich  
+> Author: *Monika Zielińska (2025)*
+
+---
+
+## 🎯 Purpose
+
+Software has a **dual role in sustainability**:  
+it can enable responsible innovation, but it can also reinforce ecological and social challenges.  
+Yet, sustainability is still **marginally embedded** in software engineering education and practice.
+
+The **Software 5.0 Framework** addresses this gap by providing:
+- Practical **methods**
+- Ready-to-use **templates**
+- Guidance for **embedding social and ecological sustainability** in software projects
+
+This website serves as the **documentation hub** for the framework.
+
+---
+
+## 🚀 Getting Started
+
+To set up the project locally:
+
+1. Clone the repository
+2. Install dependencies
+3. Run the development server
+4. Build and start the production server
+
+```
+# clone the repository
+git clone https://github.com/your-username/master-thesis.git
+cd master-thesis
+
+# install dependencies
+npm install
+
+# start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# build for production
+npm run build
+
+# run production build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After starting, open [http://localhost:3000](http://localhost:3000) in your browser.  
+The site will auto-refresh as you edit files.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- [Next.js 15](https://nextjs.org) – App Router, Turbopack
+- [React 19](https://react.dev)
+- [Tailwind CSS 4](https://tailwindcss.com) – with plugins (forms, typography, aspect-ratio)
+- [Framer Motion](https://www.framer.com/motion/) – animations
+- [Lucide Icons](https://lucide.dev)
+- [MDX](https://mdxjs.com) – rich documentation content
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📚 Learn More
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📖 [Thesis PDF](./public/files/thesis.pdf) – full academic work
+- 🌍 [Industry 5.0 & Sustainability](https://research-and-innovation.ec.europa.eu/industry-50_en)
+- 📝 [Karlskrona Manifesto for Sustainability Design](https://sustainabilitydesign.org/)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open for **educational and research purposes**.  
+For reuse beyond these contexts, please contact the author.  

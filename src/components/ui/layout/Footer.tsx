@@ -1,6 +1,6 @@
 'use client';
 
-import "@/styles/footer.css";
+import "@styles/footer.css";
 
 import Link from "next/link";
 import { cn } from "@/lib/cn";
@@ -37,7 +37,7 @@ export function Footer({ className }: { className?: string }) {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
                     {/* Brand / Mission */}
                     <div className="md:col-span-3 flex flex-col gap-3">
-                        <Link href="/" className="text-lg font-semibold tracking-tight text-fg" aria-label="Software 5.0 home">
+                        <Link href="/public" className="text-lg font-semibold tracking-tight text-fg" aria-label="Software 5.0 home">
                             Software 5.0
                         </Link>
                         <p className="text-sm text-[hsl(var(--muted-fg))]">

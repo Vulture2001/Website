@@ -8,7 +8,7 @@ type Align = "left" | "center";
 /** Omit the native HTML `title` attr to avoid conflict */
 export interface HeaderProps
     extends Omit<React.ComponentPropsWithoutRef<"section">, "title"> {
-    /** Visual heading content */
+    /** Visual heading articles */
     title: ReactNode;
     /** Small pill above the title */
     eyebrow?: ReactNode;

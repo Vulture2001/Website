@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
  * InteractiveToolbarDomains.tsx
  * Kozmo‑style top toolbar with a domain switcher dropdown.
  * Domains: Financial, Environmental, Social, Technical, Individual.
- * The content area scales to fit using FitToBox so switching feels snappy.
+ * The articles area scales to fit using FitToBox so switching feels snappy.
  */
 
 const DOMAINS = [

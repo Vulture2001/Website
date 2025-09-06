@@ -1,9 +1,9 @@
 'use client';
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { type Crumb } from '@/components/ui/Breadcrumb';
+import { type Crumb } from '@/components/ui/layout/Breadcrumb';
 import { ArticleLayout } from '@/components/knowledge-base/ArticleLayout';
-import {mdxComponents} from "@/components/mdx-components";
+import {mdxComponents} from "@/components/ui/mdx-components";
 
 export default function ArticlePage({
                                         article,

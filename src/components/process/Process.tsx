@@ -1,6 +1,6 @@
 'use client';
 
-import Header from "@/components/ui/Header";
+import Header from "@/components/ui/layout/Header";
 import { PhaseCarousel } from "@/components/carousel/PhaseCarousel";
 import { Badge } from "@/components/ui/Badge";
 import { motion } from "framer-motion";

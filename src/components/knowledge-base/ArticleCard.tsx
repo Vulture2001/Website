@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { ArticleSummary } from "@/types/Article";
+import {ArticleSummary} from "@/lib/mdx";
 
 /* ----------------------------- utils ----------------------------- */
 function normalizeSrc(src?: string): string | null {

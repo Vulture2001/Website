@@ -3,8 +3,8 @@
 
 import Link from 'next/link'
 import React from 'react'
-import { Button } from '@/components/ui/Button'
-import { ArrowIcon } from '../icons/ArrowIcon'
+import { Button } from '@/components/ui/buttons/Button'
+import { ArrowIcon } from '@/components/ui/icons/ArrowIcon'
 import { cn } from '@/lib/cn'
 
 type Props = {

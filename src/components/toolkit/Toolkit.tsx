@@ -3,14 +3,14 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { truncate } from '@/lib/truncate'
-import Header from '@/components/ui/Header'
+import Header from '@/components/ui/layout/Header'
 import { Input } from '@/components/ui/Input'
 import { Card, CardBody } from '@/components/ui/Card'
 import categoriesJson from '@/data/phases.json'
 import toolsJson from '@/data/tools.json'
-import faqs from '@/data/faqs.json'
+import faqs from '@/data/faqs_toolkit.json'
 import { FaqList } from '@/components/ui/FAQ'
-import { Tabs } from '@/components/ui/Tabs'
+import { Tabs } from '@/components/toolkit/Tabs'
 
 type Category = { label: string; value: string; color: string }
 type Step = { title?: string; description?: string } | string

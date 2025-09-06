@@ -5,13 +5,13 @@ import { motion } from 'framer-motion'
 import { Gradient } from '@/components/ui/Gradient'
 import { normalizeArray, normalizeSteps } from '@/lib/tools'
 import type { Tool } from '@/lib/tools'
-import TipsSection from '@/components/ui/TipsSection'
+import TipsSection from '@/components/toolkit/TipsSection'
 import { NumBadge } from '@/components/ui/Badge'
-import { Breadcrumb } from '@/components/ui/Breadcrumb'
+import { Breadcrumb } from '@/components/ui/layout/Breadcrumb'
 import phasesJson from '@/data/phases.json'
-import { FigmaIcon } from '@/components/icons/FigmaIcon'
-import { MiroIcon } from '@/components/icons/MiroIcon'
-import { CopyButton } from '@/components/ui/CopyButton'
+import { FigmaIcon } from '@/components/ui/icons/FigmaIcon'
+import { MiroIcon } from '@/components/ui/icons/MiroIcon'
+import { CopyButton } from '@/components/ui/buttons/CopyButton'
 
 type Phase = { value: string; label: string; color?: string; track?: 'Design' | 'Development' }
 const phases = phasesJson as Phase[]
@@ -23,7 +23,6 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
             p.label.toLowerCase() === (tool.phase ?? '').toLowerCase()
     )
 
-    const phaseColor = phaseDef?.color ?? '#4F46E5'
     const track = phaseDef?.track ?? 'Design'
 
     const steps = normalizeSteps(tool.steps)
@@ -48,11 +47,6 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
         }
         return { miroUrl, figmaUrl, otherTemplates }
     }, [templates])
-
-    const allPromptsText = useMemo(
-        () => prompts.map((p, i) => `${i + 1}. ${p}`).join('\n\n'),
-        [prompts]
-    )
 
     return (
         <div className="relative flex flex-col min-h-screen bg-white">

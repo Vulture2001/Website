@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/cn';
-import '@/styles/carousel.css';
+import '@styles/carousel.css';
 
 type Props<T> = {
     items: T[];

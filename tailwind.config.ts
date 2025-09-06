@@ -1,27 +1,25 @@
 // tailwind.config.ts
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 const config: Config = {
     content: [
-        "./src/**/*.{ts,tsx,js,jsx,mdx}",
-        "./app/**/*.{ts,tsx,js,jsx,mdx}", // if you use /app
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/styles/**/*.{css}"
     ],
     theme: {
         extend: {
             colors: {
-                // surfaces / text
-                bg: "hsl(var(--bg) / <alpha-value>)",
-                fg: "hsl(var(--fg) / <alpha-value>)",
+                surface: {
+                    DEFAULT: "hsl(var(--surface) / <alpha-value>)",
+                    fg: "hsl(var(--fg) / <alpha-value>)",
+                    border: "hsl(var(--border) / <alpha-value>)",
+                    muted: "hsl(var(--muted-fg) / <alpha-value>)",
+                },
                 text: "hsl(var(--text) / <alpha-value>)",
-                "muted-fg": "hsl(var(--muted-fg) / <alpha-value>)",
-                surface: "hsl(var(--surface) / <alpha-value>)",
-                border: "hsl(var(--border) / <alpha-value>)",
-
-                // brand aliases
                 brand: {
                     primary: "hsl(var(--brand-primary) / <alpha-value>)",
                     accent: "hsl(var(--brand-accent) / <alpha-value>)",
-
                     blue: "hsl(var(--brand-blue) / <alpha-value>)",
                     black: "hsl(var(--brand-black) / <alpha-value>)",
                     cyan: "hsl(var(--brand-cyan) / <alpha-value>)",
@@ -38,7 +36,11 @@ const config: Config = {
         },
     },
     darkMode: "class",
-    plugins: [],
-};
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/typography"),
+        require("@tailwindcss/aspect-ratio"),
+    ],
+}
 
-export default config;
+export default config

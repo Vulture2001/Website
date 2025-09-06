@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { cn } from '@/lib/cn';
-import { Breadcrumb, type Crumb } from '@/components/ui/Breadcrumb';
+import { Breadcrumb, type Crumb } from '@/components/ui/layout/Breadcrumb';
 import {formatDate} from "@/lib/formatDate";
 
 const fadeInUp: Variants = {

@@ -5,10 +5,10 @@ import "@/styles/hero.css";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/buttons/Button";
 import { Badge } from "@/components/ui/Badge";
-import { ActionButton } from "@/components/ui/ActionButton";
-import {ArrowRightIcon} from "@/components/icons/ArrowRightIcon";
+import { ActionButton } from "@/components/ui/buttons/ActionButton";
+import {ArrowRightIcon} from "@/components/ui/icons/ArrowRightIcon";
 
 type CTA = { label: string; href: string };
 
@@ -37,7 +37,7 @@ export function HomeHero({
         >
             <div className="relative max-w-8xl px-6 lg:px-74 mb-10">
                 <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center">
-                    {/* Left: content */}
+                    {/* Left: articles */}
                     <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
                         {eyebrow && (
                             <Badge variant="outline" tone="gray" size="lg" shape="pill">

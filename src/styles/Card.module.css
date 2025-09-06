@@ -1,0 +1,8 @@
+@reference "tailwindcss";
+
+.cardBase {
+    @apply rounded-2xl p-8 border transition-shadow;
+    background-color: hsl(var(--surface));
+    border-color: hsl(var(--border));
+}
+

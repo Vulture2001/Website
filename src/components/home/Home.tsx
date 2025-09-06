@@ -3,14 +3,13 @@
 import { HomeHero } from "@/components/home/HomeHero";
 import { Content } from "../ui/Content";
 import {Badge, NumBadge} from "../ui/Badge";
-import { ActionButton } from "../ui/ActionButton";
+import { ActionButton } from "../ui/buttons/ActionButton";
 import faqs from "@/data/faq_home_page.json";
 import { FaqList } from "../ui/FAQ";
 import { motion, Variants } from "framer-motion";
-import Header from "@/components/ui/Header";
+import Header from "@/components/ui/layout/Header";
 import React from "react";
 import phases from "@/data/phases.json";
-import Gradient from "@/components/ui/Gradient";
 
 const fadeIn: Variants = {
     hidden: { opacity: 0, y: 24 },

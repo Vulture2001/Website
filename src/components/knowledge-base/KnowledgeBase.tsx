@@ -2,7 +2,7 @@
 'use client';
 
 import { motion, type Variants } from "framer-motion";
-import Header from "@/components/ui/Header";
+import Header from "@/components/ui/layout/Header";
 import ArticleGrid from "@/components/knowledge-base/ArticleGrid";
 import type { ArticleMeta } from "@/lib/mdx";
 
