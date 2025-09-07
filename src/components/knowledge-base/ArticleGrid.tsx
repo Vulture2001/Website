@@ -1,5 +1,5 @@
-import type { ArticleSummary } from "@/types/Article";
 import { ArticleCard } from "./ArticleCard";
+import {ArticleSummary} from "@lib/mdx";
 
 type Props = {
     articles: ArticleSummary[];

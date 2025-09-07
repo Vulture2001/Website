@@ -7,6 +7,16 @@ import { cn } from '@/lib/cn';
 import { Breadcrumb, type Crumb } from '@/components/ui/layout/Breadcrumb';
 import {formatDate} from "@/lib/formatDate";
 
+
+export function normalizeSrc(src?: string): string | null {
+    if (!src) return null;
+    if (src.startsWith("data:")) return src;
+    if (src.startsWith("http://") || src.startsWith("https://")) return src;
+    if (src.startsWith("/public/")) return src.replace(/^\/public/, ""); // 👈 fix
+    if (src.startsWith("/")) return src;
+    return `/${src}`;
+}
+
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 16 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
@@ -69,25 +79,24 @@ export function ArticleLayout({
                     </div>
                 ) : null}
 
-                {/* Hero Image */}
-                {heroSrc ? (
-                    <motion.div
-                        className="mt-5 overflow-hidden rounded-[24px] bg-[hsl(var(--surface)/0.8)]"
-                        variants={fadeInUp}
-                        whileHover={{ scale: 1.01 }}
-                        transition={{ type: 'spring', stiffness: 120 }}
-                    >
-                        <div className={cn('relative w-full', heroAspect)}>
-                            <Image
-                                src={heroSrc}
-                                alt={heroAlt ?? ''}
-                                fill
-                                className="object-cover"
-                                priority
-                            />
-                        </div>
-                    </motion.div>
-                ) : null}
+                {/* Hero Image */}{heroSrc ? (
+                <motion.div
+                    className="mt-5 overflow-hidden rounded-[24px] bg-[hsl(var(--surface)/0.8)]"
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 120 }}
+                >
+                    <div className={cn('relative w-full', heroAspect)}>
+                        <Image
+                            src={normalizeSrc(heroSrc)!}
+                            alt={heroAlt ?? ''}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                    </div>
+                </motion.div>
+            ) : null}
 
                 {/* Lead paragraph */}
                 {lead ? (

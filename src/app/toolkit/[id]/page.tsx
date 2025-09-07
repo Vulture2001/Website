@@ -7,12 +7,17 @@ export async function generateStaticParams() {
     return getStaticToolParams()
 }
 
-// ⬇️ params is a Promise — await it
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+import type { Metadata } from "next"
+
+export async function generateMetadata(
+    { params }: { params: Promise<{ id: string }> }
+): Promise<Metadata> {
     const { id } = await params
     const tool = getToolById(id)
-    if (!tool) return { title: 'Tool not found' }
-    return getToolSeoMeta(tool)
+    if (!tool) {
+        return { title: "Tool not found" }
+    }
+    return getToolSeoMeta(tool) // make sure this returns Metadata
 }
 
 // ⬇️ params is a Promise — await it
