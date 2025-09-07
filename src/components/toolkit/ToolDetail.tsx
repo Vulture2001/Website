@@ -2,7 +2,6 @@
 
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { Gradient } from '@/components/ui/Gradient'
 import { normalizeArray, normalizeSteps } from '@/lib/tools'
 import type { Tool } from '@/lib/tools'
 import TipsSection from '@/components/toolkit/TipsSection'
@@ -53,7 +52,7 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
             {/* Breadcrumb */}
             <Breadcrumb
                 items={[
-                    { label: 'Home', href: '/public' },
+                    { label: 'Home', href: '/' },
                     { label: 'Toolkit', href: '/toolkit' },
                     { label: tool.title },
                 ]}
