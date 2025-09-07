@@ -5,13 +5,18 @@ import { ArticleLayout } from "@/components/knowledge-base/ArticleLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/ui/mdx-components";
 
-export default function ArticleSlugPage({ params }: { params: { slug: string } }) {
-    const article = getArticleBySlug(params.slug);
+export default async function ArticleSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+    // Await the params
+    const { slug } = await params;
+
+    // If your getArticleBySlug is synchronous, you don’t need `await` here.
+    // If it’s async (e.g. reading from disk or fetching), add `await`.
+    const article = await getArticleBySlug(slug);
     if (!article) return notFound();
 
     const breadcrumbs = [
         { href: "/knowledge-base", label: "Knowledge Base" },
-        { href: `/knowledge-base/${params.slug}`, label: article.meta.title },
+        { href: `/knowledge-base/${slug}`, label: article.meta.title },
     ];
 
     return (

@@ -1,27 +1,30 @@
-import Header from "@/components/ui/layout/Header";
+// app/about/page.tsx
+"use client";
+
+import { PageLayout } from "@/components/ui/layout/PageLayout";
+import { PageHero } from "@/components/ui/layout/PageHero";
+import { fadeInUp } from "@/lib/animations";
 import { ProfileCard } from "@/components/about/ProfileCard";
 import { ThesisDetailsCard } from "@/components/about/ThesisDetailsCard";
-import styles from "@styles/about/AboutPage.module.css";
-
+import {MotionSection} from "@components/ui/layout/Section";
 
 export default function AboutPage() {
     return (
-        <div className={styles.section}>
-            <div className={styles.container}>
-                <Header
-                    id="kb-articles"
-                    align="center"
-                    className="mb-16 mt-20"
-                    maxWidth="4xl"
-                    title="About the Framework"
-                    subtitle="Learn who created Software 5.0 and the research behind its development."
-                />
+        <PageLayout>
+            <PageHero
+                id="about-hero"
+                eyebrow="About"
+                title="About the Framework"
+                subtitle="Learn who created Software 5.0 and the research behind its development."
+                size="xl"
+            />
 
-                <div className={styles.grid}>
+            <MotionSection id="about-content" variants={fadeInUp}>
+                <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1fr_1.2fr] items-start">
                     <ProfileCard />
                     <ThesisDetailsCard />
                 </div>
-            </div>
-        </div>
+            </MotionSection>
+        </PageLayout>
     );
 }

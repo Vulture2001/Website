@@ -15,7 +15,7 @@ export function ProfileCard() {
             />
             <h3 className={styles.name}>Monika Zielińska</h3>
             <p className={styles.role}>
-                Master’s Thesis Author & Framework Developer at Technical University of Munich
+                Master’s Thesis Author at Technical University of Munich
             </p>
             <SocialLinks
                 links={[
