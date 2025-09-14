@@ -1,14 +1,10 @@
-'use client';
-
-import "@/styles/hero.css";
+"use client";
 
 import Link from "next/link";
 import { cn } from "@/lib/cn";
-
 import { Button } from "@/components/ui/buttons/Button";
 import { Badge } from "@/components/ui/Badge";
-import { ActionButton } from "@/components/ui/buttons/ActionButton";
-import {ArrowRightIcon} from "@/components/ui/icons/ArrowRightIcon";
+import { ArrowRightIcon } from "@/components/ui/icons/ArrowRightIcon";
 
 type CTA = { label: string; href: string };
 
@@ -31,48 +27,72 @@ export function HomeHero({
                          }: HeroProps) {
     return (
         <section
-            className={cn("hero-section hero-padding", "relative", className)}
+            className={cn(
+                "relative isolate overflow-hidden",
+                "py-40 sm:py-40 lg:py-48",
+                "bg-[radial-gradient(1000px_600px_at_70%_50%,hsl(var(--color-brand-primary)/0.3),hsl(var(--color-brand-accent)/0.25)_30%,hsl(var(--color-brand-orange)/0.2)_50%,hsl(var(--color-bg)/0)_70%)]",
+                className
+            )}
             aria-labelledby="home-hero-title"
             role="region"
         >
-            <div className="relative max-w-8xl px-6 lg:px-74 mb-10">
+            <div className="relative mx-auto max-w-7xl px-6 lg:px-8 mb-10">
                 <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center">
-                    {/* Left: articles */}
+                    {/* Left content */}
                     <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
                         {eyebrow && (
-                            <Badge variant="outline" tone="gray" size="lg" shape="pill">
+                            <Badge
+                                variant="outline"
+                                size="xl"
+                                shape="pill"
+                                className="opacity-0 animate-fade-in [animation-delay:200ms] [animation-fill-mode:forwards]"
+                            >
                                 {eyebrow}
                             </Badge>
                         )}
 
                         <h1
                             id="home-hero-title"
-                            className="mt-10 text-4xl font-bold tracking-tight text-fg sm:text-6xl lg:text-8xl"
+                            className="mt-10 text-4xl font-bold tracking-tight text-surface-fg sm:text-6xl lg:text-8xl"
                         >
                             {titleLines.map((line, i) => (
-                                <span key={i} className="block">
+                                <span
+                                    key={i}
+                                    className={cn(
+                                        "block opacity-0 translate-y-4 animate-fade-up",
+                                        `[animation-delay:${400 + i * 200}ms] [animation-fill-mode:forwards]`
+                                    )}
+                                >
                   {line}
                 </span>
                             ))}
                         </h1>
 
                         {description && (
-                            <p className="mt-6 text-lg leading-8 text-muted-fg max-w-xl">
+                            <p
+                                className="mt-6 text-xl leading-8 text-text-muted max-w-xl opacity-0 animate-fade-up [animation-delay:1000ms] [animation-fill-mode:forwards]"
+                            >
                                 {description}
                             </p>
                         )}
 
-                        <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                        <div
+                            className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start opacity-0 animate-fade-up [animation-delay:1300ms] [animation-fill-mode:forwards]"
+                        >
                             {cta && (
                                 <Link href={cta.href} aria-label={cta.label}>
-                                    <Button size="lg" variant="solid" color="blue" shape="pill">
+                                    <Button size="lg" variant="outline" shape="pill">
                                         {cta.label}
                                         <ArrowRightIcon className="h-4 w-4" />
                                     </Button>
                                 </Link>
                             )}
                             {secondaryHref && (
-                                <ActionButton href={secondaryHref}>About</ActionButton>
+                                <Link href="/about">
+                                    <Button variant="link" size="xl">
+                                        About
+                                    </Button>
+                                </Link>
                             )}
                         </div>
                     </div>

@@ -5,28 +5,37 @@ import { InfiniteCarousel } from '@/components/ui/InfiniteCarousel'
 import { PhaseCard, type PhaseCardData } from '@/components/carousel/PhaseCard'
 import phasesJson from '@/data/phases.json' assert { type: 'json' }
 
+/* ----------------------------- Types ----------------------------- */
 type Phase = {
     value: string
-    label: string
+    label?: string
     color?: string
     description?: string
     disabled?: boolean
     track?: 'Design' | 'Development'
 }
 
-const PHASES = phasesJson as Phase[]
+/* ----------------------------- Normalization ----------------------------- */
+function mapPhaseToCard(phase: Phase, index: number): PhaseCardData {
+    const normalizedTrack: 'Design' | 'Development' =
+        phase.track ??
+        (phase.value.toLowerCase().includes('development')
+            ? 'Development'
+            : 'Design')
 
-const CARDS: PhaseCardData[] = PHASES.map((p, i) => ({
-    title: p.label || p.value,
-    description: p.description,
-    color: p.color,
-    index1: i + 1,
-    track:
-        p.track ??
-        (p.value?.toLowerCase() === 'development' ? 'Development' : 'Design'),
-    disabled: p.disabled ?? p.value?.toLowerCase() === 'development',
-}))
+    return {
+        title: phase.label || phase.value,
+        description: phase.description,
+        color: phase.color,
+        index1: index + 1,
+        track: normalizedTrack,
+        disabled: phase.disabled ?? normalizedTrack === 'Development',
+    }
+}
 
+const CARDS: PhaseCardData[] = (phasesJson as Phase[]).map(mapPhaseToCard)
+
+/* ----------------------------- Component ----------------------------- */
 export function PhaseCarousel() {
     return (
         <InfiniteCarousel

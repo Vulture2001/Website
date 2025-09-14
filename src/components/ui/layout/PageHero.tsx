@@ -1,4 +1,3 @@
-// components/ui/layout/PageHero.tsx
 import Header from "@/components/ui/layout/Header";
 
 type PageHeroProps = {
@@ -7,15 +6,28 @@ type PageHeroProps = {
     title: string;
     subtitle: string;
     size?: "md" | "xl";
+    align?: "left" | "center"; // allow flexibility
+    background?: string; // e.g. "bg-surface" or gradient
 };
 
-export function PageHero({ id, eyebrow, title, subtitle, size }: PageHeroProps) {
+export function PageHero({
+                             id,
+                             eyebrow,
+                             title,
+                             subtitle,
+                             size,
+                             align = "center",
+                             background = "bg-bg", // default to page background
+                         }: PageHeroProps) {
     return (
-        <section className="relative py-20 text-center overflow-hidden">
+        <section
+            className={`relative overflow-hidden ${background}`}
+            aria-labelledby={id}
+        >
             <Header
                 id={id}
                 eyebrow={eyebrow}
-                align="center"
+                align={align}
                 title={title}
                 subtitle={subtitle}
                 size={size}

@@ -1,41 +1,34 @@
 'use client'
-import React, { useEffect, useMemo, useRef } from 'react'
+import React, { useEffect, useMemo, useRef, useCallback } from 'react'
+import { motion } from 'framer-motion'
 
 export default function TipsSection({ tips }: { tips: string[] }) {
     const trackRef = useRef<HTMLDivElement | null>(null)
 
-    // Render 3x so we can loop seamlessly
+    // Repeat tips 3x for seamless infinite loop
     const repeatedTips = useMemo(() => {
         if (!tips?.length) return []
         return [...tips, ...tips, ...tips]
     }, [tips])
 
-    // Helper to get the width of one "segment" (i.e., one full tips set)
-    const getSegmentWidth = () => {
+    const getSegmentWidth = useCallback(() => {
         const el = trackRef.current
-        if (!el) return 0
-        // Because we rendered 3 identical segments in a row, the segment width is 1/3 of the total scroll width.
-        return el.scrollWidth / 3
-    }
+        return el ? el.scrollWidth / 3 : 0
+    }, [])
 
-    // Keep the scroll position in the middle segment
-    const normalizeScroll = () => {
+    const normalizeScroll = useCallback(() => {
         const el = trackRef.current
         if (!el) return
         const segment = getSegmentWidth()
-        if (segment === 0) return
+        if (!segment) return
 
-        // When we go too far left, jump right by one segment (no smooth behavior so it’s imperceptible).
         if (el.scrollLeft <= 1) {
             el.scrollTo({ left: el.scrollLeft + segment, behavior: 'auto' })
-        }
-        // When we go too far right (into the 3rd segment), jump left by one segment.
-        else if (el.scrollLeft >= segment * 2 - 1) {
+        } else if (el.scrollLeft >= segment * 2 - 1) {
             el.scrollTo({ left: el.scrollLeft - segment, behavior: 'auto' })
         }
-    }
+    }, [getSegmentWidth])
 
-    // On mount & on resize, center on the middle segment
     useEffect(() => {
         const el = trackRef.current
         if (!el || !tips?.length) return
@@ -47,21 +40,15 @@ export default function TipsSection({ tips }: { tips: string[] }) {
 
         centerOnMiddle()
 
-        const onScroll = () => normalizeScroll()
-        el.addEventListener('scroll', onScroll, { passive: true })
-
-        // Re-center on layout changes
-        const ro = new ResizeObserver(() => {
-            centerOnMiddle()
-        })
+        el.addEventListener('scroll', normalizeScroll, { passive: true })
+        const ro = new ResizeObserver(centerOnMiddle)
         ro.observe(el)
 
         return () => {
-            el.removeEventListener('scroll', onScroll)
+            el.removeEventListener('scroll', normalizeScroll)
             ro.disconnect()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [tips?.length])
+    }, [tips?.length, getSegmentWidth, normalizeScroll])
 
     const scroll = (dir: 'left' | 'right') => {
         const el = trackRef.current
@@ -74,7 +61,7 @@ export default function TipsSection({ tips }: { tips: string[] }) {
 
     return (
         <section>
-            <h2 className="text-[40px] font-semibold tracking-tight text-zinc-800 text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-fg text-center mb-12">
                 Tips &amp; Tricks
             </h2>
 
@@ -89,12 +76,18 @@ export default function TipsSection({ tips }: { tips: string[] }) {
                 <div
                     ref={trackRef}
                     className="no-scrollbar flex flex-nowrap gap-6 overflow-x-auto snap-x snap-mandatory px-1"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {repeatedTips.map((t, i) => (
-                        <div key={i} className="snap-start shrink-0 w-[320px] md:w-[400px]">
+                        <motion.div
+                            key={i}
+                            className="snap-start shrink-0 w-[320px] md:w-[400px]"
+                            initial={{ opacity: 0, y: 15 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: (i % tips.length) * 0.05 }}
+                        >
                             <TipCard text={t} />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
@@ -104,10 +97,8 @@ export default function TipsSection({ tips }: { tips: string[] }) {
 
 function TipCard({ text }: { text: string }) {
     return (
-        <div className="rounded-2xl border border-[#EAECF0] bg-white p-5 h-full">
-            <div className="flex items-start gap-3">
-                <p className="text-[#282828] leading-7">{text}</p>
-            </div>
+        <div className="rounded-2xl border border-border bg-surface p-5 h-full transition hover:shadow-md hover:-translate-y-1 duration-200">
+            <p className="text-fg leading-relaxed text-[15px]">{text}</p>
         </div>
     )
 }
@@ -119,9 +110,9 @@ function NavButton({ side, onClick }: { side: 'left' | 'right'; onClick: () => v
             type="button"
             onClick={onClick}
             aria-label={isLeft ? 'Previous tips' : 'Next tips'}
-            className={`absolute ${isLeft ? '-left-3' : '-right-3'} top-1/2 -translate-y-1/2 z-10
-        rounded-full border border-[#D0D5DD] bg-white w-10 h-10
-        flex items-center justify-center hover:bg-[#F3F4F6] transition shadow-sm`}
+            className={`absolute ${isLeft ? '-left-4' : '-right-4'} top-1/2 -translate-y-1/2 z-10
+        rounded-full border border-border bg-surface w-11 h-11
+        flex items-center justify-center hover:bg-surface-hover transition shadow-md focus:outline-none focus:ring-2 focus:ring-primary`}
         >
             <svg width="18" height="18" viewBox="0 0 24 24">
                 <path

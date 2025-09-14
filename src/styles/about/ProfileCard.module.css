@@ -2,7 +2,7 @@
 
 .card {
     composes: cardBase from "../Card.module.css";
-    @apply flex flex-col items-center justify-center text-center p-10;
+    @apply flex flex-col items-center justify-center text-center p-10 h-full;
 }
 
 .avatar {
@@ -25,7 +25,7 @@
 }
 
 .socialLinks {
-    @apply flex gap-6 mt-2;
+    @apply flex gap-6 mt-1;
 }
 
 .socialLink {

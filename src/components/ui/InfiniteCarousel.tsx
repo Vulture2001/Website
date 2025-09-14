@@ -1,5 +1,8 @@
+'use client';
+
 import * as React from 'react';
 import { cn } from '@/lib/cn';
+import { ChevronLeft, ChevronRight } from 'lucide-react'; // modern icons
 import '@styles/carousel.css';
 
 type Props<T> = {
@@ -114,10 +117,20 @@ export function InfiniteCarousel<T>({
         el.scrollBy({ left: dir === 'left' ? -step : step, behavior: 'smooth' });
     };
 
+    // keyboard navigation
+    React.useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowLeft') scrollOne('left');
+            if (e.key === 'ArrowRight') scrollOne('right');
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    });
+
     if (!items?.length) return null;
 
     return (
-        <div className="carousel relative flex flex-col items-center">
+        <div className="carousel relative flex flex-col items-center" aria-live="polite">
             <div className="carousel-container relative w-full max-w-7xl px-6">
                 <div
                     id="infinite-carousel-track"
@@ -137,8 +150,8 @@ export function InfiniteCarousel<T>({
                             <div
                                 key={`${baseIdx}-${i}`}
                                 className={cn(
-                                    'carousel-slide snap-center transition-transform rounded-2xl',
-                                    isActive ? 'scale-105' : 'scale-100 opacity-70'
+                                    'carousel-slide snap-center transition-all duration-300 rounded-2xl',
+                                    isActive ? 'scale-105 opacity-100' : 'scale-95 opacity-70'
                                 )}
                                 style={{ width: slideWidth }}
                                 role="group"
@@ -159,25 +172,25 @@ export function InfiniteCarousel<T>({
                     type="button"
                     aria-label="Previous"
                     aria-controls="infinite-carousel-track"
-                    className="carousel-button absolute top-1/2 left-0 -translate-y-1/2 transform rounded-full bg-[hsl(var(--surface))] shadow hover:bg-primary/10"
+                    className="carousel-button absolute top-1/2 left-4 -translate-y-1/2 transform rounded-full p-2 bg-surface shadow hover:bg-primary/10 transition"
                     onClick={(e) => {
                         e.stopPropagation();
                         scrollOne('left');
                     }}
                 >
-                    ‹
+                    <ChevronLeft className="h-6 w-6 text-fg" />
                 </button>
                 <button
                     type="button"
                     aria-label="Next"
                     aria-controls="infinite-carousel-track"
-                    className="carousel-button absolute top-1/2 right-0 -translate-y-1/2 transform rounded-full bg-[hsl(var(--surface))] shadow hover:bg-primary/10"
+                    className="carousel-button absolute top-1/2 right-4 -translate-y-1/2 transform rounded-full p-2 bg-surface shadow hover:bg-primary/10 transition"
                     onClick={(e) => {
                         e.stopPropagation();
                         scrollOne('right');
                     }}
                 >
-                    ›
+                    <ChevronRight className="h-6 w-6 text-fg" />
                 </button>
             </div>
 
@@ -187,8 +200,8 @@ export function InfiniteCarousel<T>({
                     <span
                         key={i}
                         className={cn(
-                            'h-2 w-2 rounded-full transition',
-                            i === active ? 'bg-primary' : 'bg-gray-300'
+                            'h-2 w-2 rounded-full transition-all duration-300',
+                            i === active ? 'bg-brand-pink scale-125' : 'bg-black/20 scale-100'
                         )}
                     />
                 ))}

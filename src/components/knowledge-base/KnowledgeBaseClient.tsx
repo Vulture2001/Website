@@ -6,11 +6,11 @@ import Grid from "@/components/ui/Grid";
 import type { ArticleSummary } from "@/lib/mdx";
 import { motion } from "framer-motion";
 
-type CaseStudiesClientProps = {
-    caseStudies: ArticleSummary[];
+type KnowledgeBaseClientProps = {
+    articles: ArticleSummary[];
 };
 
-export default function CaseStudiesClient({ caseStudies }: CaseStudiesClientProps) {
+export default function KnowledgeBaseClient({ articles }: KnowledgeBaseClientProps) {
     return (
         <PageLayout>
             {/* Hero with fade-down */}
@@ -20,18 +20,18 @@ export default function CaseStudiesClient({ caseStudies }: CaseStudiesClientProp
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
                 <PageHero
-                    id="cs-hero"
-                    eyebrow="Practice"
-                    title="Case Studies"
-                    subtitle="In-depth explorations of sustainable software practices in real-world contexts."
+                    id="kb-hero"
+                    eyebrow="Learn More"
+                    title="Knowledge Base"
+                    subtitle="A library of principles, perspectives, and case studies that highlight the foundations of sustainable software."
                     size="xl"
                 />
             </motion.div>
 
-            {/* Articles grid with gentle fade-up */}
+            {/* Articles grid with gentle stagger */}
             <motion.section
-                id="cs-articles"
-                aria-labelledby="cs-hero"
+                id="kb-articles"
+                aria-labelledby="kb-hero"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -49,10 +49,10 @@ export default function CaseStudiesClient({ caseStudies }: CaseStudiesClientProp
                     }}
                 >
                     <Grid
-                        articles={caseStudies}
-                        basePath="case-studies"
-                        title="Case Studies"
-                        id="cs-articles-title"
+                        articles={articles}
+                        basePath="knowledge-base"
+                        title="Articles"
+                        id="kb-articles-title"
                     />
                 </motion.div>
             </motion.section>

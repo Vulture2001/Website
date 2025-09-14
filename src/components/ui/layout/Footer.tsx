@@ -1,6 +1,4 @@
-'use client';
-
-import "@styles/footer.css";
+"use client";
 
 import Link from "next/link";
 import { cn } from "@/lib/cn";
@@ -31,30 +29,58 @@ export function Footer({ className }: { className?: string }) {
     const year = new Date().getFullYear();
 
     return (
-        <footer className={cn("footer text-text", className)} role="contentinfo" aria-labelledby="footer-heading">
+        <footer
+            className={cn("border-t-2 border-surface-border bg-bg text-text", className)}
+            role="contentinfo"
+            aria-labelledby="footer-heading"
+        >
             <div className="mx-auto max-w-[1336px] px-4 lg:px-6 py-12">
                 {/* Top: Brand + Sections */}
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
                     {/* Brand / Mission */}
                     <div className="md:col-span-3 flex flex-col gap-3">
-                        <Link href="/" className="text-lg font-semibold tracking-tight text-fg" aria-label="Software 5.0 home">
+                        <Link
+                            href="/"
+                            className="text-lg font-semibold tracking-tight text-surface-fg"
+                            aria-label="Software 5.0 home"
+                        >
                             Software 5.0
                         </Link>
-                        <p className="text-sm text-[hsl(var(--muted-fg))]">
-                            A student-friendly framework to design and build digital products that are usable, inclusive, and sustainable.
+                        <p className="text-sm text-text-muted leading-relaxed max-w-xs">
+                            A student-friendly framework to design and build digital products
+                            that are usable, inclusive, and sustainable.
                         </p>
                     </div>
 
                     {/* Link sections */}
-                    <div className="md:col-span-5 grid grid-cols-2 gap-y-2 gap-x-1 sm:gap-x-2" aria-labelledby="footer-heading">
-                        <h2 id="footer-heading" className="sr-only">Footer</h2>
+                    <div
+                        className="md:col-span-5 grid grid-cols-2 gap-y-6 gap-x-8"
+                        aria-labelledby="footer-heading"
+                    >
+                        <h2 id="footer-heading" className="sr-only">
+                            Footer navigation
+                        </h2>
                         {FOOTER_SECTIONS.map((section) => (
-                            <nav key={section.heading} className="space-y-2" aria-label={section.heading}>
-                                <div className="footer-heading">{section.heading}</div>
+                            <nav
+                                key={section.heading}
+                                className="space-y-3"
+                                aria-label={section.heading}
+                            >
+                                <div className="text-xs font-semibold tracking-wider uppercase text-text">
+                                    {section.heading}
+                                </div>
                                 <ul className="space-y-2">
                                     {section.links.map((item) => (
                                         <li key={item.href}>
-                                            <Link href={item.href} className="footer-link text-sm">
+                                            <Link
+                                                href={item.href}
+                                                className={cn(
+                                                    "relative inline-flex items-center text-sm text-text-muted transition-colors",
+                                                    "hover:text-surface-fg",
+                                                    "after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:scale-x-0 after:bg-brand-primary after:transition-transform after:origin-left hover:after:scale-x-100",
+                                                    "motion-reduce:transition-none motion-reduce:after:transition-none"
+                                                )}
+                                            >
                                                 {item.label}
                                             </Link>
                                         </li>
@@ -66,26 +92,38 @@ export function Footer({ className }: { className?: string }) {
 
                     {/* Thesis card */}
                     <div className="md:col-span-4">
-                        <div className="footer-card rounded-xl ">
-                            <div className="footer-heading">Based on Research</div>
-                            <h3 className="mt-2 text-sm font-semibold leading-5 text-fg">
+                        <div className="rounded-xl border border-surface-border sm:p-6">
+                            <div className="text-xs font-semibold tracking-wider uppercase text-text-muted">
+                                Based on Research
+                            </div>
+                            <h3 className="mt-2 text-sm font-semibold leading-5 text-surface-fg">
                                 {thesis.title}
                             </h3>
-                            <p className="mt-4 text-xs text-[hsl(var(--muted-fg))]">
-                                {thesis.university}
-                            </p>
-                            <div className="mt-3 grid grid-cols-1 gap-1 text-xs text-[hsl(var(--muted-fg))]">
-                                <div><span className="text-[hsl(var(--muted-fg))]">Author:</span> {thesis.author}</div>
-                                <div><span className="text-[hsl(var(--muted-fg))]">Advisor:</span> {thesis.advisor}</div>
-                                <div><span className="text-[hsl(var(--muted-fg))]">Supervisor:</span> {thesis.supervisor}</div>
-                            </div>
+                            <p className="mt-3 text-xs text-text-muted">{thesis.university}</p>
+                            <dl className="mt-3 grid grid-cols-1 gap-1 text-xs text-text-muted">
+                                <div>
+                                    <dt className="sr-only">Author</dt>
+                                    <span className="font-medium text-surface-fg">Author: </span>
+                                    {thesis.author}
+                                </div>
+                                <div>
+                                    <dt className="sr-only">Advisor</dt>
+                                    <span className="font-medium text-surface-fg">Advisor: </span>
+                                    {thesis.advisor}
+                                </div>
+                                <div>
+                                    <dt className="sr-only">Supervisor</dt>
+                                    <span className="font-medium text-surface-fg">Supervisor: </span>
+                                    {thesis.supervisor}
+                                </div>
+                            </dl>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom bar */}
                 <div className="mt-10 flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
-                    <div className="text-xs text-[hsl(var(--muted-fg))]">
+                    <div className="text-xs text-text-muted">
                         © {year} Software 5.0 — Built for students, educators, and future practitioners.
                     </div>
                 </div>

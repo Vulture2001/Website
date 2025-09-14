@@ -1,29 +1,60 @@
-'use client';
+"use client";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /* ----------------------------- Headings ----------------------------- */
 export function H2({ children }: { children: React.ReactNode }) {
     return (
-        <h2 className="mt-10 scroll-mt-24 text-2xl font-semibold tracking-tight text-fg">
+        <h2 className="mt-10 scroll-mt-24 text-2xl font-semibold tracking-tight text-surface-fg">
             {children}
         </h2>
+    );
+}
+
+export function H3({ children }: { children: React.ReactNode }) {
+    return (
+        <h3 className="mt-8 scroll-mt-24 text-xl font-semibold tracking-tight text-surface-fg">
+            {children}
+        </h3>
+    );
+}
+
+export function H4({ children }: { children: React.ReactNode }) {
+    return (
+        <h4 className="mt-6 scroll-mt-24 text-lg font-semibold tracking-tight text-surface-fg">
+            {children}
+        </h4>
     );
 }
 
 /* ----------------------------- Paragraphs ----------------------------- */
 export function P({ children }: { children: React.ReactNode }) {
     return (
-        <p className="mt-4 text-[15px] leading-7 text-[hsl(var(--muted-fg))]">
+        <p className="mt-4 text-base leading-7 text-text-muted">{children}</p>
+    );
+}
+
+/* ----------------------------- Lists ----------------------------- */
+export function UL({ children }: { children: React.ReactNode }) {
+    return (
+        <ul className="mt-4 list-disc pl-6 space-y-2 text-text-muted">
             {children}
-        </p>
+        </ul>
+    );
+}
+
+export function OL({ children }: { children: React.ReactNode }) {
+    return (
+        <ol className="mt-4 list-decimal pl-6 space-y-2 text-text-muted">
+            {children}
+        </ol>
     );
 }
 
 /* ----------------------------- Blockquotes ----------------------------- */
 export function Quote({ children }: { children: React.ReactNode }) {
     return (
-        <blockquote className="mt-6 border-l-4 border-primary pl-4 italic text-[hsl(var(--muted-fg))]">
+        <blockquote className="mt-6 border-l-4 border-brand-primary pl-4 italic text-text-muted">
             {children}
         </blockquote>
     );
@@ -41,17 +72,17 @@ export function Figure({
 }) {
     return (
         <figure className="mt-6">
-            <div className="overflow-hidden rounded-xl bg-[hsl(var(--surface)/0.8)]">
+            <div className="overflow-hidden rounded-xl bg-surface/80">
                 <Image
                     src={src}
                     alt={alt}
-                    width={800}   // you can set width/height or use layout="intrinsic"
+                    width={800}
                     height={600}
                     className="object-contain w-full h-auto"
                 />
             </div>
             {caption ? (
-                <figcaption className="mt-2 text-xs text-[hsl(var(--muted-fg))]">
+                <figcaption className="mt-2 text-xs text-text-muted">
                     {caption}
                 </figcaption>
             ) : null}
@@ -62,9 +93,9 @@ export function Figure({
 /* ----------------------------- References ----------------------------- */
 export function References({ children }: { children: React.ReactNode }) {
     return (
-        <section className="mt-12 border-t pt-6">
-            <h2 className="text-lg font-semibold">References</h2>
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-[hsl(var(--muted-fg))]">
+        <section className="mt-12 border-t border-surface-border pt-6">
+            <h2 className="text-lg font-semibold text-surface-fg">References</h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-text-muted">
                 {children}
             </ol>
         </section>
@@ -72,16 +103,20 @@ export function References({ children }: { children: React.ReactNode }) {
 }
 
 /* ----------------------------- Feature List ----------------------------- */
-export function FeatureList({ items }: { items: { title: string; body: string }[] }) {
+export function FeatureList({
+                                items,
+                            }: {
+    items: { title: string; body: string }[];
+}) {
     return (
         <ul className="grid gap-4 md:grid-cols-2 my-5">
             {items.map((item, i) => (
                 <li
                     key={i}
-                    className="rounded-xl border bg-[hsl(var(--surface)/0.6)] p-4"
+                    className="rounded-xl border border-surface-border bg-surface/60 p-4"
                 >
-                    <h3 className="font-semibold text-fg">{item.title}</h3>
-                    <p className="mt-1 text-sm text-[hsl(var(--muted-fg))]">{item.body}</p>
+                    <h3 className="font-semibold text-surface-fg">{item.title}</h3>
+                    <p className="mt-1 text-sm text-text-muted">{item.body}</p>
                 </li>
             ))}
         </ul>
@@ -89,20 +124,17 @@ export function FeatureList({ items }: { items: { title: string; body: string }[
 }
 
 /* ----------------------------- Icon List ----------------------------- */
-export type Item = {
-    title: string;
-    body: string;
-};
+export type Item = { title: string; body: string };
 
 export function IconList({ items }: { items: Item[] }) {
     return (
         <ul className="my-5 space-y-4">
             {items.map(({ title, body }, i) => (
                 <li key={i} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-green-600" />
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-green" />
                     <div>
-                        <h3 className="font-semibold text-fg">{title}</h3>
-                        <p className="text-sm text-[hsl(var(--muted-fg))]">{body}</p>
+                        <h3 className="font-semibold text-surface-fg">{title}</h3>
+                        <p className="text-sm text-text-muted">{body}</p>
                     </div>
                 </li>
             ))}
@@ -121,12 +153,12 @@ export function Table({
     return (
         <div className="overflow-x-auto my-6">
             <table className="w-full border-collapse text-sm">
-                <thead className="bg-[hsl(var(--surface)/0.8)]">
+                <thead className="bg-surface/80">
                 <tr>
                     {headers.map((header, i) => (
                         <th
                             key={i}
-                            className="px-4 py-3 text-left font-semibold text-fg border-b border-[hsl(var(--border))]"
+                            className="px-4 py-3 text-left font-semibold text-surface-fg border-b border-surface-border"
                         >
                             {header}
                         </th>
@@ -135,11 +167,11 @@ export function Table({
                 </thead>
                 <tbody>
                 {rows.map((row, i) => (
-                    <tr key={i} className="odd:bg-[hsl(var(--surface)/0.5)]">
+                    <tr key={i} className="odd:bg-surface/60">
                         {row.map((cell, j) => (
                             <td
                                 key={j}
-                                className="px-4 py-4 align-top border-b border-[hsl(var(--border))] text-[hsl(var(--muted-fg))]"
+                                className="px-4 py-4 align-top border-b border-surface-border text-text-muted"
                             >
                                 {cell}
                             </td>
@@ -153,33 +185,36 @@ export function Table({
 }
 
 /* ----------------------------- Callout ----------------------------- */
-type CalloutVariant = 'info' | 'warning' | 'success' | 'tip';
+type CalloutVariant = "info" | "warning" | "success" | "tip";
 
-const calloutVariants: Record<CalloutVariant, { bg: string; border: string; text: string }> = {
+const calloutVariants: Record<
+    CalloutVariant,
+    { bg: string; border: string; text: string }
+> = {
     info: {
-        bg: 'bg-blue-50 dark:bg-blue-950/30',
-        border: 'border-blue-400',
-        text: 'text-blue-700 dark:text-blue-300',
+        bg: "bg-brand-blue/10",
+        border: "border-brand-blue",
+        text: "text-brand-blue",
     },
     warning: {
-        bg: 'bg-amber-50 dark:bg-amber-950/30',
-        border: 'border-amber-400',
-        text: 'text-amber-700 dark:text-amber-300',
+        bg: "bg-brand-yellow/10",
+        border: "border-brand-yellow",
+        text: "text-brand-yellow",
     },
     success: {
-        bg: 'bg-green-50 dark:bg-green-950/30',
-        border: 'border-green-400',
-        text: 'text-green-700 dark:text-green-300',
+        bg: "bg-brand-green/10",
+        border: "border-brand-green",
+        text: "text-brand-green",
     },
     tip: {
-        bg: 'bg-purple-50 dark:bg-purple-950/30',
-        border: 'border-purple-400',
-        text: 'text-purple-700 dark:text-purple-300',
+        bg: "bg-brand-purple/10",
+        border: "border-brand-purple",
+        text: "text-brand-purple",
     },
 };
 
 export function Callout({
-                            variant = 'info',
+                            variant = "info",
                             title,
                             children,
                             className,
@@ -194,16 +229,14 @@ export function Callout({
     return (
         <div
             className={cn(
-                'my-6 rounded-xl px-10 py-6',
+                "my-6 rounded-xl border px-6 py-4",
                 style.bg,
                 style.border,
                 className
             )}
         >
-            {title && (
-                <h3 className={cn('font-semibold', style.text)}>{title}</h3>
-            )}
-            <div className="text-sm text-[hsl(var(--muted-fg))]">{children}</div>
+            {title && <h3 className={cn("font-semibold mb-2", style.text)}>{title}</h3>}
+            <div className="text-sm text-text-muted">{children}</div>
         </div>
     );
 }

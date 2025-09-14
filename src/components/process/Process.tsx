@@ -2,11 +2,9 @@
 
 import { PageLayout } from "@/components/ui/layout/PageLayout";
 import { PageHero } from "@/components/ui/layout/PageHero";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { Badge } from "@/components/ui/Badge";
-import { PhaseCarousel } from "@/components/carousel/PhaseCarousel";
-import { motion } from "framer-motion";
 import { MotionSection } from "@/components/ui/layout/Section";
+import { PhaseCarousel } from "@/components/carousel/PhaseCarousel";
+import {TrackCard} from "@components/process/TrackCard";
 
 export default function Process() {
     return (
@@ -23,79 +21,48 @@ export default function Process() {
             {/* ===== Illustration ===== */}
             <MotionSection
                 id="process-illustration"
-                variants={staggerContainer}
-                className="flex justify-center"
+                className="flex justify-center opacity-0 animate-fade-up [animation-delay:200ms] [animation-fill-mode:forwards]"
             >
-                <motion.figure variants={fadeInUp} className="mx-auto w-full max-w-5xl">
+                <figure className="mx-auto w-full max-w-5xl">
                     <img
                         src="/svg/process.svg"
-                        alt="Process diagram illustrating the Software 5.0 workflow"
+                        alt="Diagram showing the Software 5.0 workflow"
                         className="w-full h-auto"
                     />
-                </motion.figure>
+                </figure>
             </MotionSection>
 
-            {/* ===== Two Tracks Section ===== */}
-            <MotionSection id="process-tracks" variants={fadeInUp}>
-                <motion.div
-                    variants={fadeInUp}
-                    className="grid gap-6 md:grid-cols-2 items-stretch"
-                >
-                    {/* Design Track */}
-                    <div className="rounded-2xl border border-gray-200 bg-[hsl(var(--surface)/0.8)] p-8 flex flex-col">
-                        <Badge
-                            variant="outline"
-                            className="inline-flex mb-6 px-4 py-1"
-                            size="lg"
-                            shape="pill"
-                        >
-                            Design Track
-                        </Badge>
-                        <h3 className="text-lg font-semibold text-fg mb-3">
-                            Discover • Define • Develop • Deliver
-                        </h3>
-                        <p className="text-[15px] leading-relaxed text-[hsl(var(--muted-fg))] flex-1">
-                            The design track trains you to look beyond code and ask the right
-                            questions: Who will use this system? What barriers might they
-                            face? What unintended impacts could this create?
-                        </p>
-                    </div>
+            {/* ===== Two Tracks ===== */}<MotionSection
+            id="process-tracks"
+            className="opacity-0 animate-fade-up [animation-delay:400ms] [animation-fill-mode:forwards]"
+        >
+            <div className="mx-auto max-w-6xl px-4 grid grid-cols-2 gap-8">
+                <TrackCard
+                    badge="Design Track"
+                    title="Discover • Define • Develop • Deliver"
+                    description="The design track trains you to look beyond code and ask the right questions: Who will use this system? What barriers might they face? What unintended impacts could this create?"
+                />
+                <TrackCard
+                    badge="Development Track"
+                    title="Engineering & Delivery"
+                    description="In the development track, you turn concepts into real software. Translate design insights into features, write code with accessibility and sustainability in mind, and ensure reliability at scale."
+                />
+            </div>
+        </MotionSection>
 
-                    {/* Development Track */}
-                    <div className="rounded-2xl border border-gray-200 bg-[hsl(var(--surface)/0.8)] p-8 flex flex-col">
-                        <Badge
-                            variant="outline"
-                            className="inline-flex px-3 py-1 mb-6"
-                            size="lg"
-                            shape="pill"
-                        >
-                            Development Track
-                        </Badge>
-                        <h3 className="text-lg font-semibold text-fg mb-3">
-                            Engineering & Delivery
-                        </h3>
-                        <p className="text-[15px] leading-relaxed text-[hsl(var(--muted-fg))] flex-1">
-                            In the development track, you turn concepts into real software.
-                            Translate design insights into features, write code with
-                            accessibility and sustainability in mind, and ensure reliability
-                            at scale.
-                        </p>
-                    </div>
-                </motion.div>
-            </MotionSection>
-
-            {/* ===== Phases Section ===== */}
-            <MotionSection id="process-phases" variants={staggerContainer}>
-                <motion.div variants={fadeInUp} className="text-center mb-8">
-                    <h2 className="text-3xl font-semibold">Software 5.0 Phases</h2>
-                    <p className="mt-2 text-muted-fg max-w-2xl mx-auto text-[15px]">
+            {/* ===== Phases ===== */}
+            <MotionSection
+                id="process-phases"
+                className="mt-24 opacity-0 animate-fade-up [animation-delay:800ms] [animation-fill-mode:forwards]"
+            >
+                <div className="text-center mb-10">
+                    <h2 className="text-3xl font-semibold text-fg">Software 5.0 Phases</h2>
+                    <p className="mt-3 text-muted-fg max-w-2xl mx-auto text-[15px] leading-relaxed">
                         Each phase gives you hands-on skills to connect design thinking with
                         software engineering practice.
                     </p>
-                </motion.div>
-                <motion.div variants={fadeInUp}>
-                    <PhaseCarousel />
-                </motion.div>
+                </div>
+                <PhaseCarousel />
             </MotionSection>
         </PageLayout>
     );

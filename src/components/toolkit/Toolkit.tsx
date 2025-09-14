@@ -1,20 +1,20 @@
 // app/toolkit/page.tsx
-"use client";
+'use client';
 
-import React, { useMemo, useState } from "react";
-import Link from "next/link";
-import { truncate } from "@/lib/truncate";
-import { PageLayout } from "@/components/ui/layout/PageLayout";
-import { PageHero } from "@/components/ui/layout/PageHero";
-import { fadeInUp } from "@/lib/animations";
-import { Input } from "@/components/ui/Input";
-import { Card, CardBody } from "@/components/ui/Card";
-import categoriesJson from "@/data/phases.json";
-import toolsJson from "@/data/tools.json";
-import faqs from "@/data/faqs_toolkit.json";
-import { FaqList } from "@/components/ui/FAQ";
-import { Tabs } from "@/components/toolkit/Tabs";
-import {MotionSection} from "@components/ui/layout/Section";
+import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
+import { truncate } from '@/lib/truncate';
+import { PageLayout } from '@/components/ui/layout/PageLayout';
+import { PageHero } from '@/components/ui/layout/PageHero';
+import { MotionSection } from '@/components/ui/layout/Section';
+import { fadeInUp } from '@/lib/animations';
+import { Input } from '@/components/ui/Input';
+import { Card, CardBody } from '@/components/ui/Card';
+import categoriesJson from '@/data/phases.json';
+import toolsJson from '@/data/tools.json';
+import faqs from '@/data/faqs_toolkit.json';
+import { FaqList } from '@/components/ui/FAQ';
+import { Tabs } from '@/components/toolkit/Tabs';
 
 type Category = { label: string; value: string; color: string };
 type Step = { title?: string; description?: string } | string;
@@ -39,6 +39,7 @@ const buildCategoryMaps = (cats: Category[]) => {
     return { labelByValue, colorByValue };
 };
 
+/* ----------------------------- Tool Card ----------------------------- */
 function ToolCard({
                       tool,
                       catLabel,
@@ -49,38 +50,39 @@ function ToolCard({
     catColor?: string;
 }) {
     return (
-        <Card className="bg-[#F9FAFB] border-[#EAECF0] rounded-3xl h-full flex flex-col transition-all duration-300 hover:shadow-md">
+        <Card className="rounded-2xl border border-[hsl(var(--border))] bg-surface/80 h-full flex flex-col transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
             <CardBody className="p-6 sm:p-8 flex flex-col flex-1">
-                {/* Category dot + label */}
+                {/* Category */}
                 <div className="flex items-center gap-3 mb-4">
                     <div
-                        className="w-8 h-8 rounded-full shrink-0"
-                        style={{ backgroundColor: catColor ?? "#64748B" }}
+                        className="w-3 h-3 rounded-full shrink-0"
+                        style={{ backgroundColor: catColor ?? 'hsl(var(--muted-fg))' }}
                     />
-                    {tool._category && tool._category !== "uncategorized" && (
-                        <span className="text-xs font-semibold uppercase tracking-wide text-[#5F6980]">
+                    {tool._category !== 'uncategorized' && (
+                        <span className="text-xs font-semibold uppercase tracking-wide text-muted-fg">
               {catLabel ?? tool._category}
             </span>
                     )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-[#282828] leading-snug min-h-[3.5rem] line-clamp-2">
+                <h3 className="text-lg font-semibold text-fg leading-snug line-clamp-2">
                     {tool.title}
                 </h3>
 
                 {/* Blurb */}
-                <p className="mt-3 text-sm text-[#5F6980] leading-relaxed line-clamp-3 flex-1">
+                <p className="mt-3 text-sm text-muted-fg leading-relaxed line-clamp-3 flex-1">
                     {truncate(tool._blurb, 100)}
                 </p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-4">
+                <div className="flex justify-end pt-4">
                     <Link
                         href={`/toolkit/${encodeURIComponent(String(tool.id))}`}
-                        className="text-[#0D6EFD] text-sm font-semibold"
+                        className="text-sm font-medium text-brand-primary hover:underline"
+                        aria-label={`Explore tool: ${tool.title}`}
                     >
-                        Explore Tool
+                        Explore Tool →
                     </Link>
                 </div>
             </CardBody>
@@ -88,9 +90,11 @@ function ToolCard({
     );
 }
 
+/* ----------------------------- Toolkit Page ----------------------------- */
 export default function Toolkit() {
-    const [activeCategory, setActiveCategory] = useState<string>("all");
-    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [activeCategory, setActiveCategory] = useState<string>('all');
+    const [searchTerm, setSearchTerm] = useState<string>('');
+
     const categories = categoriesJson as Category[];
     const tools = toolsJson as Tool[];
     const { labelByValue, colorByValue } = useMemo(
@@ -98,23 +102,34 @@ export default function Toolkit() {
         [categories]
     );
 
+    // Normalize tools
     const normalizedTools = useMemo(() => {
         return tools.map((t) => {
-            const cat = (t.category || t.phase || "").toString().toLowerCase();
-            const blurb = t.overview || t.purpose || t.description || "";
-            return { ...t, _category: cat || "uncategorized", _blurb: blurb };
+            const cat = (t.category || t.phase || '').toString().toLowerCase();
+            const blurb = t.overview || t.purpose || t.description || '';
+            return { ...t, _category: cat || 'uncategorized', _blurb: blurb };
         });
     }, [tools]);
 
+    // Precompute category counts
+    const categoryCounts = useMemo(() => {
+        const counts: Record<string, number> = {};
+        for (const t of normalizedTools) {
+            counts[t._category] = (counts[t._category] || 0) + 1;
+        }
+        return counts;
+    }, [normalizedTools]);
+
+    // Apply filters
     const filteredTools = useMemo(() => {
         const term = searchTerm.trim().toLowerCase();
         return normalizedTools.filter((t) => {
             const matchesCategory =
-                activeCategory === "all" || t._category === activeCategory;
+                activeCategory === 'all' || t._category === activeCategory;
             if (!matchesCategory) return false;
             if (!term) return true;
-            const haystack = [t.title, t._blurb, t.purpose ?? "", t.overview ?? ""]
-                .join(" ")
+            const haystack = [t.title, t._blurb, t.purpose ?? '', t.overview ?? '']
+                .join(' ')
                 .toLowerCase();
             return haystack.includes(term);
         });
@@ -130,27 +145,35 @@ export default function Toolkit() {
                 size="xl"
             />
 
+            {/* Tool Library */}
             <MotionSection id="tool-library" variants={fadeInUp}>
-                {/* Header Row */}
+                {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                    <h2 className="text-3xl font-semibold text-[#282828]">Tool Library</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-fg">
+                        Tool Library
+                    </h2>
                     <div className="w-full md:w-96">
                         <Input
-                            placeholder="Search tools, purposes, overviews"
+                            aria-label="Search tools"
+                            placeholder="Search tools, purposes, or overviews"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="h-12 px-4 rounded-full border-[#D0D5DD] bg-white text-[#282828] placeholder:text-[#9D9FA1]"
+                            className="h-12 px-4 rounded-full border border-[hsl(var(--border))] bg-surface text-fg placeholder:text-muted-fg"
                         />
                     </div>
                 </div>
 
                 {/* Category Tabs */}
                 <Tabs
-                    items={categories.map((c) => ({
-                        value: c.value,
-                        label: c.label,
-                        color: c.color,
-                    }))}
+                    items={[
+                        { value: 'all', label: 'All', color: 'hsl(var(--brand-primary))' },
+                        ...categories.map((c) => ({
+                            value: c.value,
+                            label: c.label,
+                            color: c.color,
+                            disabled: (categoryCounts[c.value.toLowerCase()] ?? 0) === 0,
+                        })),
+                    ]}
                     active={activeCategory}
                     onChange={setActiveCategory}
                 />
@@ -168,10 +191,10 @@ export default function Toolkit() {
                 </div>
             </MotionSection>
 
-            {/* FAQs Section */}
+            {/* FAQs */}
             <MotionSection id="toolkit-faqs" variants={fadeInUp}>
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-semibold text-[#282828] mb-4">FAQs</h2>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-semibold text-fg">FAQs</h2>
                 </div>
                 <FaqList items={faqs} />
             </MotionSection>

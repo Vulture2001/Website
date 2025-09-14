@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArticleSummary } from "@/lib/mdx";
+import { cn } from "@/lib/cn";
+import type { ArticleSummary } from "@lib/mdx";
 
 /* ----------------------------- utils ----------------------------- */
 function normalizeSrc(src?: string): string | null {
@@ -20,23 +21,27 @@ function formatDate(date: string): string {
 }
 
 /* ----------------------------- component ----------------------------- */
-type ArticleCardProps = {
+type GridCardProps = {
     article: ArticleSummary;
-    basePath: "knowledge-base" | "case-studies"; // restricts to valid sections
+    basePath: "knowledge-base" | "case-studies";
+    badge?: string;
+    className?: string;
 };
 
-export function ArticleCard({ article, basePath }: ArticleCardProps) {
+export function GridCard({ article, basePath, badge, className }: GridCardProps) {
     const src = normalizeSrc(article.heroSrc);
     const hasImage = !!src;
 
     return (
         <Link
             href={`/${basePath}/${article.slug}`}
-            role="article"
-            aria-label={article.title}
-            className="group block transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl overflow-hidden"
+            className={cn(
+                "group block rounded-2xl overflow-hidden transition-transform duration-200",
+                "hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary",
+                className
+            )}
         >
-            {/* Image (no border) */}
+            {/* Image */}
             <div className="relative aspect-[4/3]">
                 {hasImage ? (
                     <Image
@@ -48,26 +53,32 @@ export function ArticleCard({ article, basePath }: ArticleCardProps) {
                         unoptimized={src!.startsWith("http")}
                     />
                 ) : (
-                    <div className="flex h-full w-full items-center justify-center text-xs text-[hsl(var(--muted-fg))] bg-[hsl(var(--surface)/0.6)]">
+                    <div className="flex h-full w-full items-center justify-center text-xs text-text-muted bg-surface/60">
                         No image
                     </div>
                 )}
             </div>
 
-            {/* Content (bordered box under image) */}
-            <div className="border border-gray-200 border-t-0 rounded-b-2xl bg-[hsl(var(--surface)/0.8)] p-4">
-                <h3 className="text-lg font-semibold leading-snug text-fg line-clamp-2">
+            {/* Content */}
+            <div className="border border-surface-border border-t-0 rounded-b-2xl p-4">
+                {badge && (
+                    <span className="mb-2 inline-block text-xs font-medium uppercase tracking-wide text-text-muted">
+            {badge}
+          </span>
+                )}
+
+                <h3 className="text-lg font-semibold leading-snug text-surface-fg line-clamp-2">
                     {article.title}
                 </h3>
 
                 {article.lead && (
-                    <p className="mt-2 text-sm text-[hsl(var(--muted-fg))] line-clamp-3">
+                    <p className="mt-2 text-sm text-text-muted line-clamp-3">
                         {article.lead}
                     </p>
                 )}
 
                 {article.date && (
-                    <p className="mt-3 text-xs text-[hsl(var(--muted-fg))]">
+                    <p className="mt-3 text-xs text-text-muted">
                         {formatDate(article.date)}
                     </p>
                 )}

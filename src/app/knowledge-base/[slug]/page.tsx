@@ -1,34 +1,38 @@
 // app/knowledge-base/[slug]/page.tsx
-import { getArticleBySlug } from "@/lib/mdx";
 import { notFound } from "next/navigation";
-import { ArticleLayout } from "@/components/knowledge-base/ArticleLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
+
+import { getArticleBySlug } from "@/lib/mdx";
+import { ArticleLayout } from "@/components/knowledge-base/ArticleLayout";
 import { mdxComponents } from "@/components/ui/mdx-components";
 
-export default async function ArticleSlugPage({ params }: { params: Promise<{ slug: string }> }) {
-    // Await the params
-    const { slug } = await params;
+type ArticleSlugPageProps = {
+    params: { slug: string };
+};
 
-    // If your getArticleBySlug is synchronous, you don’t need `await` here.
-    // If it’s async (e.g. reading from disk or fetching), add `await`.
-    const article = getArticleBySlug(slug);
+export default async function ArticleSlugPage({ params }: ArticleSlugPageProps) {
+    const { slug } = params;
+
+    const article = await getArticleBySlug(slug);
     if (!article) return notFound();
+
+    const { meta, content } = article;
 
     const breadcrumbs = [
         { href: "/knowledge-base", label: "Knowledge Base" },
-        { href: `/knowledge-base/${slug}`, label: article.meta.title },
+        { href: `/knowledge-base/${slug}`, label: meta.title },
     ];
 
     return (
         <ArticleLayout
-            title={article.meta.title}
-            heroSrc={article.meta.heroSrc}
-            heroAlt={article.meta.heroAlt}
-            lead={article.meta.lead}
-            date={article.meta.date}
+            title={meta.title}
+            heroSrc={meta.heroSrc}
+            heroAlt={meta.heroAlt}
+            lead={meta.lead}
+            date={meta.date}
             breadcrumbs={breadcrumbs}
         >
-            <MDXRemote source={article.content} components={mdxComponents} />
+            <MDXRemote source={content} components={mdxComponents} />
         </ArticleLayout>
     );
 }

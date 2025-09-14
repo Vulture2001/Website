@@ -1,62 +1,72 @@
 @import "tailwindcss";
 
+/* ========================= */
+/* 🎨 Design Tokens → Theme  */
+/* ========================= */
+@theme {
+    /* Surfaces & Text */
+    --color-bg: hsl(0 0% 100%);
+    --color-surface: hsl(0 0% 98%);
+    --color-surface-border: hsl(220 13% 91%);
+    --color-surface-fg: hsl(222 47% 11%);
+
+    --color-text: hsl(222 47% 11%);
+    --color-text-muted: hsl(215 16% 47%);
+
+    /* Brand palette */
+    --color-brand-primary: hsl(259 84% 56%);
+    --color-brand-accent: hsl(326 100% 67%);
+    --color-brand-blue: hsl(217 91% 60%);
+    --color-brand-cyan: hsl(189 93% 54%);
+    --color-brand-green: hsl(152 45% 44%);
+    --color-brand-indigo: hsl(259 84% 56%);
+    --color-brand-orange: hsl(24 94% 53%);
+    --color-brand-pink: hsl(326 100% 67%);
+    --color-brand-purple: hsl(261 83% 63%);
+    --color-brand-red: hsl(0 84% 63%);
+    --color-brand-teal: hsl(173 61% 47%);
+    --color-brand-yellow: hsl(43 96% 56%);
+}
+
+/* ========================= */
+/* 🧩 Base Layer             */
+/* ========================= */
 @layer base {
-    :root {
-        /* Brand hues (H S L — no commas, so Tailwind alpha works) */
-        --color-blue:   217 91% 60%;
-        --color-black:  222 6% 28%;
-        --color-cyan:   189 93% 54%;
-        --color-green:  152 45% 44%;
-        --color-indigo: 259 84% 56%;
-        --color-orange: 24 94% 53%;
-        --color-pink:   326 100% 67%;
-        --color-purple: 261 83% 63%;
-        --color-red:    0 84% 63%;
-        --color-teal:   173 61% 47%;
-        --color-yellow: 43 96% 56%;
-
-        /* Semantic aliases */
-        --brand-primary: var(--color-indigo);
-        --brand-accent:  var(--color-pink);
-
-        --brand-blue:    var(--color-blue);
-        --brand-black:   var(--color-black);
-        --brand-cyan:    var(--color-cyan);
-        --brand-green:   var(--color-green);
-        --brand-indigo:  var(--color-indigo);
-        --brand-orange:  var(--color-orange);
-        --brand-pink:    var(--color-pink);
-        --brand-purple:  var(--color-purple);
-        --brand-red:     var(--color-red);
-        --brand-teal:    var(--color-teal);
-        --brand-yellow:  var(--color-yellow);
-
-        /* Surfaces / text */
-        --bg: 0 0% 100%;
-        --fg: 222 47% 11%;
-        --muted-fg: 215 16% 47%;
-        --text: 222 47% 11%;
-    }
-
-    /* Dark theme overrides (using .dark class on <html>) */
-    .dark {
-        --bg: 222 47% 5%;
-        --surface: 222 40% 10%;
-        --border: 222 25% 25%;
-        --fg: 0 0% 100%;
-        --muted-fg: 215 16% 75%;
-        --text: 0 0% 100%;
-    }
-
-    /* Base typography */
     html,
     body {
-        @apply bg-[hsl(var(--bg))] text-[hsl(var(--text))] antialiased;
+        @apply bg-bg text-text antialiased;
+    }
+
+    /* Scrollbar helper */
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
     }
 }
 
-/* Hide scrollbars helper */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
+/* ========================= */
+/* ✨ Animations             */
+/* ========================= */
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
 }
 
+@keyframes fade-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.8s ease forwards;
+}
+
+.animate-fade-up {
+    animation: fade-up 0.8s ease forwards;
+}

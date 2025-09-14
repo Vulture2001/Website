@@ -1,13 +1,12 @@
-'use client';
-
-import "@styles/navbar.css";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/cn";
+import ReflectionModal from "@components/carousel/ReflectionModal";
 
-type NavItem = { label: string; href: string };
+type NavItem = { label: string; href?: string; modal?: boolean };
 
 const NAV: NavItem[] = [
     { label: "Home", href: "/" },
@@ -15,16 +14,19 @@ const NAV: NavItem[] = [
     { label: "Case Studies", href: "/case-studies" },
     { label: "Process", href: "/process" },
     { label: "Toolkit", href: "/toolkit" },
+    { label: "Reflect", modal: true }, // modal trigger
     { label: "About", href: "/about" },
-
 ];
+
+const underlineClasses =
+    "after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-full after:bg-brand-accent after:transition-transform after:origin-left";
 
 export function Navbar() {
     const pathname = usePathname();
     const [elevated, setElevated] = useState(false);
-    const [open, setOpen] = useState<boolean>(false); // reserved for mobile menu
+    const [reflectionOpen, setReflectionOpen] = useState(false);
 
-    // subtle shadow on scroll
+    // subtle border on scroll
     useEffect(() => {
         const onScroll = () => setElevated(window.scrollY > 4);
         onScroll();
@@ -32,45 +34,107 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // close menu on route change
-    useEffect(() => { setOpen(false); }, [pathname]);
-
     return (
         <header
             className={cn(
-                "sticky top-0 z-50 bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/70",
-                elevated && "shadow-[0_1px_0_0_hsl(var(--border))]"
+                "sticky top-0 z-50 bg-transparent backdrop-blur pb-5",
+                elevated && "border-b border-surface-border"
             )}
         >
-            <nav className="mx-auto w-full max-w-[1336px] px-4 lg:px-6" aria-label="Global">
-                <div className="h-16 flex items-center justify-between">
+            <nav
+                className="mx-auto w-full max-w-[1336px] px-4 lg:px-6"
+                aria-label="Global"
+            >
+                <div className="h-16 flex items-end justify-between pb-1">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Software 5.0 home">
-                        <span className="text-[1.125rem] font-semibold tracking-tight text-fg">Software 5.0</span>
+                    <Link
+                        href="/"
+                        className="flex items-center gap-2 shrink-0 text-lg font-semibold tracking-tight text-surface-fg leading-none"
+                        aria-label="Software 5.0 home"
+                    >
+                        Software 5.0
                     </Link>
 
                     {/* Desktop nav */}
                     <div className="hidden md:flex items-center gap-8">
-                        {NAV.map((item) => {
-                            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-                            return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={cn(
-                                        "nav-link text-[0.9375rem] font-medium",
-                                        active
-                                            ? "is-active"
-                                            : "text-[hsl(var(--muted-fg))] hover:text-[hsl(var(--fg))]"
-                                    )}
+                        {NAV.map((item) =>
+                            item.modal ? (
+                                <NavButton
+                                    key={item.label}
+                                    onClick={() => setReflectionOpen(true)}
                                 >
                                     {item.label}
-                                </Link>
-                            );
-                        })}
+                                </NavButton>
+                            ) : (
+                                <NavLink
+                                    key={item.href}
+                                    href={item.href!}
+                                    active={pathname === item.href}
+                                >
+                                    {item.label}
+                                </NavLink>
+                            )
+                        )}
                     </div>
                 </div>
             </nav>
+
+            {/* Fullscreen Reflection Modal */}
+            <ReflectionModal
+                open={reflectionOpen}
+                onClose={() => setReflectionOpen(false)}
+            />
         </header>
+    );
+}
+
+/* ----------------------------- Subcomponents ----------------------------- */
+
+function NavLink({
+                     href,
+                     children,
+                     active,
+                 }: {
+    href: string;
+    children: React.ReactNode;
+    active?: boolean;
+}) {
+    return (
+        <Link
+            href={href}
+            aria-current={active ? "page" : undefined}
+            className={cn(
+                "relative text-base font-medium transition-colors",
+                active
+                    ? "text-surface-fg after:scale-x-100"
+                    : "text-text-muted hover:text-surface-fg after:scale-x-0 hover:after:scale-x-100",
+                underlineClasses
+            )}
+        >
+            {children}
+        </Link>
+    );
+}
+
+function NavButton({
+                       onClick,
+                       children,
+                   }: {
+    onClick: () => void;
+    children: React.ReactNode;
+}) {
+    return (
+        <button
+            type="button"
+            aria-haspopup="dialog"
+            onClick={onClick}
+            className={cn(
+                "relative text-base font-medium text-text-muted hover:text-surface-fg transition-colors",
+                "after:scale-x-0 hover:after:scale-x-100",
+                underlineClasses
+            )}
+        >
+            {children}
+        </button>
     );
 }
