@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import Button from "@components/ui/buttons/Button";
+import Button from "@components/buttons/Button";
 import reflectionCards from "@/data/reflections.json";
 
 type ReflectionCard = { id: number; scenario: string; description?: string };

@@ -1,32 +1,32 @@
 [
   {
-    "question": "What if I can't find good data?",
-    "answer": "Start small: use existing research, reports, or even your own course materials. Be transparent about assumptions, and mark areas where you need more evidence. You can refine your work later as better data becomes available.",
+    "question": "What if I can’t find good data?",
+    "answer": "Start small: use existing research, reports, or course materials. Be transparent about your assumptions and highlight where more evidence is needed. You can refine your work later as better data becomes available.",
     "isOpen": true
   },
   {
-    "question": "Do I need to be good at design to use these tools?",
-    "answer": "No. The templates are built to be simple and flexible. Focus on the ideas and insights, not on making things look perfect.",
+    "question": "Do I need to be a designer to use these tools?",
+    "answer": "No. The templates are simple and flexible. Focus on generating ideas and insights rather than making everything look perfect.",
     "isOpen": false
   },
   {
-    "question": "How do I get familiar with Figma?",
-    "answer": "You can start by duplicating the templates into your own Figma account. Figma has plenty of free tutorials and quick-start guides. For this toolkit, you only need the basics: adding text, dragging elements, and moving sticky notes.",
+    "question": "How do I get started with Figma?",
+    "answer": "Begin by duplicating the templates into your own Figma account. Figma provides plenty of free tutorials and quick-start guides. For this toolkit, you only need the basics: adding text, dragging elements, and moving sticky notes.",
     "isOpen": false
   },
   {
-    "question": "Can I work on these tools alone?",
-    "answer": "Yes, but it works even better in a team. Different perspectives help you spot social, ecological, and technical aspects you might miss on your own.",
+    "question": "Can I work with these tools on my own?",
+    "answer": "Yes, but they’re even more effective in a team. Different perspectives help uncover social, ecological, and technical aspects you might overlook on your own.",
     "isOpen": false
   },
   {
     "question": "How much time should I spend on each tool?",
-    "answer": "It depends on your project phase. Early on, spend 30–60 minutes per tool to get quick insights. Later, you can revisit and refine with more detail.",
+    "answer": "It depends on your project phase. Early on, dedicate 30–60 minutes per tool for quick insights. Later, revisit them with more time and detail as your project evolves.",
     "isOpen": false
   },
   {
     "question": "What if I get stuck?",
-    "answer": "Use the AI prompts included with each tool to brainstorm, generate ideas, or summarize your findings. You can also discuss with teammates or ask your instructor for feedback.",
+    "answer": "Use the AI prompts included with each tool to brainstorm ideas or summarize findings. You can also collaborate with teammates or ask your instructor for feedback.",
     "isOpen": false
   }
 ]

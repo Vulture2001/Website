@@ -1,8 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { InfiniteCarousel } from '@/components/ui/InfiniteCarousel'
-import { PhaseCard, type PhaseCardData } from '@/components/carousel/PhaseCard'
+import { InfiniteCarousel } from '@components/carousel/InfiniteCarousel'
+import { PhaseCard, type PhaseCardData } from '@components/cards/PhaseCard'
 import phasesJson from '@/data/phases.json' assert { type: 'json' }
 
 /* ----------------------------- Types ----------------------------- */

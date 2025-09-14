@@ -9,13 +9,3 @@ export const fadeInUp: Variants = {
         transition: { duration: 0.6, ease: "easeOut" },
     },
 };
-
-export const staggerContainer: Variants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.12,
-            when: "beforeChildren",
-        },
-    },
-};

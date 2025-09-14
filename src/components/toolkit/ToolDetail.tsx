@@ -5,12 +5,12 @@ import { motion } from 'framer-motion'
 import { normalizeArray, normalizeSteps } from '@/lib/tools'
 import type { Tool } from '@/lib/tools'
 import TipsSection from '@/components/toolkit/TipsSection'
-import { NumBadge } from '@/components/ui/Badge'
-import { Breadcrumb } from '@/components/ui/layout/Breadcrumb'
+import { NumBadge } from '@components/buttons/Badge'
+import { Breadcrumb } from '@components/navigation/Breadcrumb'
 import phasesJson from '@/data/phases.json'
-import { FigmaIcon } from '@/components/ui/icons/FigmaIcon'
-import { MiroIcon } from '@/components/ui/icons/MiroIcon'
-import { CopyButton } from '@/components/ui/buttons/CopyButton'
+import { FigmaIcon } from '@components/icons/FigmaIcon'
+import { MiroIcon } from '@components/icons/MiroIcon'
+import { CopyButton } from '@components/buttons/CopyButton'
 
 type Phase = {
     value: string

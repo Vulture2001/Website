@@ -1,10 +1,10 @@
 // app/about/page.tsx
 "use client";
 
-import { PageLayout } from "@/components/ui/layout/PageLayout";
-import { PageHero } from "@/components/ui/layout/PageHero";
-import { ProfileCard } from "@/components/about/ProfileCard";
-import { ThesisDetailsCard } from "@/components/about/ThesisDetailsCard";
+import { PageLayout } from "@components/layout/PageLayout";
+import { PageHero } from "@components/hero/PageHero";
+import { ProfileCard } from "@components/cards/ProfileCard";
+import { ThesisDetailsCard } from "@components/cards/ThesisDetailsCard";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {

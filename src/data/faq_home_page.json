@@ -1,22 +1,22 @@
 [
   {
     "question": "What is Software 5.0?",
-    "answer": "A framework that weaves sustainability into software design and development, making products more inclusive, responsible, and future-ready.",
+    "answer": "It’s a framework that embeds sustainability into software design and development, helping create products that are inclusive, responsible, and future-ready.",
     "isOpen": true
   },
   {
-    "question": "How can I use it as a student?",
-    "answer": "You can apply it in class projects, workshops, or your own ideas. The toolkit gives you step-by-step methods to explore, design, and test while keeping people and the planet in mind.",
+    "question": "How can students use it?",
+    "answer": "Students can apply it in class projects, workshops, or personal initiatives. The toolkit provides step-by-step methods to design, prototype, and test solutions while keeping people and the planet in mind.",
     "isOpen": false
   },
   {
     "question": "How can educators use it?",
-    "answer": "Teachers can run workshops or integrate the tools into projects. It makes learning about sustainable and inclusive design hands-on and practical.",
+    "answer": "Educators can integrate it into courses, studio projects, or workshops. The tools make teaching sustainability and inclusive design practical and hands-on.",
     "isOpen": false
   },
   {
-    "question": "Where can I see examples?",
-    "answer": "Check the Knowledge Base and Case Studies — it’s full of case studies and examples that show how the framework has been applied in real projects.",
+    "question": "Where can I find examples?",
+    "answer": "Explore the Knowledge Base and Case Studies — they highlight real-world applications of the framework in diverse projects.",
     "isOpen": false
   }
 ]

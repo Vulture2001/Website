@@ -1,29 +1,39 @@
-import ToolDetail from '@/components/toolkit/ToolDetail'
-import { getToolById, getStaticToolParams, getToolSeoMeta } from '@/lib/tools'
-import { notFound } from 'next/navigation'
+import ToolDetail from "@/components/toolkit/ToolDetail";
+import {
+    getToolById,
+    getStaticToolParams,
+    getToolSeoMeta,
+} from "@/lib/tools";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
-// Prebuild static paths (optional but nice)
+// ✅ Prebuild static paths
 export async function generateStaticParams() {
-    return getStaticToolParams()
+    return getStaticToolParams();
 }
 
-import type { Metadata } from "next"
-
+// ✅ Metadata per tool
 export async function generateMetadata(
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: { id: string } }
 ): Promise<Metadata> {
-    const { id } = await params
-    const tool = getToolById(id)
+    const { id } = params;
+    const tool = getToolById(id);
+
     if (!tool) {
-        return { title: "Tool not found" }
+        return { title: "Tool not found" };
     }
-    return getToolSeoMeta(tool) // make sure this returns Metadata
+
+    return getToolSeoMeta(tool);
 }
 
-// ⬇️ params is a Promise — await it
-export default async function ToolkitToolPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = await params
-    const tool = getToolById(id)
-    if (!tool) return notFound()
-    return <ToolDetail tool={tool} />
+// ✅ Page component
+export default function ToolkitToolPage(
+    { params }: { params: { id: string } }
+) {
+    const { id } = params;
+    const tool = getToolById(id);
+
+    if (!tool) return notFound();
+
+    return <ToolDetail tool={tool} />;
 }

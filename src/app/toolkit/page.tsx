@@ -1,13 +1,13 @@
 // app/toolkit/page.tsx
 'use client';
 
-import { PageLayout } from '@/components/ui/layout/PageLayout';
-import { PageHero } from '@/components/ui/layout/PageHero';
-import { ToolLibrary } from '@/components/toolkit/ToolLibrary';
+import { PageLayout } from '@components/layout/PageLayout';
+import { PageHero } from '@components/hero/PageHero';
+import { ToolLibrary } from '@components/pages/ToolLibrary';
 import faqs from '@/data/faqs_toolkit.json';
-import { MotionSection } from '@/components/ui/layout/Section';
+import { MotionSection } from '@components/layout/MotionSection';
 import { fadeInUp } from '@/lib/animations';
-import { FaqList } from '@/components/ui/FAQ';
+import { FaqList } from '@components/hero/FAQ';
 
 export default function ToolkitPage() {
     return (
