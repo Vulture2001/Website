@@ -1,0 +1,44 @@
+---
+title: "Carbon-Aware Computing: What Students Can Learn from Microsoft’s Whitepaper"
+description: "A case study examining how Microsoft’s carbon-aware computing effort helps reduce software’s carbon footprint, with lessons for students."
+date: "2025-09-14"
+heroSrc: "svg/carbon-aware-computing.svg"
+heroAlt: "Illustration of cloud computing aligned with green energy and a clock showing time shifts"
+lead: "Microsoft’s whitepaper on carbon-aware computing shows how software execution can be scheduled and located to reduce emissions. As students, this is a powerful example of applying sustainability to software architecture and operation."
+---
+
+## Introduction
+
+If you are studying software engineering, computer science, or environmental tech, it is not enough to make software that *works*. Sustainable software must also be conscious of its environmental impact. Microsoft’s whitepaper on carbon-aware computing explores how software execution can be adapted — in time and location — to leverage cleaner energy, thereby reducing carbon emissions.
+
+This article will walk you through what carbon-aware computing means, how Microsoft and partners implemented it, and what you as students can take away for your own work.
+
+## Key Sustainable Practices from Microsoft’s Carbon-Aware Computing
+
+<IconList
+    items={[
+        { title: "Measuring Carbon Impact via SCI (Software Carbon Intensity)", body: "Using a standard metric (SCI) to quantify how much carbon emissions a software system causes during execution helps make outcomes visible and measurable." },
+        { title: "Time-Shifting Compute Workloads", body: "Scheduling non-urgent compute tasks when the energy grid is cleaner (lower carbon intensity), e.g. during hours when renewable generation is high." },
+        { title: "Location-Aware Execution", body: "Running parts of computation in regions where the grid is cleaner, or dynamically moving workloads to such locations to reduce emissions." },
+        { title: "Open-Source Tooling & SDKs", body: "Microsoft and its partners released tools (such as the carbon-aware-sdk) that developers can use to integrate carbon awareness into their applications." }
+    ]}
+/>
+
+## Case Study: UBS Advanced Compute Quantum Analytics (ACQA) Platform
+
+<IconList
+    items={[
+        { title: "Challenge", body: "UBS had computations in their ACQA platform that consumed energy without consideration of when or where energy was cleanest. That led to unnecessary carbon emissions." },
+        { title: "Solution", body: "They partnered with Microsoft and others to build a Minimum Viable Product (MVP) using the SCI metric, the carbon-aware SDK, and scheduling logic that shifts compute to cleaner times and places." },
+        { title: "Outcome", body: "The system now can reduce carbon emissions by running tasks when grid carbon intensity is lower; it also uses regions with cleaner energy for some workload shifts. This results in measurable emissions reductions for that platform." }
+    ]}
+/>
+
+## Conclusion
+
+Microsoft’s whitepaper on carbon-aware computing pushes the idea that sustainability isn’t just about static optimization (making code faster or more efficient), but about dynamic operation: using knowledge of energy sources, time, and geography to reduce carbon footprint.
+
+
+<References>
+    <li><a href="https://news.microsoft.com/de-ch/2023/01/10/carbon-aware-computing-whitepaper/">Microsoft – Carbon-aware computing: Measuring and reducing the carbon footprint associated with software in execution (whitepaper)</a></li>
+</References>

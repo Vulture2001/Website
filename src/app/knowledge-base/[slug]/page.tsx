@@ -11,7 +11,7 @@ export default async function ArticleSlugPage({ params }: { params: Promise<{ sl
 
     // If your getArticleBySlug is synchronous, you don’t need `await` here.
     // If it’s async (e.g. reading from disk or fetching), add `await`.
-    const article = await getArticleBySlug(slug);
+    const article = getArticleBySlug(slug);
     if (!article) return notFound();
 
     const breadcrumbs = [

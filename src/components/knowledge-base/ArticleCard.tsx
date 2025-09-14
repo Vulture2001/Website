@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {ArticleSummary} from "@/lib/mdx";
+import { ArticleSummary } from "@/lib/mdx";
 
 /* ----------------------------- utils ----------------------------- */
 function normalizeSrc(src?: string): string | null {
@@ -20,13 +20,18 @@ function formatDate(date: string): string {
 }
 
 /* ----------------------------- component ----------------------------- */
-export function ArticleCard({ article }: { article: ArticleSummary }) {
+type ArticleCardProps = {
+    article: ArticleSummary;
+    basePath: "knowledge-base" | "case-studies"; // restricts to valid sections
+};
+
+export function ArticleCard({ article, basePath }: ArticleCardProps) {
     const src = normalizeSrc(article.heroSrc);
     const hasImage = !!src;
 
     return (
         <Link
-            href={`/knowledge-base/${article.slug}`}
+            href={`/${basePath}/${article.slug}`}
             role="article"
             aria-label={article.title}
             className="group block transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl overflow-hidden"

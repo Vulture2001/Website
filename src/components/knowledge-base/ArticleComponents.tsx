@@ -1,4 +1,3 @@
-// src/components/knowledge-base/ProseComponents.tsx
 'use client';
 import Image from "next/image";
 import { cn } from "@/lib/cn";

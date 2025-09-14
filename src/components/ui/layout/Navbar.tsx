@@ -12,9 +12,11 @@ type NavItem = { label: string; href: string };
 const NAV: NavItem[] = [
     { label: "Home", href: "/" },
     { label: "Knowledge Base", href: "/knowledge-base" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "Process", href: "/process" },
     { label: "Toolkit", href: "/toolkit" },
     { label: "About", href: "/about" },
+
 ];
 
 export function Navbar() {

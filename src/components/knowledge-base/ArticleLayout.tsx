@@ -5,14 +5,13 @@ import * as React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { cn } from '@/lib/cn';
 import { Breadcrumb, type Crumb } from '@/components/ui/layout/Breadcrumb';
-import {formatDate} from "@/lib/formatDate";
-
+import { formatDate } from '@/lib/formatDate';
 
 export function normalizeSrc(src?: string): string | null {
     if (!src) return null;
     if (src.startsWith("data:")) return src;
     if (src.startsWith("http://") || src.startsWith("https://")) return src;
-    if (src.startsWith("/public/")) return src.replace(/^\/public/, ""); // 👈 fix
+    if (src.startsWith("public/")) return src.replace(/^public\//, ""); // ✅ correct
     if (src.startsWith("/")) return src;
     return `/${src}`;
 }
@@ -27,6 +26,18 @@ const stagger: Variants = {
     visible: { opacity: 1, transition: { when: 'beforeChildren', staggerChildren: 0.08 } },
 };
 
+type ArticleLayoutProps = {
+    title: string;
+    heroSrc?: string;
+    heroAlt?: string;
+    heroAspect?: string;
+    lead?: string;
+    date?: string;
+    className?: string;
+    children: React.ReactNode;
+    breadcrumbs?: Crumb[];
+};
+
 export function ArticleLayout({
                                   title,
                                   heroSrc,
@@ -37,17 +48,7 @@ export function ArticleLayout({
                                   className,
                                   children,
                                   breadcrumbs,
-                              }: {
-    title: React.ReactNode;
-    heroSrc?: string;
-    heroAlt?: string;
-    heroAspect?: string;
-    lead?: React.ReactNode;
-    date?: string;
-    className?: string;
-    children: React.ReactNode;
-    breadcrumbs?: Crumb[];
-}) {
+                              }: ArticleLayoutProps) {
     return (
         <article className={cn('mx-auto mt-10 max-w-3xl px-4 py-10', className)}>
             {/* Breadcrumbs */}
@@ -69,44 +70,41 @@ export function ArticleLayout({
                 </motion.h1>
 
                 {/* Date */}
-                {date ? (
+                {date && (
                     <div className="mt-3 text-xs text-[hsl(var(--muted-fg))]">
-                        {date ? (
-                            <div className="mt-3 text-xs text-[hsl(var(--muted-fg))]">
-                                <time dateTime={date}>{formatDate(date)}</time>
-                            </div>
-                        ) : null}
+                        <time dateTime={date}>{formatDate(date)}</time>
                     </div>
-                ) : null}
+                )}
 
-                {/* Hero Image */}{heroSrc ? (
-                <motion.div
-                    className="mt-5 overflow-hidden rounded-[24px] bg-[hsl(var(--surface)/0.8)]"
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.01 }}
-                    transition={{ type: 'spring', stiffness: 120 }}
-                >
-                    <div className={cn('relative w-full', heroAspect)}>
-                        <Image
-                            src={normalizeSrc(heroSrc)!}
-                            alt={heroAlt ?? ''}
-                            fill
-                            className="object-cover"
-                            priority
-                        />
-                    </div>
-                </motion.div>
-            ) : null}
+                {/* Hero Image */}
+                {heroSrc && (
+                    <motion.div
+                        className="mt-5 overflow-hidden rounded-[24px] bg-[hsl(var(--surface)/0.8)]"
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.01 }}
+                        transition={{ type: 'spring', stiffness: 120 }}
+                    >
+                        <div className={cn('relative w-full', heroAspect)}>
+                            <Image
+                                src={normalizeSrc(heroSrc)!}
+                                alt={heroAlt ?? ''}
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* Lead paragraph */}
-                {lead ? (
+                {lead && (
                     <motion.p
                         className="mt-6 text-[15px] font-medium leading-7 text-muted-foreground"
                         variants={fadeInUp}
                     >
                         {lead}
                     </motion.p>
-                ) : null}
+                )}
             </motion.header>
 
             {/* Body */}
