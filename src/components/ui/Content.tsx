@@ -70,7 +70,7 @@ export function Content({
                             imageAlt = 'Feature image',
                             renderImage,
                             imagePosition = 'none',
-                            textMaxWidthClassName = 'max-w-[650px] w-full',
+                            textMaxWidthClassName = 'max-w-[550px] w-full',
                             className,
                             children,
                             titleClassName,
@@ -138,7 +138,7 @@ export function Content({
                                 className={cn(
                                     // responsive typography with clamp
                                     'font-semibold tracking-tighter text-zinc-800',
-                                    'text-[clamp(2rem,5vw,4rem)] leading-[1.1]',
+                                    'text-[clamp(2rem,5vw,3rem)] leading-[1.1]',
                                     titleClassName
                                 )}
                             >

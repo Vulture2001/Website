@@ -35,19 +35,21 @@ export function Figure({
                            src,
                            alt = "",
                            caption,
-                           aspect = "aspect-[16/9]",
                        }: {
     src: string;
     alt?: string;
     caption?: React.ReactNode;
-    aspect?: string;
 }) {
     return (
         <figure className="mt-6">
-            <div className="overflow-hidden rounded-xl bg-[hsl(var(--surface)/0.8)] ring-1 ring-[hsl(var(--border))]">
-                <div className={cn("relative w-full", aspect)}>
-                    <Image src={src} alt={alt} fill className="object-cover" />
-                </div>
+            <div className="overflow-hidden rounded-xl bg-[hsl(var(--surface)/0.8)]">
+                <Image
+                    src={src}
+                    alt={alt}
+                    width={800}   // you can set width/height or use layout="intrinsic"
+                    height={600}
+                    className="object-contain w-full h-auto"
+                />
             </div>
             {caption ? (
                 <figcaption className="mt-2 text-xs text-[hsl(var(--muted-fg))]">
