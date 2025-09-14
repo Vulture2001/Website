@@ -3,7 +3,7 @@ import { getCaseStudyBySlug } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import { ArticleLayout } from "@components/articles/ArticleLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { MDXComponents } from "@components/articles/MDXComponents";
+import {mdxComponents} from "@components/articles/MDXComponents";
 
 type PageProps = {
     params: { slug: string };
@@ -29,7 +29,7 @@ export default async function CaseStudySlugPage({ params }: PageProps) {
             date={caseStudy.meta.date}
             breadcrumbs={breadcrumbs}
         >
-            <MDXRemote source={caseStudy.content} components={MDXComponents} />
+            <MDXRemote source={caseStudy.content} components={mdxComponents} />
         </ArticleLayout>
     );
 }

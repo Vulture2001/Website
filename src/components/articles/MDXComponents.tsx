@@ -1,5 +1,4 @@
 // src/components/MDXComponents.tsx
-import type { MDXComponents } from "mdx/types";
 import {
     H2,
     P,
@@ -7,8 +6,9 @@ import {
     Figure,
     References, FeatureList, IconList, Table, Callout
 } from "@components/articles/ArticleComponents";
+import {MDXComponents} from "mdx/types";
 
-export const MDXComponents: MDXComponents = {
+export const mdxComponents: MDXComponents = {
     // Markdown overrides
     h2: H2,
     p: P,

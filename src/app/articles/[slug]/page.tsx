@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 
 import { getArticleBySlug } from "@/lib/mdx";
 import { ArticleLayout } from "@components/articles/ArticleLayout";
-import { MDXComponents } from "@components/articles/MDXComponents";
+import {mdxComponents} from "@components/articles/MDXComponents";
 
 type ArticleSlugPageProps = {
     params: { slug: string };
@@ -32,7 +32,7 @@ export default async function ArticleSlugPage({ params }: ArticleSlugPageProps) 
             date={meta.date}
             breadcrumbs={breadcrumbs}
         >
-            <MDXRemote source={content} components={MDXComponents} />
+            <MDXRemote source={content} components={mdxComponents} />
         </ArticleLayout>
     );
 }
