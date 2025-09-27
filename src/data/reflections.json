@@ -1,137 +1,302 @@
 [
   {
     "id": 1,
-    "scenario": "Do you challenge the status quo with your solution?",
-    "description": "How? Is that good or bad?"
+    "scenario": "Your solution forces people to use it every day",
+    "description": "Individual Impact"
   },
   {
     "id": 2,
-    "scenario": "Who benefits from your solution?",
-    "description": "Who, how and why?"
+    "scenario": "Your solution causes sickness/harm",
+    "description": "Individual Impact"
   },
   {
     "id": 3,
-    "scenario": "Where in the world is your solution a problem?",
-    "description": "Where and why?"
+    "scenario": "Your solution relies on targeted ads",
+    "description": "Individual Impact"
   },
   {
     "id": 4,
-    "scenario": "Does our society benefit from your solution?",
-    "description": "When and how?"
+    "scenario": "Your solution forces users to type in data",
+    "description": "Individual Impact"
   },
   {
     "id": 5,
-    "scenario": "Does your solution challenge or reproduce existing inequities?",
-    "description": "When and how?"
+    "scenario": "People don’t want to provide the data needed for your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 6,
-    "scenario": "How is power showing up within/through your solution?",
-    "description": "When and how?"
+    "scenario": "Your solution causes users to make mistakes",
+    "description": "Individual Impact"
   },
   {
     "id": 7,
-    "scenario": "Does your solution help to build a positive future?",
-    "description": "If yes, how? If not, why not?"
+    "scenario": "Your solution makes people addicted",
+    "description": "Individual Impact"
   },
   {
     "id": 8,
-    "scenario": "What is the worst that could happen with your solution?",
-    "description": "Describe a nightmare scenario."
+    "scenario": "Your solution is created to make fun of others",
+    "description": "Individual Impact"
   },
   {
     "id": 9,
-    "scenario": "Does your solution make people change their habits?",
-    "description": "How? Is it good or bad?"
+    "scenario": "Your solution profits from users forgetting to cancel subscriptions",
+    "description": "Individual Impact"
   },
   {
     "id": 10,
-    "scenario": "When is your solution unacceptable?",
-    "description": "When? What situations?"
+    "scenario": "A queer person tried your solution but sees no options or representation or their identity",
+    "description": "Individual Impact"
   },
   {
     "id": 11,
-    "scenario": "How does your solution promote collaboration and connection?",
-    "description": "When and how?"
+    "scenario": "People don't understand your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 12,
-    "scenario": "What arguments would strong opponents of your solution bring forward?",
-    "description": "What would they say and why?"
+    "scenario": "Some users adopt your solution while most stick with traditional ways",
+    "description": "Individual Impact"
   },
   {
     "id": 13,
-    "scenario": "Is there anything in your solution that makes you feel uncomfortable?",
-    "description": "What is it and why?"
+    "scenario": "Your solution must fully reflect your values",
+    "description": "Individual Impact"
   },
   {
     "id": 14,
-    "scenario": "Is your solution dependent on someone's weaknesses?",
-    "description": "How and why?"
+    "scenario": "A deaf person uses your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 15,
-    "scenario": "Are there people who are excluded from your solution?",
-    "description": "Who and why?"
+    "scenario": "Your solution is used by blind people",
+    "description": "Individual Impact"
   },
   {
     "id": 16,
-    "scenario": "Who will your solution harm?",
-    "description": "Who, why and how?"
+    "scenario": "A migrant with limited local language skills uses your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 17,
-    "scenario": "Who is most directly affected by your solution?",
-    "description": "Who and how?"
+    "scenario": "A user with ADHD is unable to navigate your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 18,
-    "scenario": "Are marginalized perspectives present in your solution?",
-    "description": "What perspectives and how are they present?"
+    "scenario": "Your solution is used by a person with burnout",
+    "description": "Individual Impact"
   },
   {
     "id": 19,
-    "scenario": "What social identities are represented by your solution?",
-    "description": "What identities and how are they represented?"
+    "scenario": "A single parent with two jobs and little spare time tries your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 20,
-    "scenario": "In 10 years — how has your solution aged?",
-    "description": "Describe how your solution is perceived in the future."
+    "scenario": "Children have to use your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 21,
-    "scenario": "What small change could ethically improve your solution?",
-    "description": "Describe the change and its impact."
+    "scenario": "Your 87 year old neighbor uses your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 22,
-    "scenario": "What ethical principles does your product follow?",
-    "description": "Name the principles."
+    "scenario": "A consumer rights group publishes a critical report about your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 23,
-    "scenario": "Does the solution represent your values?",
-    "description": "Why? Why not? Which values?"
+    "scenario": "Your platform goes down for 48 hours",
+    "description": "Individual Impact"
   },
   {
     "id": 24,
-    "scenario": "Is it easy to understand the deeper mechanisms in your solution?",
-    "description": "Why / why not? Is it a problem?"
+    "scenario": "A university with frequent power outages tries to use your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 25,
-    "scenario": "What are the weaknesses of your solution?",
-    "description": "What and why?"
+    "scenario": "A rural farmer with no reliable internet tries your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 26,
-    "scenario": "What other solutions were explored and why were they rejected?",
-    "description": "What and why?"
+    "scenario": "A wealthy corporate client and a small community non-profit both implement your solution",
+    "description": "Individual Impact"
   },
   {
     "id": 27,
-    "scenario": "What unspoken norms and beliefs are influencing your solution?",
-    "description": "What, why and how?"
+    "scenario": "Your solution is implemented in a nursing home",
+    "description": "Individual Impact"
+  },
+  {
+    "id": 28,
+    "scenario": "Your solution helps people connect with each other",
+    "description": "Social Impact"
+  },
+  {
+    "id": 29,
+    "scenario": "Your solution worsens working conditions /wages",
+    "description": "Social Impact"
+  },
+  {
+    "id": 30,
+    "scenario": "Your solution is adopted in a country where laws require all online content to be pre-approved by government censors",
+    "description": "Social Impact"
+  },
+  {
+    "id": 31,
+    "scenario": "Your solution allows users to freely choose their gender, but is implemented in a country where laws prohibit that.",
+    "description": "Social Impact"
+  },
+  {
+    "id": 32,
+    "scenario": "Your solution is adopted in a country where laws prohibit to store user data",
+    "description": "Social Impact"
+  },
+  {
+    "id": 33,
+    "scenario": "Your solution restricts freedom of speach",
+    "description": "Social Impact"
+  },
+  {
+    "id": 34,
+    "scenario": "Your solution causes people to have no access to water",
+    "description": "Social Impact"
+  },
+  {
+    "id": 35,
+    "scenario": "The data your solution collects endangers trans people",
+    "description": "Social Impact"
+  },
+  {
+    "id": 36,
+    "scenario": "Your solution limits access to education",
+    "description": "Social Impact"
+  },
+  {
+    "id": 37,
+    "scenario": "Your solution limits religious freedom",
+    "description": "Social Impact"
+  },
+  {
+    "id": 38,
+    "scenario": "Your solution restricts democratic participation",
+    "description": "Social Impact"
+  },
+  {
+    "id": 39,
+    "scenario": "A user points out that your design relies on stereotype or exclusion",
+    "description": "Social Impact"
+  },
+  {
+    "id": 40,
+    "scenario": "Your solution is tested in schools and you realize it subtly changes how children behave",
+    "description": "Social Impact"
+  },
+  {
+    "id": 41,
+    "scenario": "It is 2050 and your solution still exists",
+    "description": "Social Impact"
+  },
+  {
+    "id": 42,
+    "scenario": "Your solution only assumes cisgendered users",
+    "description": "Social Impact"
+  },
+  {
+    "id": 43,
+    "scenario": "Your solution perpetuates stereotypes about queer identities",
+    "description": "Social Impact"
+  },
+  {
+    "id": 44,
+    "scenario": "Your solution only allows for heterosexual relationships",
+    "description": "Social Impact"
+  },
+  {
+    "id": 45,
+    "scenario": "People of color feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 46,
+    "scenario": "Woman feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 47,
+    "scenario": "Neurodivergent users feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 48,
+    "scenario": "Queer users feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 49,
+    "scenario": "Low-income users feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 50,
+    "scenario": "Poorly educated users feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 51,
+    "scenario": "Users with dyslexia feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 52,
+    "scenario": "Men feel represented by your solution",
+    "description": "Social Impact"
+  },
+  {
+    "id": 53,
+    "scenario": "Laws require your solution to be tested on sustainability before being implemented",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 54,
+    "scenario": "You have to write an impact statement before your solution is getting published",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 55,
+    "scenario": "Your solution consumes massive amounts of energy",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 56,
+    "scenario": "Your solution increases packaging waste",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 57,
+    "scenario": "Your solution requires the latest electronic devices",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 58,
+    "scenario": "Your solution encourages users to travel larger distances",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 59,
+    "scenario": "Your solution encourages overconsumption",
+    "description": "Environmental Impact"
+  },
+  {
+    "id": 60,
+    "scenario": "Your solution causes overcrowding of public spaces",
+    "description": "Environmental Impact"
   }
 ]
