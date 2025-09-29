@@ -29,7 +29,7 @@ export function HomeHero({
     return (
         <section
             className={cn(
-                "relative isolate",
+                "relative isolate overflow-hidden",
                 "py-40 sm:py-40 lg:py-48",
                 "bg-[radial-gradient(1000px_600px_at_70%_50%,hsl(var(--color-brand-primary)/0.3),hsl(var(--color-brand-accent)/0.25)_30%,hsl(var(--color-brand-orange)/0.2)_50%,hsl(var(--color-bg)/0)_70%)]",
                 className
@@ -37,6 +37,8 @@ export function HomeHero({
             aria-labelledby="home-hero-title"
             role="region"
         >
+            {/* Logo behind content */}
+
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8 mb-10">
                 <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center">
                     {/* Left content */}
@@ -94,10 +96,8 @@ export function HomeHero({
                         </div>
                     </div>
 
-                    {/* Right content → Animated Logo */}
-                    <div className="flex justify-center lg:justify-end overflow-visible">
-                        <LogoAnimation />
-                    </div>
+                    {/* Right column empty (since logo is centered behind) */}
+                    <div className="hidden lg:block" />
                 </div>
             </div>
         </section>
