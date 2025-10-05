@@ -240,3 +240,85 @@ export function Callout({
         </div>
     );
 }
+
+/* ----------------------------- Video ----------------------------- */
+export function Video({
+                          src,
+                          caption,
+                          poster,
+                          className,
+                      }: {
+    src: string;
+    caption?: React.ReactNode;
+    poster?: string;
+    className?: string;
+}) {
+    // Check if the src is a YouTube URL
+    const isYouTube = /youtube\.com|youtu\.be/.test(src);
+
+    return (
+        <figure className="mt-6">
+            <div className={cn("overflow-hidden rounded-xl bg-surface/80", className)}>
+                {isYouTube ? (
+                    <iframe
+                        width="100%"
+                        height="450"
+                        src={src.includes("embed") ? src : getYouTubeEmbedURL(src)}
+                        title="YouTube video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    />
+                ) : (
+                    <video
+                        controls
+                        src={src}
+                        poster={poster}
+                        className="w-full h-auto rounded-lg object-contain"
+                    />
+                )}
+            </div>
+            {caption && (
+                <figcaption className="mt-2 text-xs text-text-muted">
+                    {caption}
+                </figcaption>
+            )}
+        </figure>
+    );
+}
+
+// Utility to convert normal YouTube URL to embed URL
+function getYouTubeEmbedURL(url: string) {
+    const idMatch = url.match(/(?:v=|\/)([a-zA-Z0-9_-]{11})/);
+    if (!idMatch) return url; // fallback if regex fails
+    return `https://www.youtube.com/embed/${idMatch[1]}`;
+}
+/* ----------------------------- PDF ----------------------------- */
+export function PDF({
+                        src,
+                        caption,
+                        className,
+                    }: {
+    src: string;
+    caption?: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <figure className="mt-6">
+            <div className={cn("overflow-hidden rounded-xl border bg-surface/80", className)}>
+                <iframe
+                    src={src}
+                    width="100%"
+                    height="600"
+                    className="border-none"
+                />
+            </div>
+            {caption && (
+                <figcaption className="mt-2 text-xs text-text-muted">
+                    {caption}
+                </figcaption>
+            )}
+        </figure>
+    );
+}
+

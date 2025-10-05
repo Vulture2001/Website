@@ -4,7 +4,7 @@ import {
     P,
     Quote,
     Figure,
-    References, FeatureList, IconList, Table, Callout
+    References, FeatureList, IconList, Table, Callout, PDF, Video
 } from "@components/articles/ArticleComponents";
 import {MDXComponents} from "mdx/types";
 
@@ -14,6 +14,8 @@ export const mdxComponents: MDXComponents = {
     p: P,
     blockquote: Quote,
     Figure,
+    Video,
+    PDF,
     Quote,
     References,
     FeatureList,
