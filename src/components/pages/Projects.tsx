@@ -6,11 +6,11 @@ import Grid from "@components/layout/Grid";
 import type { ArticleSummary } from "@lib/mdx";
 import { motion } from "framer-motion";
 
-type CaseStudiesClientProps = {
-    caseStudies: ArticleSummary[];
+type ProjectsClientProps = {
+    projects: ArticleSummary[];
 };
 
-export default function CaseStudies({ caseStudies }: CaseStudiesClientProps) {
+export default function Projects({ projects }: ProjectsClientProps) {
     return (
         <PageLayout>
             {/* Hero with fade-down */}
@@ -20,18 +20,18 @@ export default function CaseStudies({ caseStudies }: CaseStudiesClientProps) {
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
                 <PageHero
-                    id="cs-hero"
+                    id="projects-hero"
                     eyebrow="Practice"
-                    title="Case Studies"
+                    title="Projects"
                     subtitle="In-depth explorations of sustainable software practices in real-world contexts."
                     size="xl"
                 />
             </motion.div>
 
-            {/* Articles grid with gentle fade-up */}
+            {/* Projects grid with gentle fade-up */}
             <motion.section
-                id="cs-articles"
-                aria-labelledby="cs-hero"
+                id="projects-articles"
+                aria-labelledby="projects-hero"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -49,10 +49,10 @@ export default function CaseStudies({ caseStudies }: CaseStudiesClientProps) {
                     }}
                 >
                     <Grid
-                        articles={caseStudies}
-                        basePath="case-studies"
-                        title="Case Studies"
-                        id="cs-articles-title"
+                        articles={projects}
+                        basePath="projects"
+                        title="Projects"
+                        id="projects-articles-title"
                     />
                 </motion.div>
             </motion.section>

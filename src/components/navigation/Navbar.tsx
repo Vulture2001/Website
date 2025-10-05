@@ -11,12 +11,9 @@ type NavItem = { label: string; href?: string; modal?: boolean };
 
 const NAV: NavItem[] = [
     { label: "Home", href: "/" },
-    { label: "Knowledge Base", href: "/articles" },
-    { label: "Case Studies", href: "/case-studies" },
+    { label: "Projects", href: "/projects" },
     { label: "Process", href: "/process" },
-    { label: "Toolkit", href: "/toolkit" },
-    { label: "Reflect", modal: true },
-    { label: "About", href: "/about" },
+    { label: "Toolkit", href: "/toolkit" }
 ];
 
 const underlineClasses =
@@ -48,18 +45,18 @@ export function Navbar() {
                 <div className="h-16 flex items-end justify-between pb-1">
                     {/* Logo + text */}
                     <Link
-                        href="/public"
+                        href="/"
                         className="flex items-center gap-3 shrink-0 text-lg font-semibold tracking-tight text-surface-fg leading-none"
                         aria-label="Software 5.0 home"
                     >
                         <Image
                             src="svg/logo.svg"
-                            alt="Software 5.0 logo"
+                            alt="Course logo"
                             width={28}
                             height={28}
                             priority
                         />
-                        <span>Software 5.0</span>
+                        <span>Responsible, Sustainable, and Inclusive Digital Product Creation</span>
                     </Link>
 
                     {/* Desktop nav */}

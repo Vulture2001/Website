@@ -6,7 +6,7 @@ import React from 'react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Software 5.0',
+    title: 'Responsible, Sustainable, and Inclusive Digital Product Creation',
     description: '—',
 }
 

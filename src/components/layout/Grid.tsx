@@ -3,7 +3,7 @@ import type { ArticleSummary } from "@lib/mdx";
 
 type Props = {
     articles: ArticleSummary[];
-    basePath: "articles" | "case-studies"; // tells grid what section it's for
+    basePath: "articles" | "projects"; // tells grid what section it's for
     title?: string;
     id?: string; // used for aria-labelledby or in-page anchors
 };

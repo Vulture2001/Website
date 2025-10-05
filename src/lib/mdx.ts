@@ -22,7 +22,7 @@ export type Article = {
 };
 
 const articlesDir = path.join(process.cwd(), "src/articles");
-const caseStudiesDir = path.join(process.cwd(), "src/case-studies");
+const projectsDir = path.join(process.cwd(), "src/projects");
 
 function normalizeHeroSrc(src?: string): string | undefined {
     if (!src) return undefined;
@@ -76,11 +76,12 @@ export function getArticleBySlug(slug: string): Article | null {
     return getBySlug(articlesDir, slug);
 }
 
-/* ---- Case Studies ---- */
-export function getAllCaseStudies(): ArticleSummary[] {
-    return getAllFromDir(caseStudiesDir);
+/* ---- Projects ---- */
+export function getAllProjects(): ArticleSummary[] {
+    return getAllFromDir(projectsDir);
 }
 
-export function getCaseStudyBySlug(slug: string): Article | null {
-    return getBySlug(caseStudiesDir, slug);
+export function getProjectBySlug(slug: string): Article | null {
+    return getBySlug(projectsDir, slug);
 }
+
