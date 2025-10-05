@@ -5,7 +5,6 @@ import { cn } from "@lib/cn";
 import { Button } from "@components/buttons/Button";
 import { Badge } from "@components/buttons/Badge";
 import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
-import { LogoAnimation } from "@components/hero/LogoAnimation";
 
 type CTA = { label: string; href: string };
 
@@ -19,11 +18,10 @@ type HeroProps = {
 };
 
 export function HomeHero({
-                             titleLines = ["Design.", "Develop.", "Sustainably."],
-                             eyebrow = "Software 5.0",
-                             description = "Software 5.0 helps you design digital products that don’t just work — but also care. Care for people, care for communities, and care for the planet.",
+                             titleLines = ["Responsible.", "Sustainable.", "Inclusive."],
+                             eyebrow = "Digital Product Creation",
+                             description = "Shape the Digital Future – fairly, sustainably, and consciously.",
                              cta = { label: "Explore Toolkit", href: "/toolkit" },
-                             secondaryHref = "/about",
                              className,
                          }: HeroProps) {
     return (
@@ -77,19 +75,17 @@ export function HomeHero({
                             </p>
                         )}
 
+                        {/* Additional text under description */}
+                        <p className="mt-4 text-lg leading-7 text-text-muted max-w-xl opacity-0 animate-fade-up [animation-delay:1200ms] [animation-fill-mode:forwards]">
+                            We encounter digital products every day – but who actually decides how they are designed? In this interdisciplinary module, participants develop ideas for digital solutions that incorporate social responsibility, ecological sustainability, and inclusion. They will learn methods of Conscious Service Design and work hands-on in teams to develop their own concept. Whether your interests are technical, creative, or societal – students’ perspectives are essential. Participants will build skills that are in high demand in today’s job market: creative problem-solving, digital design, responsible thinking, and teamwork.
+                        </p>
+
                         <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start opacity-0 animate-fade-up [animation-delay:1300ms] [animation-fill-mode:forwards]">
                             {cta && (
                                 <Link href={cta.href} aria-label={cta.label}>
                                     <Button size="lg" variant="outline" shape="pill">
                                         {cta.label}
                                         <ArrowRightIcon className="h-4 w-4" />
-                                    </Button>
-                                </Link>
-                            )}
-                            {secondaryHref && (
-                                <Link href={secondaryHref}>
-                                    <Button variant="link" size="xl">
-                                        About
                                     </Button>
                                 </Link>
                             )}

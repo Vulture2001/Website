@@ -12,8 +12,6 @@ import { Input } from '@components/inputs/Input';
 import { Card, CardBody } from '@components/cards/Card';
 import categoriesJson from '@/data/phases.json';
 import toolsJson from '@/data/tools.json';
-import faqs from '@/data/faqs_toolkit.json';
-import { FaqList } from '@components/hero/FAQ';
 import { Tabs } from '@components/toolkit/Tabs';
 
 type Category = { label: string; value: string; color: string };
@@ -39,7 +37,6 @@ const buildCategoryMaps = (cats: Category[]) => {
     return { labelByValue, colorByValue };
 };
 
-/* ----------------------------- Tool Card ----------------------------- */
 function ToolCard({
                       tool,
                       catLabel,
@@ -52,7 +49,6 @@ function ToolCard({
     return (
         <Card className="rounded-2xl border border-[hsl(var(--border))] bg-surface/80 h-full flex flex-col transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
             <CardBody className="p-6 sm:p-8 flex flex-col flex-1">
-                {/* Category */}
                 <div className="flex items-center gap-3 mb-4">
                     <div
                         className="w-3 h-3 rounded-full shrink-0"
@@ -65,17 +61,14 @@ function ToolCard({
                     )}
                 </div>
 
-                {/* Title */}
                 <h3 className="text-lg font-semibold text-fg leading-snug line-clamp-2">
                     {tool.title}
                 </h3>
 
-                {/* Blurb */}
                 <p className="mt-3 text-sm text-muted-fg leading-relaxed line-clamp-3 flex-1">
                     {truncate(tool._blurb, 100)}
                 </p>
 
-                {/* Footer */}
                 <div className="flex justify-end pt-4">
                     <Link
                         href={`/toolkit/${encodeURIComponent(String(tool.id))}`}
@@ -90,7 +83,6 @@ function ToolCard({
     );
 }
 
-/* ----------------------------- Toolkit Page ----------------------------- */
 export default function Toolkit() {
     const [activeCategory, setActiveCategory] = useState<string>('all');
     const [searchTerm, setSearchTerm] = useState<string>('');
@@ -102,7 +94,6 @@ export default function Toolkit() {
         [categories]
     );
 
-    // Normalize tools
     const normalizedTools = useMemo(() => {
         return tools.map((t) => {
             const cat = (t.category || t.phase || '').toString().toLowerCase();
@@ -111,7 +102,6 @@ export default function Toolkit() {
         });
     }, [tools]);
 
-    // Precompute category counts
     const categoryCounts = useMemo(() => {
         const counts: Record<string, number> = {};
         for (const t of normalizedTools) {
@@ -120,7 +110,6 @@ export default function Toolkit() {
         return counts;
     }, [normalizedTools]);
 
-    // Apply filters
     const filteredTools = useMemo(() => {
         const term = searchTerm.trim().toLowerCase();
         return normalizedTools.filter((t) => {
@@ -145,9 +134,7 @@ export default function Toolkit() {
                 size="xl"
             />
 
-            {/* Tool Library */}
             <MotionSection id="tool-library" variants={fadeInUp}>
-                {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                     <h2 className="text-2xl sm:text-3xl font-semibold text-fg">
                         Tool Library
@@ -163,7 +150,6 @@ export default function Toolkit() {
                     </div>
                 </div>
 
-                {/* Category Tabs */}
                 <Tabs
                     items={[
                         { value: 'all', label: 'All', color: 'hsl(var(--brand-primary))' },
@@ -178,7 +164,6 @@ export default function Toolkit() {
                     onChange={setActiveCategory}
                 />
 
-                {/* Cards Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8">
                     {filteredTools.map((tool) => (
                         <ToolCard
@@ -189,14 +174,6 @@ export default function Toolkit() {
                         />
                     ))}
                 </div>
-            </MotionSection>
-
-            {/* FAQs */}
-            <MotionSection id="toolkit-faqs" variants={fadeInUp}>
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-semibold text-fg">FAQs</h2>
-                </div>
-                <FaqList items={faqs} />
             </MotionSection>
         </PageLayout>
     );

@@ -11,9 +11,22 @@ type ProjectsClientProps = {
 };
 
 export default function Projects({ projects }: ProjectsClientProps) {
+    // Group projects by year using Map for type safety
+    const projectsByYearMap = new Map<number, ArticleSummary[]>();
+
+    projects.forEach((project) => {
+        if (!project.date) return;
+        const year = new Date(project.date).getFullYear();
+        if (!projectsByYearMap.has(year)) projectsByYearMap.set(year, []);
+        projectsByYearMap.get(year)!.push(project);
+    });
+
+    // Sort years descending
+    const sortedYears = Array.from(projectsByYearMap.keys()).sort((a, b) => b - a);
+
     return (
         <PageLayout>
-            {/* Hero with fade-down */}
+            {/* Hero */}
             <motion.div
                 initial={{ opacity: 0, y: -12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -21,41 +34,41 @@ export default function Projects({ projects }: ProjectsClientProps) {
             >
                 <PageHero
                     id="projects-hero"
-                    eyebrow="Practice"
                     title="Projects"
-                    subtitle="In-depth explorations of sustainable software practices in real-world contexts."
+                    subtitle="Designs created by students during this course using the methodology of Responsible, Sustainable, and Inclusive Digital Product Creation."
                     size="xl"
                 />
             </motion.div>
 
-            {/* Projects grid with gentle fade-up */}
-            <motion.section
-                id="projects-articles"
-                aria-labelledby="projects-hero"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                    hidden: { opacity: 0 },
-                    visible: {
-                        opacity: 1,
-                        transition: { staggerChildren: 0.08 },
-                    },
-                }}
-            >
-                <motion.div
+            {/* Year sections */}
+            {sortedYears.map((year) => (
+                <motion.section
+                    key={year}
+                    id={`projects-${year}`}
+                    aria-labelledby={`projects-${year}-grid`}
+                    initial="hidden"
+                    animate="visible"
                     variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
                     }}
+                    className="mt-16"
                 >
-                    <Grid
-                        articles={projects}
-                        basePath="projects"
-                        title="Projects"
-                        id="projects-articles-title"
-                    />
-                </motion.div>
-            </motion.section>
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                        }}
+                    >
+                        <Grid
+                            articles={projectsByYearMap.get(year) ?? []}
+                            basePath="projects"
+                            title={`${year}`}
+                            id={`projects-${year}-grid`}
+                        />
+                    </motion.div>
+                </motion.section>
+            ))}
         </PageLayout>
     );
 }

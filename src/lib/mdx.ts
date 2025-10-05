@@ -21,7 +21,6 @@ export type Article = {
     content: string; // raw markdown/MDX content
 };
 
-const articlesDir = path.join(process.cwd(), "src/articles");
 const projectsDir = path.join(process.cwd(), "src/projects");
 
 function normalizeHeroSrc(src?: string): string | undefined {
@@ -65,15 +64,6 @@ function getBySlug(dir: string, slug: string): Article | null {
     if (!fs.existsSync(fullPath)) return null;
 
     return parseFile(fullPath, slug);
-}
-
-/* ---- Knowledge Base ---- */
-export function getAllArticles(): ArticleSummary[] {
-    return getAllFromDir(articlesDir);
-}
-
-export function getArticleBySlug(slug: string): Article | null {
-    return getBySlug(articlesDir, slug);
 }
 
 /* ---- Projects ---- */

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { cn } from "@lib/cn";
-import thesis from "@/data/thesis.json";
 
 type LinkItem = { label: string; href: string };
 type Section = { heading: string; links: LinkItem[] };
@@ -12,15 +11,14 @@ const FOOTER_SECTIONS: Section[] = [
         heading: "Explore",
         links: [
             { label: "Home", href: "/" },
-            { label: "About", href: "/about" },
+            { label: "Projects", href: "/projects" },
         ],
     },
     {
         heading: "Resources",
         links: [
-            { label: "Knowledge Base", href: "/articles" },
             { label: "Process", href: "/process" },
-            { label: "Toolkit", href: "/toolkit" },
+            { label: "Toolkit", href: "/toolkit" }
         ],
     },
 ];
@@ -42,13 +40,12 @@ export function Footer({ className }: { className?: string }) {
                         <Link
                             href="/public"
                             className="text-lg font-semibold tracking-tight text-surface-fg"
-                            aria-label="Software 5.0 home"
+                            aria-label="Course home"
                         >
-                            Software 5.0
+                            Responsible, Sustainable, and Inclusive Digital Product Creation
                         </Link>
                         <p className="text-sm text-text-muted leading-relaxed max-w-xs">
-                            A student-friendly framework to design and build digital products
-                            that are usable, inclusive, and sustainable.
+                            A project week offered by the chair of Applied Educational Technologies at CIT TUM.
                         </p>
                     </div>
 
@@ -90,31 +87,30 @@ export function Footer({ className }: { className?: string }) {
                         ))}
                     </div>
 
-                    {/* Thesis card */}
+                    {/* Course */}
                     <div className="md:col-span-4">
                         <div className="rounded-xl border border-surface-border sm:p-6">
                             <div className="text-xs font-semibold tracking-wider uppercase text-text-muted">
-                                Based on Research
+                                Project Week
                             </div>
                             <h3 className="mt-2 text-sm font-semibold leading-5 text-surface-fg">
-                                {thesis.title}
+                                {"Responsible, Sustainable, and Inclusive Digital Product Creation"}
                             </h3>
-                            <p className="mt-3 text-xs text-text-muted">{thesis.university}</p>
                             <dl className="mt-3 grid grid-cols-1 gap-1 text-xs text-text-muted">
                                 <div>
-                                    <dt className="sr-only">Author</dt>
-                                    <span className="font-medium text-surface-fg">Author: </span>
-                                    {thesis.author}
+                                    <dt className="sr-only">Instructors</dt>
+                                    <span className="font-medium text-surface-fg">Instructors: </span>
+                                    {"Prof. Dr. Stephan Krusche, Elisabeth Friesinger"}
                                 </div>
                                 <div>
-                                    <dt className="sr-only">Advisor</dt>
-                                    <span className="font-medium text-surface-fg">Advisor: </span>
-                                    {thesis.advisor}
+                                    <dt className="sr-only">Chair</dt>
+                                    <span className="font-medium text-surface-fg">Chair: </span>
+                                    {"Applied Educational Technologies"}
                                 </div>
                                 <div>
-                                    <dt className="sr-only">Supervisor</dt>
-                                    <span className="font-medium text-surface-fg">Supervisor: </span>
-                                    {thesis.supervisor}
+                                    <dt className="sr-only">School</dt>
+                                    <span className="font-medium text-surface-fg">School: </span>
+                                    {"Computation, Information and Technology, TUM"}
                                 </div>
                             </dl>
                         </div>
@@ -124,7 +120,7 @@ export function Footer({ className }: { className?: string }) {
                 {/* Bottom bar */}
                 <div className="mt-10 flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
                     <div className="text-xs text-text-muted">
-                        © {year} Software 5.0 — Built for students, educators, and future practitioners.
+                        © {year} Project week: Responsible, Sustainable, and Inclusive Digital Product Creation.
                     </div>
                 </div>
             </div>

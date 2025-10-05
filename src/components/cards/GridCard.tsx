@@ -23,7 +23,7 @@ function formatDate(date: string): string {
 /* ----------------------------- component ----------------------------- */
 type GridCardProps = {
     article: ArticleSummary;
-    basePath: "articles" | "projects";
+    basePath: "projects";
     badge?: string;
     className?: string;
 };
