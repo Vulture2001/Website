@@ -321,4 +321,3 @@ export function PDF({
         </figure>
     );
 }
-

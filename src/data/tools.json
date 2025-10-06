@@ -71,6 +71,42 @@
     ]
   },
   {
+    "id": "critical-reflection-cards",
+    "title": "Critical Reflection Cards",
+    "phase": "discover",
+    "templates": [
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
+    ],
+    "game": {
+      "name": "Critical Reflection Cards",
+      "href": "/toolkit/critical-reflection-cards/game"
+    },
+    "overview": "Tool to foster critical thinking and help to create conscious digital products.",
+    "purpose": "Explore how your design performs in different situations. Foster innovative problem solving that ensures effective and well-rounded strategies.",
+    "steps": [
+      { "title": "Randomly select cards", "description": "Randomly select two cards from each section, Individual, Social, and Environmental Impact." },
+      { "title": "Reflect", "description": "Test your design in the context of each card and reflect on your findings." },
+      { "title": "Refine and document", "description": "Write down your findings and think about potential improvements to your design." },
+      { "title": "Repeat", "description": "Repeat the process until you have a comprehensive understanding of your design." }
+    ],
+    "input": [
+      "Concept or idea",
+      "Prototyping Playground template",
+      "Inclusive Segment Cards"
+    ],
+    "prompts": [
+      "Expand on this situation [situation]. Provide me with ways this situation could unfold.",
+      "Given my design [design] and this situation [situation], what are the potential impacts?",
+      "Considering [situation], which groups of users are most impacted?"
+    ],
+    "tips": [
+      "Use predefined questions to guide your thinking.",
+      "Try putting your self in the shoes of the user in these situations.",
+      "Think about the parts of your design that are most impacted or affected by the situation.",
+      "Consider if your findings change if you make the situation more or less extreme."
+    ]
+  },
+  {
     "id": "inclusive-user-groups",
     "title": "Inclusive User Groups",
     "phase": "define",

@@ -19,6 +19,10 @@ export type Tool = {
     tips?: string[]
     description?: string
     category?: string
+    game?: {
+        name: string  // Name of the game or link text
+        href: string  // Path to the page of the game (internal URL)
+    }
 }
 
 export const getToolById = (id: string | number) => {

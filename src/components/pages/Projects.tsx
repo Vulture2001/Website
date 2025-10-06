@@ -34,7 +34,8 @@ export default function Projects({ projects }: ProjectsClientProps) {
             >
                 <PageHero
                     id="projects-hero"
-                    title="Projects"
+                    eyebrow="Projects"
+                    title="Student Designs"
                     subtitle="Designs created by students during this course using the methodology of Responsible, Sustainable, and Inclusive Digital Product Creation."
                     size="xl"
                 />
@@ -52,7 +53,7 @@ export default function Projects({ projects }: ProjectsClientProps) {
                         hidden: { opacity: 0 },
                         visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
                     }}
-                    className="mt-16"
+                    className="mt-5"
                 >
                     <motion.div
                         variants={{

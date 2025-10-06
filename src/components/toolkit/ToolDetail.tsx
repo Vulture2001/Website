@@ -11,6 +11,7 @@ import phasesJson from '@/data/phases.json'
 import { FigmaIcon } from '@components/icons/FigmaIcon'
 import { MiroIcon } from '@components/icons/MiroIcon'
 import { CopyButton } from '@components/buttons/CopyButton'
+import Link from 'next/link'
 
 type Phase = {
     value: string
@@ -137,7 +138,7 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
                     )}
                 </section>
 
-                {/* Templates */}
+                {/* Templates Section */}
                 {templates.length > 0 && (
                     <section>
                         <h2 className="text-2xl sm:text-3xl font-semibold text-fg mb-4">
@@ -165,7 +166,22 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
                     </section>
                 )}
 
-                {/* Steps Timeline */}
+                {/* Game Section */}
+                {tool.game && (
+                    <section>
+                        <h2 className="text-2xl sm:text-3xl font-semibold text-fg mb-4">
+                            Game
+                        </h2>
+                        <Link
+                            href={tool.game.href}
+                            className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold text-fg hover:bg-surface-hover transition"
+                        >
+                            {tool.game.name}
+                        </Link>
+                    </section>
+                )}
+
+                {/* Steps */}
                 {steps.length > 0 && (
                     <section>
                         <h2 className="text-2xl sm:text-3xl font-semibold text-fg mb-8">
