@@ -8,7 +8,6 @@ import CardDisplay from './CardDisplay';
 import { drawRandomCardsByType, cardsData, Card } from '@/lib/cardData';
 
 export default function ToolGamePage() {
-
     const [showSvgs, setShowSvgs] = useState(false);
     const [drawnCards, setDrawnCards] = useState<Card[]>([]);
     const [redrawKey, setRedrawKey] = useState(Date.now().toString());
@@ -21,18 +20,20 @@ export default function ToolGamePage() {
     };
 
     return (
-        <PageLayout>
-            <PageHero
-                id="game-hero"
-                eyebrow="Game"
-                title="Critical Reflection Cards"
-                subtitle="Tool to use the Critical Reflection Cards. It will draw two cards per type, displayed column-wise."
-                size="xl"
-            />
+        <PageLayout className="min-h-screen flex flex-col">
+            <div className="flex-grow">
+                <PageHero
+                    id="game-hero"
+                    eyebrow="Game"
+                    title="Critical Reflection Cards"
+                    subtitle="Tool to use the Critical Reflection Cards. It will draw two cards per type, displayed column-wise."
+                    size="xl"
+                />
 
-            <CardDisplay showSvgs={showSvgs} cards={drawnCards} redrawKey={redrawKey} />
+                <CardDisplay showSvgs={showSvgs} cards={drawnCards} redrawKey={redrawKey} />
+            </div>
 
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-4 mb-12">
                 <Button
                     onClick={handleDrawCards}
                     variant="solid"

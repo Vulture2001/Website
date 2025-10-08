@@ -20,7 +20,7 @@ const fadeInUp = {
 export default function CardDisplay({ showSvgs, cards, redrawKey }: CardDisplayProps) {
     const gridClass = `
         grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
-        gap-6 justify-items-center my-16
+        gap-10 justify-items-center my-16
     `;
 
     return (
@@ -77,7 +77,10 @@ export default function CardDisplay({ showSvgs, cards, redrawKey }: CardDisplayP
                             exit="hidden"
                             transition={{ duration: 0.3 }}
                         >
-                            <CardItem scenario={card.scenario} />
+                            <CardItem
+                                scenario={card.scenario}
+                                description={card.description}
+                            />
                         </motion.div>
                     ))}
                 </motion.div>
