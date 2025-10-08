@@ -38,9 +38,9 @@ export default function CardDisplay({ showSvgs, cards, redrawKey }: CardDisplayP
                         }}
                     >
                         {[
-                            { src: '/png/Individual Impact.png', rotate: -30, z: 10, margin: '-mr-12' },
-                            { src: '/png/Social Impact.png', rotate: 0, z: 20, margin: '' },
-                            { src: '/png/Environmental Impact.png', rotate: 30, z: 10, margin: '-ml-12' },
+                            { src: '/svg/CRC_Individual_Design.svg', rotate: -30, z: 10, margin: '-mr-12' },
+                            { src: '/svg/CRC_Social_Design.svg', rotate: 0, z: 20, margin: '' },
+                            { src: '/svg/CRC_Environmental_Design.svg', rotate: 30, z: 10, margin: '-ml-12' },
                         ].map((img, idx) => (
                             <motion.div
                                 key={idx}
@@ -52,7 +52,7 @@ export default function CardDisplay({ showSvgs, cards, redrawKey }: CardDisplayP
                                 <img
                                     src={img.src}
                                     alt={`Critical Reflection Card ${idx + 1}`}
-                                    className="block rounded-lg border border-gray-300 shadow-lg w-64"
+                                    className="block rounded-4xl border border-gray-300 shadow-lg w-64"
                                     style={{ transform: `rotate(${img.rotate}deg)` }}
                                 />
                             </motion.div>

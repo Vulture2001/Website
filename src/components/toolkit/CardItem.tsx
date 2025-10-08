@@ -11,15 +11,15 @@ type CardItemProps = {
 export default function CardItem({ scenario, description }: CardItemProps) {
     const styleMap = {
         'Individual Impact': {
-            background: '/png/Individual Impact Text.png',
+            background: '/svg/CRC_Individual_Text.svg',
             textColor: '#d8e7e1',
         },
         'Social Impact': {
-            background: '/png/Social Impact Text.png',
+            background: '/svg/CRC_Social_Text.svg',
             textColor: '#3c3a34',
         },
         'Environmental Impact': {
-            background: '/png/Environmental Impact Text.png',
+            background: '/svg/CRC_Environmental_Text.svg',
             textColor: '#352c1a',
         },
     } as const;
@@ -36,7 +36,7 @@ export default function CardItem({ scenario, description }: CardItemProps) {
 
     return (
         <div
-            className="relative rounded-xl shadow-lg border border-gray-300 overflow-hidden flex items-center justify-center text-center"
+            className="relative rounded-4xl shadow-lg border border-gray-300 overflow-hidden flex items-center justify-center text-center"
             style={{
                 width: '18rem',
                 aspectRatio,
@@ -50,7 +50,7 @@ export default function CardItem({ scenario, description }: CardItemProps) {
                 priority
             />
 
-            {/* Text overlay with border for alignment */}
+            {/* Text overlay */}
             <div className="relative w-full h-full">
                 <span
                     className="font-[700]"

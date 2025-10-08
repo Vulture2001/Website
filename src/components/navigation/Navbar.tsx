@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@lib/cn";
-import ReflectionModal from "@components/carousel/ReflectionModal";
 
 type NavItem = { label: string; href?: string; modal?: boolean };
 
@@ -22,7 +21,7 @@ const underlineClasses =
 export function Navbar() {
     const pathname = usePathname();
     const [elevated, setElevated] = useState(false);
-    const [reflectionOpen, setReflectionOpen] = useState(false);
+    const [, setReflectionOpen] = useState(false);
 
     useEffect(() => {
         const onScroll = () => setElevated(window.scrollY > 4);
@@ -82,12 +81,6 @@ export function Navbar() {
                     </div>
                 </div>
             </nav>
-
-            {/* Fullscreen Reflection Modal */}
-            <ReflectionModal
-                open={reflectionOpen}
-                onClose={() => setReflectionOpen(false)}
-            />
         </header>
     );
 }
