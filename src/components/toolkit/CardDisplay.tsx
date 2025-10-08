@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CardItem from './CardItem';
-import { Card } from '@/lib/cardData';
+import { Card } from '@lib/cardData';
 
 type CardDisplayProps = {
     showSvgs: boolean;
