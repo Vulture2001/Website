@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@lib/cn";
 
 type NavItem = { label: string; href?: string; modal?: boolean };
@@ -23,7 +23,9 @@ export function Navbar() {
     const [elevated, setElevated] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [, setReflectionOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
+    // Scroll effect for navbar elevation
     useEffect(() => {
         const onScroll = () => setElevated(window.scrollY > 4);
         onScroll();
@@ -31,10 +33,23 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    // Close mobile menu on click outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setMenuOpen(false);
+            }
+        };
+        if (menuOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [menuOpen]);
+
     return (
         <header
             className={cn(
-                "sticky top-0 z-50 bg-transparent backdrop-blur pb-5",
+                "sticky top-0 z-50 bg-transparent backdrop-blur",
                 elevated && "border-b border-surface-border"
             )}
         >
@@ -42,7 +57,7 @@ export function Navbar() {
                 className="mx-auto w-full max-w-[1336px] px-4 lg:px-6"
                 aria-label="Global"
             >
-                <div className="h-16 flex items-end justify-between pb-1">
+                <div className="h-16 flex items-center justify-between pb-1 relative">
                     {/* Logo */}
                     <Link
                         href="/"
@@ -92,7 +107,6 @@ export function Navbar() {
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Toggle menu"
                     >
-                        {/* Hamburger icon */}
                         <svg
                             className="w-6 h-6"
                             fill="none"
@@ -113,27 +127,33 @@ export function Navbar() {
                     </button>
                 </div>
 
-                {/* Mobile dropdown menu */}
+                {/* Mobile dropdown menu (pushes content down) */}
                 {menuOpen && (
-                    <div className="md:hidden mt-2 space-y-2">
-                        {NAV.map((item) =>
-                            item.modal ? (
-                                <NavButton
-                                    key={item.label}
-                                    onClick={() => setReflectionOpen(true)}
-                                >
-                                    {item.label}
-                                </NavButton>
-                            ) : (
-                                <NavLink
-                                    key={item.href}
-                                    href={item.href!}
-                                    active={pathname === item.href}
-                                >
-                                    {item.label}
-                                </NavLink>
-                            )
-                        )}
+                    <div ref={menuRef} className="md:hidden">
+                        <div className="flex flex-col gap-2 mt-2 px-0 sm:px-2">
+                            {NAV.map((item) =>
+                                item.modal ? (
+                                    <NavButton
+                                        key={item.label}
+                                        onClick={() => {
+                                            setReflectionOpen(true);
+                                            setMenuOpen(false);
+                                        }}
+                                    >
+                                        {item.label}
+                                    </NavButton>
+                                ) : (
+                                    <NavLink
+                                        key={item.href}
+                                        href={item.href!}
+                                        active={pathname === item.href}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {item.label}
+                                    </NavLink>
+                                )
+                            )}
+                        </div>
                     </div>
                 )}
             </nav>
@@ -147,14 +167,17 @@ function NavLink({
                      href,
                      children,
                      active,
+                     onClick,
                  }: {
     href: string;
     children: React.ReactNode;
     active?: boolean;
+    onClick?: () => void;
 }) {
     return (
         <Link
             href={href}
+            onClick={onClick}
             aria-current={active ? "page" : undefined}
             className={cn(
                 "relative text-base font-medium transition-colors block px-2 py-1",
