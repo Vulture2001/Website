@@ -12,7 +12,7 @@ const NAV: NavItem[] = [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Process", href: "/process" },
-    { label: "Toolkit", href: "/toolkit" }
+    { label: "Toolkit", href: "/toolkit" },
 ];
 
 const underlineClasses =
@@ -21,6 +21,7 @@ const underlineClasses =
 export function Navbar() {
     const pathname = usePathname();
     const [elevated, setElevated] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const [, setReflectionOpen] = useState(false);
 
     useEffect(() => {
@@ -42,11 +43,11 @@ export function Navbar() {
                 aria-label="Global"
             >
                 <div className="h-16 flex items-end justify-between pb-1">
-                    {/* Logo + text */}
+                    {/* Logo */}
                     <Link
                         href="/"
                         className="flex items-center gap-3 shrink-0 text-lg font-semibold tracking-tight text-surface-fg leading-none"
-                        aria-label="Software 5.0 home"
+                        aria-label="Conscious Design"
                     >
                         <Image
                             src="svg/logo.svg"
@@ -56,11 +57,11 @@ export function Navbar() {
                             priority
                         />
                         <span className="hidden lg:inline">
-        Responsible, Sustainable, and Inclusive Digital Product Creation
-    </span>
+              Responsible, Sustainable, and Inclusive Digital Product Creation
+            </span>
                         <span className="lg:hidden">
-        Responsible Digital Products
-    </span>
+              Conscious Digital Product Creation
+            </span>
                     </Link>
 
                     {/* Desktop nav */}
@@ -84,7 +85,57 @@ export function Navbar() {
                             )
                         )}
                     </div>
+
+                    {/* Mobile menu button */}
+                    <button
+                        className="md:hidden p-2 rounded-md text-surface-fg hover:bg-surface-border transition"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {/* Hamburger icon */}
+                        <svg
+                            className="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d={
+                                    menuOpen
+                                        ? "M6 18L18 6M6 6l12 12" // X icon
+                                        : "M4 6h16M4 12h16M4 18h16" // Hamburger icon
+                                }
+                            />
+                        </svg>
+                    </button>
                 </div>
+
+                {/* Mobile dropdown menu */}
+                {menuOpen && (
+                    <div className="md:hidden mt-2 space-y-2">
+                        {NAV.map((item) =>
+                            item.modal ? (
+                                <NavButton
+                                    key={item.label}
+                                    onClick={() => setReflectionOpen(true)}
+                                >
+                                    {item.label}
+                                </NavButton>
+                            ) : (
+                                <NavLink
+                                    key={item.href}
+                                    href={item.href!}
+                                    active={pathname === item.href}
+                                >
+                                    {item.label}
+                                </NavLink>
+                            )
+                        )}
+                    </div>
+                )}
             </nav>
         </header>
     );
@@ -106,7 +157,7 @@ function NavLink({
             href={href}
             aria-current={active ? "page" : undefined}
             className={cn(
-                "relative text-base font-medium transition-colors",
+                "relative text-base font-medium transition-colors block px-2 py-1",
                 active
                     ? "text-surface-fg after:scale-x-100"
                     : "text-text-muted hover:text-surface-fg after:scale-x-0 hover:after:scale-x-100",
@@ -131,7 +182,7 @@ function NavButton({
             aria-haspopup="dialog"
             onClick={onClick}
             className={cn(
-                "relative text-base font-medium text-text-muted hover:text-surface-fg transition-colors",
+                "relative text-base font-medium text-text-muted hover:text-surface-fg transition-colors block px-2 py-1",
                 "after:scale-x-0 hover:after:scale-x-100",
                 underlineClasses
             )}
