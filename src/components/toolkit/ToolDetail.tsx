@@ -54,7 +54,7 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
     }, [templates])
 
     return (
-        <div className="relative flex flex-col min-h-screen bg-surface">
+        <div className="relative z-10 max-w-5xl w-full mx-auto px-4 pb-24 space-y-20 text-base sm:text-lg break-words">
             {/* Breadcrumb */}
             <Breadcrumb
                 items={[
