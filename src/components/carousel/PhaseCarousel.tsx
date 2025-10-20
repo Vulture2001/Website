@@ -29,7 +29,7 @@ function mapPhaseToCard(phase: Phase, index: number): PhaseCardData {
         color: phase.color,
         index1: index + 1,
         track: normalizedTrack,
-        disabled: phase.disabled ?? normalizedTrack === 'Development',
+        disabled: phase.disabled ?? false,
     }
 }
 

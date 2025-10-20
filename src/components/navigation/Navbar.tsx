@@ -55,7 +55,12 @@ export function Navbar() {
                             height={28}
                             priority
                         />
-                        <span>Responsible, Sustainable, and Inclusive Digital Product Creation</span>
+                        <span className="hidden lg:inline">
+        Responsible, Sustainable, and Inclusive Digital Product Creation
+    </span>
+                        <span className="lg:hidden">
+        Responsible Digital Products
+    </span>
                     </Link>
 
                     {/* Desktop nav */}

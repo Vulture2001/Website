@@ -14,7 +14,7 @@ export default function Process() {
                 id="process-hero"
                 eyebrow="Process"
                 title="From Big Challenges to Real Solutions"
-                subtitle="Software 5.0 builds on the Double Diamond model but adapts it for modern realities. Explore problems deeply, define them clearly, develop creative ideas, and deliver working solutions — all while keeping social and environmental impacts in view."
+                subtitle="Conscious design builds on the Double Diamond model but adapts it for modern realities. Explore problems deeply, define them clearly, develop creative ideas, and deliver working solutions — all while keeping social and environmental impacts in view."
                 size="xl"
             />
 
@@ -25,8 +25,8 @@ export default function Process() {
             >
                 <figure className="mx-auto w-full max-w-5xl">
                     <img
-                        src="/svg/process.svg"
-                        alt="Diagram showing the Software 5.0 workflow"
+                        src="/png/process.png"
+                        alt="Diagram showing the conscious design workflow"
                         className="w-full h-auto"
                     />
                 </figure>
@@ -56,7 +56,7 @@ export default function Process() {
                 className="mt-24 opacity-0 animate-fade-up [animation-delay:800ms] [animation-fill-mode:forwards]"
             >
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-semibold text-fg">Software 5.0 Phases</h2>
+                    <h2 className="text-3xl font-semibold text-fg">Conscious Design Phases</h2>
                     <p className="mt-3 text-muted-fg max-w-2xl mx-auto text-[15px] leading-relaxed">
                         Each phase gives you hands-on skills to connect design thinking with
                         software engineering practice.

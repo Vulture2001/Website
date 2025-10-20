@@ -152,13 +152,14 @@ export function Table({
 }) {
     return (
         <div className="overflow-x-auto my-6">
-            <table className="w-full border-collapse text-sm">
+            <table className="w-full border border-surface-border text-sm">
                 <thead className="bg-surface/80">
                 <tr>
+                    <th className="px-4 py-3 border border-surface-border"></th>
                     {headers.map((header, i) => (
                         <th
                             key={i}
-                            className="px-4 py-3 text-left font-semibold text-surface-fg border-b border-surface-border"
+                            className="px-4 py-3 text-left font-semibold text-surface-fg border border-surface-border"
                         >
                             {header}
                         </th>
@@ -167,11 +168,18 @@ export function Table({
                 </thead>
                 <tbody>
                 {rows.map((row, i) => (
-                    <tr key={i} className="odd:bg-surface/60">
-                        {row.map((cell, j) => (
+                    <tr key={i}>
+                        {/* First cell as row header */}
+                        <th
+                            className="px-4 py-4 text-left font-semibold text-surface-fg border border-surface-border"
+                        >
+                            {row[0]}
+                        </th>
+                        {/* Rest of the row */}
+                        {row.slice(1).map((cell, j) => (
                             <td
                                 key={j}
-                                className="px-4 py-4 align-top border-b border-surface-border text-text-muted"
+                                className="px-4 py-4 border border-surface-border text-text-muted"
                             >
                                 {cell}
                             </td>

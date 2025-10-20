@@ -39,7 +39,7 @@ export function MotionSection({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            variants={stagger ? { visible: { transition: { staggerChildren: 0.1 } } } : undefined}
+            variants={stagger ? { visible: { transition: { delayChildren: 0.1 } } } : undefined}
         >
             <motion.div variants={variants}>{children}</motion.div>
         </motion.section>

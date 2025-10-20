@@ -40,7 +40,6 @@ export function ToolLibrary() {
             return { ...t, _category: cat || 'uncategorized', _blurb: blurb };
         });
     }, [tools]);
-
     const categoryCounts = useMemo(() => {
         const counts: Record<string, number> = {};
         for (const t of normalizedTools) {

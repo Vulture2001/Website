@@ -30,7 +30,7 @@ export const cardsData: Card[] = (rawCards as any[]).filter(isCard);
 // --------------------
 // Utility: draw random cards by type
 // --------------------
-export function drawRandomCardsByType(cards: Card[], perType = 2): Card[] {
+export function drawRandomCardsByType(cards: Card[], perType = 1): Card[] {
     const types: Card['description'][] = [
         'Individual Impact',
         'Social Impact',
