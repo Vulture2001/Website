@@ -65,7 +65,7 @@ export function Navbar() {
                         aria-label="Conscious Design"
                     >
                         <Image
-                            src="svg/logo.svg"
+                            src="/svg/logo.svg"
                             alt="Course logo"
                             width={28}
                             height={28}
