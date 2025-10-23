@@ -64,7 +64,7 @@ export function ToolLibrary() {
 
     return (
         <MotionSection
-            id="tool-library"
+            id="method-library"
             variants={fadeInUp}
             className="opacity-0 animate-fade-up [animation-delay:150ms] [animation-fill-mode:forwards]"
         >
@@ -76,12 +76,12 @@ export function ToolLibrary() {
                 transition={{ duration: 0.4, ease: 'easeOut' }}
             >
                 <h2 className="text-2xl sm:text-3xl font-semibold text-fg">
-                    Tool Library
+                    Method Overview
                 </h2>
                 <div className="w-full md:w-96">
                     <Input
-                        aria-label="Search tools"
-                        placeholder="Search tools, purposes, or overviews"
+                        aria-label="Search methods"
+                        placeholder="Search methods, purposes, or overviews"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="h-12 px-4 rounded-full border border-[hsl(var(--border))] bg-surface text-fg placeholder:text-muted-fg"
@@ -155,7 +155,7 @@ export function ToolLibrary() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3, ease: 'easeOut' }}
                     >
-                        No tools found in this category.
+                        No methods found in this category.
                     </motion.p>
                 )}
             </AnimatePresence>

@@ -18,7 +18,7 @@ const FOOTER_SECTIONS: Section[] = [
         heading: "Resources",
         links: [
             { label: "Process", href: "/process" },
-            { label: "Toolkit", href: "/toolkit" }
+            { label: "Methods", href: "/toolkit" }
         ],
     },
 ];

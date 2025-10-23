@@ -44,9 +44,9 @@ export function ToolCard({
                     <Link
                         href={`/toolkit/${encodeURIComponent(String(tool.id))}`}
                         className="text-sm font-medium text-brand-primary hover:underline"
-                        aria-label={`Explore tool: ${tool.title}`}
+                        aria-label={`Explore method: ${tool.title}`}
                     >
-                        Explore Tool →
+                        Explore method →
                     </Link>
                 </div>
             </CardBody>

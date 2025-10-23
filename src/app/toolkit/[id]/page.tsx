@@ -20,7 +20,7 @@ export async function generateMetadata(
     const tool = getToolById(id);
 
     if (!tool) {
-        return { title: "Tool not found" };
+        return { title: "Method not found" };
     }
 
     return getToolSeoMeta(tool);

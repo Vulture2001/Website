@@ -15,7 +15,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
 
     const { id } = use(params);
     const tool = getToolById(id);
-    const toolTitle = tool?.title || 'Tool';
+    const toolTitle = tool?.title || 'Method';
 
     const handleDrawCards = () => {
         const newDraw = drawRandomCardsByType(cardsData);
@@ -30,7 +30,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
             <Breadcrumb
                 items={[
                     { label: 'Home', href: '/' },
-                    { label: 'Toolkit', href: '/toolkit' },
+                    { label: 'Methods', href: '/toolkit' },
                     { label: toolTitle, href: `/toolkit/${id}` },
                     { label: 'Critical Reflection Cards' },
                 ]}
@@ -58,7 +58,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
 
                 {/* Overview */}
                 <p className="text-base sm:text-xl text-muted-fg leading-relaxed">
-                    Tool to use the Critical Reflection Cards. It will draw two cards per type, displayed column-wise.
+                    Method to use the Critical Reflection Cards. It will draw two cards per type, displayed column-wise.
                 </p>
             </motion.div>
 

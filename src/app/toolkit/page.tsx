@@ -9,9 +9,9 @@ export default function ToolkitPage() {
     return (
         <PageLayout>
             <PageHero
-                id="toolkit-hero"
-                eyebrow="Toolkit"
-                title="Sustainable Toolkit"
+                id="method-hero"
+                eyebrow="Methods"
+                title="Sustainable Methods"
                 subtitle="Practical methods and templates to embed sustainability into every phase of your design process. Copy, customize, and integrate these tools into your workflow."
                 size="xl"
             />

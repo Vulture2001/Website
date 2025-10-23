@@ -73,9 +73,9 @@ function ToolCard({
                     <Link
                         href={`/toolkit/${encodeURIComponent(String(tool.id))}`}
                         className="text-sm font-medium text-brand-primary hover:underline"
-                        aria-label={`Explore tool: ${tool.title}`}
+                        aria-label={`Explore method: ${tool.title}`}
                     >
-                        Explore Tool →
+                        Explore method →
                     </Link>
                 </div>
             </CardBody>
@@ -127,22 +127,22 @@ export default function Toolkit() {
     return (
         <PageLayout>
             <PageHero
-                id="toolkit-hero"
-                eyebrow="Toolkit"
-                title="Sustainable Toolkit"
-                subtitle="Practical methods and templates to embed sustainability into every phase of your design process. Copy, customize, and integrate these tools into your workflow."
+                id="methods-hero"
+                eyebrow="Methods"
+                title="Sustainable Methods"
+                subtitle="Practical methods and templates to embed sustainability into every phase of your design process. Copy, customize, and integrate these methods into your workflow."
                 size="xl"
             />
 
-            <MotionSection id="tool-library" variants={fadeInUp}>
+            <MotionSection id="method-library" variants={fadeInUp}>
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                     <h2 className="text-2xl sm:text-3xl font-semibold text-fg">
-                        Tool Library
+                        Method Library
                     </h2>
                     <div className="w-full md:w-96">
                         <Input
-                            aria-label="Search tools"
-                            placeholder="Search tools, purposes, or overviews"
+                            aria-label="Search methods"
+                            placeholder="Search methods, purposes, or overviews"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="h-12 px-4 rounded-full border border-[hsl(var(--border))] bg-surface text-fg placeholder:text-muted-fg"

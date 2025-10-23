@@ -21,7 +21,7 @@ export function HomeHero({
                              titleLines = ["Responsible.", "Sustainable.", "Inclusive."],
                              eyebrow = "Digital Product Creation",
                              description = "Shape the Digital Future – fairly, sustainably, and consciously.",
-                             cta = { label: "Explore Toolkit", href: "/toolkit" },
+                             cta = { label: "Explore Process", href: "/process" },
                              className,
                          }: HeroProps) {
     return (

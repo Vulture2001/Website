@@ -3,8 +3,7 @@
 import { PageLayout } from "@components/layout/PageLayout";
 import { PageHero } from "@components/hero/PageHero";
 import { MotionSection } from "@components/layout/MotionSection";
-import { PhaseCarousel } from "@/components/carousel/PhaseCarousel";
-import {TrackCard} from "@components/cards/TrackCard";
+import {SessionCarousel} from "@components/carousel/SessionsCarousel";
 
 export default function Process() {
     return (
@@ -25,14 +24,15 @@ export default function Process() {
             >
                 <figure className="mx-auto w-full max-w-5xl">
                     <img
-                        src="/png/process.png"
+                        src="/svg/process.svg"
                         alt="Diagram showing the conscious design workflow"
                         className="w-full h-auto"
                     />
                 </figure>
             </MotionSection>
 
-            {/* ===== Two Tracks ===== */}<MotionSection
+            {/*  ===== Two Tracks =====
+            <MotionSection
             id="process-tracks"
             className="opacity-0 animate-fade-up [animation-delay:400ms] [animation-fill-mode:forwards]"
         >
@@ -49,8 +49,9 @@ export default function Process() {
                 />
             </div>
         </MotionSection>
+            */}
 
-            {/* ===== Phases ===== */}
+            {/* ===== Phases =====
             <MotionSection
                 id="process-phases"
                 className="mt-24 opacity-0 animate-fade-up [animation-delay:800ms] [animation-fill-mode:forwards]"
@@ -63,6 +64,22 @@ export default function Process() {
                     </p>
                 </div>
                 <PhaseCarousel />
+            </MotionSection>
+            */}
+
+            {/* ===== Phases ===== */}
+            <MotionSection
+                id="process-sessions"
+                className="mt-24 opacity-0 animate-fade-up [animation-delay:800ms] [animation-fill-mode:forwards]"
+            >
+                <div className="text-center mb-10">
+                    <h2 className="text-3xl font-semibold text-fg">Sessions</h2>
+                    <p className="mt-3 text-muted-fg max-w-2xl mx-auto text-[15px] leading-relaxed">
+                        Each session gives you hands-on skills to connect design thinking with
+                        software engineering practice.
+                    </p>
+                </div>
+                <SessionCarousel />
             </MotionSection>
         </PageLayout>
     );

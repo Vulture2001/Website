@@ -12,7 +12,7 @@ const NAV: NavItem[] = [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Process", href: "/process" },
-    { label: "Toolkit", href: "/toolkit" },
+    { label: "Methods", href: "/toolkit" },
 ];
 
 const underlineClasses =
