@@ -6,7 +6,7 @@ import { Tabs } from '@components/toolkit/Tabs';
 import { MotionSection } from '@components/layout/MotionSection';
 import { fadeInUp } from '@lib/animations';
 import { motion, AnimatePresence } from 'framer-motion';
-import categoriesJson from '@/data/phases.json';
+import categoriesJson from '@/data/sessions.json';
 import toolsJson from '@/data/tools.json';
 import { ToolCard } from '../cards/ToolCard';
 import { buildCategoryMaps } from '@lib/categories';
@@ -40,6 +40,7 @@ export function ToolLibrary() {
             return { ...t, _category: cat || 'uncategorized', _blurb: blurb };
         });
     }, [tools]);
+
     const categoryCounts = useMemo(() => {
         const counts: Record<string, number> = {};
         for (const t of normalizedTools) {
@@ -47,6 +48,25 @@ export function ToolLibrary() {
         }
         return counts;
     }, [normalizedTools]);
+
+    // NEW: Memoize the list of tabs that have tools
+    const visibleTabs = useMemo(() => {
+        return categories
+            .filter((c) => {
+                const value = c.value.toLowerCase();
+                // Only include categories that have a count greater than 0
+                return (categoryCounts[value] ?? 0) > 0;
+            })
+            .map((c) => {
+                const value = c.value.toLowerCase();
+                return {
+                    value,
+                    label: c.label,
+                    color: c.color,
+                    // The 'disabled' prop is no longer needed
+                };
+            });
+    }, [categories, categoryCounts]); // Dependencies
 
     const filteredTools = useMemo(() => {
         const term = searchTerm.trim().toLowerCase();
@@ -96,15 +116,8 @@ export function ToolLibrary() {
                 transition={{ delay: 0.2, duration: 0.4, ease: 'easeOut' }}
             >
                 <Tabs
-                    items={categories.map((c) => {
-                        const value = c.value.toLowerCase();
-                        return {
-                            value,
-                            label: c.label,
-                            color: c.color,
-                            disabled: (categoryCounts[value] ?? 0) === 0,
-                        };
-                    })}
+                    // UPDATED: Use the new 'visibleTabs' array
+                    items={visibleTabs}
                     active={activeCategory}
                     onChange={setActiveCategory}
                     showAll

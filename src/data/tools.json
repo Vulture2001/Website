@@ -1,79 +1,42 @@
 [
   {
-    "id": "user-client-interviews",
-    "title": "User & Client Interviews",
-    "phase": "discover",
+    "id": "inclusive-user-groups",
+    "title": "Inclusive User Groups",
+    "phase": "diversity",
     "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=0-1&t=foCdgGEIfyc4iDgN-1"
+      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-486"
     ],
-    "overview": "Interview clients and users to uncover real needs and impacts beyond functional requirements.",
-    "purpose": "Collect insights from both clients (strategic goals, risks) and users (daily tasks, accessibility). Surface functional needs as well as social and ecological impacts to guide responsible design.",
+    "overview": "Highlight diverse user groups to avoid stereotypes and include marginalized voices.",
+    "purpose": "Make user groups visible without oversimplifying. Check privilege and exclusion risks while building balanced user stories.",
     "steps": [
-      { "title": "Prepare Questions", "description": "Write 3–5 open-ended questions covering functional, social, and ecological aspects." },
-      { "title": "Identify Interviewee Type", "description": "Adapt questions for clients (goals, risks) or users (tasks, pains, accessibility)." },
-      { "title": "Run the Interview", "description": "Interview one person at a time. Let them speak freely and avoid yes/no questions." },
-      { "title": "Capture Responses", "description": "Take notes on answers, examples, and non-verbal cues." },
-      { "title": "Summarize Findings", "description": "Review notes as a team and extract key insights and sustainability considerations." }
+      { "title": "Fill in Group Data", "description": "Use real data on demographics, abilities, or safety." },
+      { "title": "Check Privilege", "description": "Use the Wheel of Power to assess advantages and disadvantages." },
+      { "title": "Define Group Role", "description": "Describe their relation to your product (e.g., daily user, decision-maker)." },
+      { "title": "Capture Needs & Pains", "description": "List access barriers, time constraints, or usability issues." },
+      { "title": "List Gains", "description": "Identify benefits this group gets from your product." },
+      { "title": "Write User Story", "description": "Summarize with 'As a [role], I want [needs/pains], so that [gains]'." }
     ],
     "input": [
-      "Prepared interview questions",
-      "Understanding of project context",
-      "Notebook or template for capturing responses"
+      "User research data",
+      "Inclusive User Groups template"
     ],
     "prompts": [
-      "I am preparing an interview about [project]. Suggest 5–7 open-ended questions covering functional, social, and ecological aspects.",
-      "I am interviewing a [client/user] about [project]. Suggest polite follow-up questions to get richer insights when answers are vague.",
-      "Here are my raw interview notes: [paste notes]. Summarize insights into three categories: functional needs, social impacts, ecological impacts.",
-      "Based on these findings: [paste summary], suggest areas to explore further to address sustainability in the design."
+      "I am designing for a user group: [describe group]. Suggest data points to collect (age, abilities, safety, etc.).",
+      "For this group [describe], list potential struggles and barriers when using [product/service].",
+      "Based on this description [group], analyze privileges and disadvantages they may face.",
+      "Create a user story for this group: [paste group info]."
     ],
     "tips": [
-      "Start with 'Tell me about…' instead of yes/no questions.",
-      "Let interviewees talk 80% of the time.",
-      "Ask follow-ups like 'Can you give an example?'",
-      "Check if notes capture both people and planet impacts.",
-      "For clients: focus on long-term goals and risks.",
-      "For users: focus on routines, frustrations, accessibility."
-    ]
-  },
-  {
-    "id": "stakeholder-impact-map",
-    "title": "Stakeholder Impact Map",
-    "phase": "discover",
-    "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-485&t=6nYVcXavfojhSjPX-1"
-    ],
-    "overview": "Map human, non-human, and systemic stakeholders to understand impacts across levels.",
-    "purpose": "Identify all actors affected by your product, including ecosystems. Reveal who might be excluded or vulnerable and design with broader ethical awareness.",
-    "steps": [
-      { "title": "Place Your System", "description": "Write your product, service, or concept in the center of the map." },
-      { "title": "Add Human Actors", "description": "Include users, clients, workers, and communities." },
-      { "title": "Add Non-human Actors", "description": "List technologies, infrastructures, ecosystems, rules, or species involved or impacted." },
-      { "title": "Map Impacts", "description": "Capture effects at three levels: Individual (micro), Social (meso), Environmental/Systemic (macro)." },
-      { "title": "Review & Reflect", "description": "Check who is missing (marginalized groups, invisible workers, future generations)." }
-    ],
-    "input": [
-      "Basic knowledge of your product or problem space",
-      "Information on users and stakeholders",
-      "Template or whiteboard for mapping impacts"
-    ],
-    "prompts": [
-      "I am mapping stakeholders for [project]. Suggest relevant human and non-human actors.",
-      "Here is my stakeholder list: [paste list]. Identify excluded or vulnerable groups, including ecosystems or future generations.",
-      "For my system [name], summarize impacts at three levels: Individual, Social, Environmental/Systemic.",
-      "Based on these impacts [paste notes], suggest questions to ensure no groups or risks are overlooked."
-    ],
-    "tips": [
-      "Be specific — name actual groups, not 'society'.",
-      "Push beyond obvious users to include invisible actors.",
-      "Always check impacts at all three levels.",
-      "Revisit and refine as your project evolves.",
-      "Use Conscious Digital Product Principles to reflect."
+      "Be specific (e.g., 'international student on a budget').",
+      "Base details on data, not assumptions.",
+      "Ask: Who is missing? Include marginalized groups.",
+      "Combine with Systemic Journey Maps for context."
     ]
   },
   {
     "id": "critical-reflection-cards",
     "title": "Critical Reflection Cards",
-    "phase": "discover",
+    "phase": "inclusion",
     "templates": [
       "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
     ],
@@ -107,43 +70,9 @@
     ]
   },
   {
-    "id": "inclusive-user-groups",
-    "title": "Inclusive User Groups",
-    "phase": "define",
-    "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-486"
-    ],
-    "overview": "Highlight diverse user groups to avoid stereotypes and include marginalized voices.",
-    "purpose": "Make user groups visible without oversimplifying. Check privilege and exclusion risks while building balanced user stories.",
-    "steps": [
-      { "title": "Fill in Group Data", "description": "Use real data on demographics, abilities, or safety." },
-      { "title": "Check Privilege", "description": "Use the Wheel of Power to assess advantages and disadvantages." },
-      { "title": "Define Group Role", "description": "Describe their relation to your product (e.g., daily user, decision-maker)." },
-      { "title": "Capture Needs & Pains", "description": "List access barriers, time constraints, or usability issues." },
-      { "title": "List Gains", "description": "Identify benefits this group gets from your product." },
-      { "title": "Write User Story", "description": "Summarize with 'As a [role], I want [needs/pains], so that [gains]'." }
-    ],
-    "input": [
-      "User research data",
-      "Inclusive User Groups template"
-    ],
-    "prompts": [
-      "I am designing for a user group: [describe group]. Suggest data points to collect (age, abilities, safety, etc.).",
-      "For this group [describe], list potential struggles and barriers when using [product/service].",
-      "Based on this description [group], analyze privileges and disadvantages they may face.",
-      "Create a user story for this group: [paste group info]."
-    ],
-    "tips": [
-      "Be specific (e.g., 'international student on a budget').",
-      "Base details on data, not assumptions.",
-      "Ask: Who is missing? Include marginalized groups.",
-      "Combine with Systemic Journey Maps for context."
-    ]
-  },
-  {
     "id": "systemic-journey-map",
     "title": "Systemic Journey Map",
-    "phase": "define",
+    "phase": "sustainability",
     "templates": [
       "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-485&t=6nYVcXavfojhSjPX-1"
     ],
@@ -179,71 +108,6 @@
       "Consider impacts on community and environment.",
       "Keep it visual and concise.",
       "Check against Conscious Digital Product Principles."
-    ]
-  },
-  {
-    "id": "conscious-requirements",
-    "title": "Conscious Requirements",
-    "phase": "deliver",
-    "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
-    ],
-    "overview": "Turn user stories into concrete scenarios, mapping actors and interactions.",
-    "purpose": "Translate needs into use cases. Highlight dependencies, risks, and sustainability issues before implementation.",
-    "steps": [
-      { "title": "Start with a User Story", "description": "Write in the format: 'As a [role], I want [needs/pains], so that [gains]'." },
-      { "title": "Add Actors", "description": "Identify people, systems, or tools involved." },
-      { "title": "Create Use Cases", "description": "Define what each actor does to achieve the goal." },
-      { "title": "Show Flows & Dependencies", "description": "Visualize sequence, handovers, and dependencies." }
-    ],
-    "input": [
-      "Clear user story",
-      "Awareness of relevant human and non-human actors",
-      "Template for mapping use cases"
-    ],
-    "prompts": [
-      "This is my user story: [details]. Suggest 3–5 possible use cases.",
-      "For this story [details], list potential actors and their roles.",
-      "Based on these use cases [list], suggest dependencies or flows between actors.",
-      "For these use cases [details], identify hidden risks or ecological trade-offs."
-    ],
-    "tips": [
-      "Keep use cases short and action-focused.",
-      "Include non-human actors where relevant.",
-      "Map multiple paths when possible.",
-      "Use early to detect risks and sustainability gaps."
-    ]
-  },
-  {
-    "id": "prototyping-playground",
-    "title": "Prototyping Playground",
-    "phase": "develop",
-    "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
-    ],
-    "overview": "Experiment quickly with prototypes to test inclusivity and sustainability early.",
-    "purpose": "Turn ideas into low-fi prototypes to test flows and uncover accessibility or sustainability issues without heavy investment.",
-    "steps": [
-      { "title": "Use Basic Elements", "description": "Start with buttons, inputs, and placeholders." },
-      { "title": "Build Screens", "description": "Combine elements into flows or layouts." },
-      { "title": "Test with Others", "description": "Check clarity and accessibility with real users." },
-      { "title": "Adjust Quickly", "description": "Iterate fast based on feedback." }
-    ],
-    "input": [
-      "Concept or idea",
-      "Prototyping Playground template",
-      "Basic UI elements"
-    ],
-    "prompts": [
-      "I want to prototype [feature]. Suggest 3–5 simple layouts to test flows.",
-      "Here’s my prototype: [details]. Suggest accessibility checks I should run.",
-      "For this prototype [details], suggest improvements for inclusivity and sustainability."
-    ],
-    "tips": [
-      "Start low-fi with simple shapes.",
-      "Check contrast, font size, readability.",
-      "Keep interactions simple to avoid waste.",
-      "Ask if the design works for diverse contexts."
     ]
   }
 ]

@@ -118,9 +118,33 @@ export function Footer({ className }: { className?: string }) {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="mt-10 flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
+                <div className="mt-10 flex flex-col items-center gap-4 md:flex-row md:left-0">
                     <div className="text-xs text-text-muted">
                         © {year} Project week: Responsible, Sustainable, and Inclusive Digital Product Creation.
+                    </div>
+
+                    {/* Divider for desktop */}
+                    <span className="hidden md:inline text-xs text-text-muted" aria-hidden="true">|</span>
+
+                    {/* Links */}
+                    <div className="flex items-center gap-2 text-xs text-text-muted">
+                        <Link
+                            href="https://aet.cit.tum.de/impressum/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-colors hover:text-surface-fg"
+                        >
+                            Impressum
+                        </Link>
+                        <span aria-hidden="true">|</span>
+                        <Link
+                            href="https://aet.cit.tum.de/datenschutz/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-colors hover:text-surface-fg"
+                        >
+                            Privacy Statement
+                        </Link>
                     </div>
                 </div>
             </div>

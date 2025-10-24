@@ -10,7 +10,7 @@ import { MotionSection } from '@components/layout/MotionSection';
 import { fadeInUp } from '@lib/animations';
 import { Input } from '@components/inputs/Input';
 import { Card, CardBody } from '@components/cards/Card';
-import categoriesJson from '@/data/phases.json';
+import categoriesJson from '@/data/sessions.json';
 import toolsJson from '@/data/tools.json';
 import { Tabs } from '@components/toolkit/Tabs';
 

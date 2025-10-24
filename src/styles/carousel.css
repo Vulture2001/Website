@@ -11,13 +11,14 @@
 
 .carousel-track {
     display: flex;
-    gap: 1rem; /* smaller gap for mobile, override later in media query */
     overflow-x: auto;
-    overflow-y: visible; /* allow borders/shadows to show fully */
-    scroll-snap-type: x mandatory;
+    overflow-y: visible;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    scroll-behavior: smooth; /* smooth native scrolling */
+    box-sizing: content-box;
+
+    /* [ADDED] Enable CSS snap scrolling */
+    scroll-snap-type: x mandatory;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -29,21 +30,28 @@
     justify-content: center;
     align-items: stretch;
     flex-shrink: 0;
-    padding: 1rem 0; /* breathing space top and bottom */
+    padding: 1rem 0;
     box-sizing: border-box;
     transition: transform 0.4s ease, opacity 0.4s ease;
+
+    /* Horizontal padding creates the 'gap' */
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    /* [ADDED] Align slides to the center for CSS snap */
+    scroll-snap-align: center;
 }
 
 .carousel-slide--active {
     opacity: 1;
-    transform: scale(1.02); /* subtle pop for active card */
+    transform: scale(1.02);
     z-index: 10;
+    filter: blur(0px);
 }
 
 .carousel-slide--inactive {
     opacity: 0.6;
     transform: scale(0.95);
-    filter: blur(1px); /* subtle blur for inactive */
 }
 
 .carousel-button {
@@ -56,8 +64,10 @@
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 50%;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--surface) / 0.85);
+
+    border: 1px solid hsl(var(--color-surface-border));
+    background: hsl(var(--color-surface) / 0.85);
+
     backdrop-filter: blur(6px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     cursor: pointer;
@@ -65,8 +75,8 @@
 }
 
 .carousel-button:hover {
-    background: hsl(var(--primary) / 0.1);
-    border-color: hsl(var(--primary));
+    background: hsl(var(--color-brand-primary) / 0.1);
+    border-color: hsl(var(--color-brand-primary));
     transform: translateY(-50%) scale(1.05);
 }
 
@@ -84,8 +94,9 @@
 
 /* Responsive tuning */
 @media (min-width: 768px) {
-    .carousel-track {
-        gap: 2rem;
+    .carousel-slide {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .carousel-slide--active {
@@ -96,4 +107,27 @@
         width: 3rem;
         height: 3rem;
     }
+}
+
+/* Styles for the indicators */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-indicator-dot {
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator-dot--active {
+    /* [MODIFIED] Use var() with a fallback for robust color */
+    background-color: var(--color-brand-pink, #EC4899);
+    transform: scale(1.25);
 }

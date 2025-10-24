@@ -77,9 +77,7 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
           <span className="inline-flex px-4 py-1 rounded-full border border-border text-sm font-semibold uppercase">
             {tool.phase}
           </span>
-                    <span className="inline-flex px-4 py-1 rounded-full border border-border/70 text-sm font-semibold uppercase">
-            {track} Track
-          </span>
+
                 </div>
 
                 {/* Title */}
