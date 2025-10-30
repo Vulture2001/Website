@@ -1,302 +1,222 @@
 [
   {
     "id": 1,
-    "scenario": "Your solution forces people to use it every day",
+    "scenario": "An individual who is likely to develop addictive behaviors uses your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 2,
-    "scenario": "Your solution causes sickness/harm",
+    "scenario": "A person feels pressured to engage with your solution every day to stay connected or relevant.",
     "description": "Individual Impact"
   },
   {
     "id": 3,
-    "scenario": "Your solution relies on targeted ads",
+    "scenario": "A user is asked to share personal information they would rather keep private.",
     "description": "Individual Impact"
   },
   {
     "id": 4,
-    "scenario": "Your solution forces users to type in data",
+    "scenario": "An individual who has experienced bullying interacts with your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 5,
-    "scenario": "People don’t want to provide the data needed for your solution",
+    "scenario": "A migrant with limited proficiency in the local language uses your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 6,
-    "scenario": "Your solution causes users to make mistakes",
+    "scenario": "A blind or visually impaired person uses your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 7,
-    "scenario": "Your solution makes people addicted",
+    "scenario": "A user with attention-related challenges struggles to navigate your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 8,
-    "scenario": "Your solution is created to make fun of others",
+    "scenario": "Both a wealthy corporation and a small community non-profit implement your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 9,
-    "scenario": "Your solution profits from users forgetting to cancel subscriptions",
+    "scenario": "A rural farmer with limited or unreliable internet access tries your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 10,
-    "scenario": "A queer person tried your solution but sees no options or representation or their identity",
+    "scenario": "A user forgets to cancel their subscription, and your solution continues to charge them.",
     "description": "Individual Impact"
   },
   {
     "id": 11,
-    "scenario": "People don't understand your solution",
+    "scenario": "A queer user uses your solution but does not feel represented.",
     "description": "Individual Impact"
   },
   {
     "id": 12,
-    "scenario": "Some users adopt your solution while most stick with traditional ways",
+    "scenario": "A group of users struggles to understand how your solution works.",
     "description": "Individual Impact"
   },
   {
     "id": 13,
-    "scenario": "Your solution must fully reflect your values",
+    "scenario": "A single parent with limited time and resources tries your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 14,
-    "scenario": "A deaf person uses your solution",
+    "scenario": "Older adults and children alike use your solution.",
     "description": "Individual Impact"
   },
   {
     "id": 15,
-    "scenario": "Your solution is used by blind people",
-    "description": "Individual Impact"
+    "scenario": "Environmental regulations require testing for potential ecological harm before implementation.",
+    "description": "Environmental Impact"
   },
   {
     "id": 16,
-    "scenario": "A migrant with limited local language skills uses your solution",
-    "description": "Individual Impact"
+    "scenario": "An environmental impact statement must be completed before release or publication.",
+    "description": "Environmental Impact"
   },
   {
     "id": 17,
-    "scenario": "A user with ADHD is unable to navigate your solution",
-    "description": "Individual Impact"
+    "scenario": "High energy demand is required by your solution and makes operation environmentally intensive.",
+    "description": "Environmental Impact"
   },
   {
     "id": 18,
-    "scenario": "Your solution is used by a person with burnout",
-    "description": "Individual Impact"
+    "scenario": "Significant electronic waste is produced through the use and disposal of your solution’s components.",
+    "description": "Environmental Impact"
   },
   {
     "id": 19,
-    "scenario": "A single parent with two jobs and little spare time tries your solution",
-    "description": "Individual Impact"
+    "scenario": "Dependence on the newest devices is built into your solution and accelerates replacement of functioning hardware.",
+    "description": "Environmental Impact"
   },
   {
     "id": 20,
-    "scenario": "Children have to use your solution",
-    "description": "Individual Impact"
+    "scenario": "High-performance hardware is needed for your solution to run effectively, limiting access for users with older technology.",
+    "description": "Environmental Impact"
   },
   {
     "id": 21,
-    "scenario": "Your 87 year old neighbor uses your solution",
-    "description": "Individual Impact"
+    "scenario": "Large amounts of packaging material are generated through the distribution and maintenance of your solution.",
+    "description": "Environmental Impact"
   },
   {
     "id": 22,
-    "scenario": "A consumer rights group publishes a critical report about your solution",
-    "description": "Individual Impact"
+    "scenario": "Increased adoption of your solution leads to congestion and noise in public environments.",
+    "description": "Environmental Impact"
   },
   {
     "id": 23,
-    "scenario": "Your platform goes down for 48 hours",
-    "description": "Individual Impact"
+    "scenario": "Greater travel distances are encouraged by your solution, raising transport-related emissions.",
+    "description": "Environmental Impact"
   },
   {
     "id": 24,
-    "scenario": "A university with frequent power outages tries to use your solution",
-    "description": "Individual Impact"
+    "scenario": "Rapidly changing trends shorten product lifecycles and reduce longevity of your solution.",
+    "description": "Environmental Impact"
   },
   {
     "id": 25,
-    "scenario": "A rural farmer with no reliable internet tries your solution",
-    "description": "Individual Impact"
+    "scenario": "Frequent purchasing behavior is stimulated by your solution, resulting in overconsumption.",
+    "description": "Environmental Impact"
   },
   {
     "id": 26,
-    "scenario": "A wealthy corporate client and a small community non-profit both implement your solution",
-    "description": "Individual Impact"
+    "scenario": "Short usage cycles promoted by your solution contribute to unnecessary waste generation.",
+    "description": "Environmental Impact"
   },
   {
     "id": 27,
-    "scenario": "Your solution is implemented in a nursing home",
-    "description": "Individual Impact"
+    "scenario": "Elevated noise and light levels are caused by your solution and disrupt surrounding environments.",
+    "description": "Environmental Impact"
   },
   {
     "id": 28,
-    "scenario": "Your solution helps people connect with each other",
-    "description": "Social Impact"
+    "scenario": "Substantial water resources are required by your solution.",
+    "description": "Environmental Impact"
   },
   {
     "id": 29,
-    "scenario": "Your solution worsens working conditions /wages",
-    "description": "Social Impact"
+    "scenario": "Existing products become obsolete or lose relevance as your solution is adopted.",
+    "description": "Environmental Impact"
   },
   {
     "id": 30,
-    "scenario": "Your solution is adopted in a country where laws require all online content to be pre-approved by government censors",
+    "scenario": "Data storage is prohibited by law in the country where your solution is implemented.",
     "description": "Social Impact"
   },
   {
     "id": 31,
-    "scenario": "Your solution allows users to freely choose their gender, but is implemented in a country where laws prohibit that.",
+    "scenario": "Working conditions and wages decline after your solution is introduced.",
     "description": "Social Impact"
   },
   {
     "id": 32,
-    "scenario": "Your solution is adopted in a country where laws prohibit to store user data",
+    "scenario": "Opportunities for democratic participation decrease with the use of your solution.",
     "description": "Social Impact"
   },
   {
     "id": 33,
-    "scenario": "Your solution restricts freedom of speach",
+    "scenario": "Children’s behavior and learning patterns shift when your solution is introduced.",
     "description": "Social Impact"
   },
   {
     "id": 34,
-    "scenario": "Your solution causes people to have no access to water",
+    "scenario": "Decades after its release, the long-term influence of your solution continues.",
     "description": "Social Impact"
   },
   {
     "id": 35,
-    "scenario": "The data your solution collects endangers trans people",
+    "scenario": "Stereotypes and exclusionary patterns become visible in the design of your solution.",
     "description": "Social Impact"
   },
   {
     "id": 36,
-    "scenario": "Your solution limits access to education",
+    "scenario": "Cisgender identity is assumed as the default in your solution.",
     "description": "Social Impact"
   },
   {
     "id": 37,
-    "scenario": "Your solution limits religious freedom",
+    "scenario": "Representation of people of color is integrated within your solution.",
     "description": "Social Impact"
   },
   {
     "id": 38,
-    "scenario": "Your solution restricts democratic participation",
+    "scenario": "Women feel represented and visible in your solution.",
     "description": "Social Impact"
   },
   {
     "id": 39,
-    "scenario": "A user points out that your design relies on stereotype or exclusion",
+    "scenario": "Neurodivergent users recognize themselves and their needs in your solution.",
     "description": "Social Impact"
   },
   {
     "id": 40,
-    "scenario": "Your solution is tested in schools and you realize it subtly changes how children behave",
+    "scenario": "Queer users see their identities and experiences reflected in your solution.",
     "description": "Social Impact"
   },
   {
     "id": 41,
-    "scenario": "It is 2050 and your solution still exists",
+    "scenario": "Low-income users find your solution relevant and accessible.",
     "description": "Social Impact"
   },
   {
     "id": 42,
-    "scenario": "Your solution only assumes cisgendered users",
+    "scenario": "Users with dyslexia can use and relate to your solution comfortably.",
     "description": "Social Impact"
   },
   {
     "id": 43,
-    "scenario": "Your solution perpetuates stereotypes about queer identities",
+    "scenario": "Gender-selection options in your solution conflict with national laws that forbid such choices.",
     "description": "Social Impact"
   },
   {
     "id": 44,
-    "scenario": "Your solution only allows for heterosexual relationships",
+    "scenario": "Your solution operates in a country where all online content requires government approval.",
     "description": "Social Impact"
-  },
-  {
-    "id": 45,
-    "scenario": "People of color feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 46,
-    "scenario": "Woman feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 47,
-    "scenario": "Neurodivergent users feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 48,
-    "scenario": "Queer users feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 49,
-    "scenario": "Low-income users feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 50,
-    "scenario": "Poorly educated users feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 51,
-    "scenario": "Users with dyslexia feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 52,
-    "scenario": "Men feel represented by your solution",
-    "description": "Social Impact"
-  },
-  {
-    "id": 53,
-    "scenario": "Laws require your solution to be tested on sustainability before being implemented",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 54,
-    "scenario": "You have to write an impact statement before your solution is getting published",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 55,
-    "scenario": "Your solution consumes massive amounts of energy",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 56,
-    "scenario": "Your solution increases packaging waste",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 57,
-    "scenario": "Your solution requires the latest electronic devices",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 58,
-    "scenario": "Your solution encourages users to travel larger distances",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 59,
-    "scenario": "Your solution encourages overconsumption",
-    "description": "Environmental Impact"
-  },
-  {
-    "id": 60,
-    "scenario": "Your solution causes overcrowding of public spaces",
-    "description": "Environmental Impact"
   }
 ]
