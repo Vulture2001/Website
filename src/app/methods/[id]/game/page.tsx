@@ -31,7 +31,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
                 items={[
                     { label: 'Home', href: '/' },
                     { label: 'Methods', href: '/methods' },
-                    { label: toolTitle, href: `/toolkit/${id}` },
+                    { label: toolTitle, href: `/methods/${id}` },
                     { label: 'Critical Reflection Cards' },
                 ]}
                 containerClassName="max-w-7xl mx-auto px-4 pt-6"
