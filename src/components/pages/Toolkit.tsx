@@ -1,4 +1,4 @@
-// app/toolkit/page.tsx
+// app/methods/page.tsx
 'use client';
 
 import React, { useMemo, useState } from 'react';

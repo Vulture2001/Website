@@ -30,7 +30,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
             <Breadcrumb
                 items={[
                     { label: 'Home', href: '/' },
-                    { label: 'Methods', href: '/toolkit' },
+                    { label: 'Methods', href: '/methods' },
                     { label: toolTitle, href: `/toolkit/${id}` },
                     { label: 'Critical Reflection Cards' },
                 ]}

@@ -59,7 +59,7 @@ export default function ToolDetail({ tool }: { tool: Tool }) {
             <Breadcrumb
                 items={[
                     { label: 'Home', href: '/' },
-                    { label: 'Methods', href: '/toolkit' },
+                    { label: 'Methods', href: '/methods' },
                     { label: tool.title },
                 ]}
                 containerClassName="max-w-7xl mx-auto px-4 pt-6"

@@ -42,7 +42,7 @@ export function ToolCard({
                 {/* Footer */}
                 <div className="flex justify-end pt-4">
                     <Link
-                        href={`/toolkit/${encodeURIComponent(String(tool.id))}`}
+                        href={`/methods/${encodeURIComponent(String(tool.id))}`}
                         className="text-sm font-medium text-brand-primary hover:underline"
                         aria-label={`Explore method: ${tool.title}`}
                     >

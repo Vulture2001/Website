@@ -1,4 +1,4 @@
-// app/toolkit/page.tsx
+// app/methods/page.tsx
 'use client';
 
 import { PageLayout } from '@components/layout/PageLayout';

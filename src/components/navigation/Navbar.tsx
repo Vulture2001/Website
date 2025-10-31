@@ -12,7 +12,7 @@ const NAV: NavItem[] = [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Process", href: "/process" },
-    { label: "Methods", href: "/toolkit" },
+    { label: "Methods", href: "/methods" },
 ];
 
 const underlineClasses =
@@ -24,6 +24,7 @@ export function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [, setReflectionOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null); // <-- 1. Create button ref
 
     // Scroll effect for navbar elevation
     useEffect(() => {
@@ -36,15 +37,25 @@ export function Navbar() {
     // Close mobile menu on click outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setMenuOpen(false);
+            const target = event.target as Node;
+
+            // 3. Update logic: If click is inside menu OR on the button, ignore it.
+            if (
+                (menuRef.current && menuRef.current.contains(target)) ||
+                (buttonRef.current && buttonRef.current.contains(target))
+            ) {
+                return;
             }
+
+            // Otherwise, close the menu.
+            setMenuOpen(false);
         };
+
         if (menuOpen) {
             document.addEventListener("mousedown", handleClickOutside);
         }
         return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [menuOpen]);
+    }, [menuOpen]); // Dependencies are correct
 
     return (
         <header
@@ -103,6 +114,7 @@ export function Navbar() {
 
                     {/* Mobile menu button */}
                     <button
+                        ref={buttonRef} // <-- 2. Assign the ref here
                         className="md:hidden p-2 rounded-md text-surface-fg hover:bg-surface-border transition"
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Toggle menu"
