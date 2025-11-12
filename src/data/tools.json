@@ -4,7 +4,7 @@
     "title": "Inclusive User Groups",
     "phase": "diversity",
     "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-486"
+      "https://www.figma.com/board/bPp4GFih81cINEwv7ukAXM/Inclusive-User-Groups?node-id=0-1&t=DvQe0cAxMKFsqSnr-1"
     ],
     "overview": "Highlight diverse user groups to avoid stereotypes and include marginalized voices.",
     "purpose": "Make user groups visible without oversimplifying. Check privilege and exclusion risks while building balanced user stories.",
@@ -37,9 +37,6 @@
     "id": "critical-reflection-cards",
     "title": "Critical Reflection Cards",
     "phase": "inclusion",
-    "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit"
-    ],
     "game": {
       "name": "Critical Reflection Cards",
       "href": "/methods/critical-reflection-cards/game"
@@ -74,7 +71,7 @@
     "title": "Systemic Journey Map",
     "phase": "sustainability",
     "templates": [
-      "https://www.figma.com/board/2QoAObV11f4UBBBT2SFyFo/Software-5.0-Toolkit?node-id=403-485&t=6nYVcXavfojhSjPX-1"
+      "https://www.figma.com/board/S99ESZdlljCSrGLphlhHeP/Systemic-Journey-Map?node-id=0-1&t=tD2j3SHTJb4sYMl8-1"
     ],
     "overview": "Map user journeys step by step, including social and ecological impacts.",
     "purpose": "Break down experiences into clear phases. Link design choices to social and environmental effects, uncovering who is impacted and how.",
