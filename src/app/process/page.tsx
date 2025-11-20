@@ -38,7 +38,9 @@ export default function Process() {
                 className="mt-24 opacity-0 animate-fade-up [animation-delay:800ms] [animation-fill-mode:forwards]"
             >
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-semibold text-fg">Sessions</h2>
+                    <h2
+                        tabIndex={0}
+                        className="text-3xl font-semibold text-fg">Sessions</h2>
                     <p className="mt-3 text-muted-fg max-w-2xl mx-auto text-[15px] leading-relaxed">
                         Each session gives you hands-on skills to connect design thinking with
                         software engineering practice.

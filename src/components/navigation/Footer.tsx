@@ -38,7 +38,7 @@ export function Footer({ className }: { className?: string }) {
                     {/* Brand / Mission */}
                     <div className="md:col-span-3 flex flex-col gap-3">
                         <Link
-                            href="/public"
+                            href="/"
                             className="text-lg font-semibold tracking-tight text-surface-fg"
                             aria-label="Course home"
                         >
