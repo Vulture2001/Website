@@ -4,12 +4,24 @@ import Link from 'next/link';
 import { truncate } from '@lib/truncate';
 import { Card, CardBody } from '@components/cards/Card';
 
+// 1. Define a specific interface for the tool prop
+// This matches the "normalizedTools" shape from your ToolLibrary
+interface ToolItem {
+    id: string | number;
+    title: string;
+    _category: string;
+    _blurb: string;
+    // explicit index signature allows other properties (like description, purpose)
+    // to exist on the object without causing type errors, while safer than 'any'
+    [key: string]: unknown;
+}
+
 export function ToolCard({
                              tool,
                              catLabel,
                              catColor,
                          }: {
-    tool: any;
+    tool: ToolItem; // 2. Use the interface here instead of 'any'
     catLabel?: string;
     catColor?: string;
 }) {
@@ -22,6 +34,7 @@ export function ToolCard({
                         className="w-3 h-3 rounded-full shrink-0"
                         style={{ backgroundColor: catColor ?? 'hsl(var(--muted-fg))' }}
                     />
+                    {/* Access properties safely now that they are typed */}
                     {tool._category !== 'uncategorized' && (
                         <span className="text-xs font-semibold uppercase tracking-wide text-muted-fg">
               {catLabel ?? tool._category}

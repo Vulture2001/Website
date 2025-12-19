@@ -12,20 +12,30 @@ export type Card = {
 // --------------------
 // Type Guard
 // --------------------
-export function isCard(obj: any): obj is Card {
+// 1. Changed argument type from 'any' to 'unknown'
+export function isCard(obj: unknown): obj is Card {
+    // 2. Verify it is an object before accessing properties
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
+
+    // 3. Cast to a generic record to safely access properties
+    const candidate = obj as Record<string, unknown>;
+
     return (
-        typeof obj.id === 'number' &&
-        typeof obj.scenario === 'string' &&
-        (obj.description === 'Individual Impact' ||
-            obj.description === 'Social Impact' ||
-            obj.description === 'Environmental Impact')
+        typeof candidate.id === 'number' &&
+        typeof candidate.scenario === 'string' &&
+        (candidate.description === 'Individual Impact' ||
+            candidate.description === 'Social Impact' ||
+            candidate.description === 'Environmental Impact')
     );
 }
 
 // --------------------
 // Filter JSON using type guard
 // --------------------
-export const cardsData: Card[] = (rawCards as any[]).filter(isCard);
+// 4. Cast raw JSON to unknown[] instead of any[]
+export const cardsData: Card[] = (rawCards as unknown[]).filter(isCard);
 
 // --------------------
 // Utility: draw random cards by type

@@ -8,13 +8,19 @@ import CardDisplay from '@/components/toolkit/CardDisplay';
 import { drawRandomCardsByType, cardsData, Card } from '@/lib/cardData';
 import { getToolById } from '@/lib/tools';
 
+// 1. Properly type the params as a Promise
 export default function ToolGamePage({ params }: { params: Promise<{ id: string }> }) {
     const [showSvgs, setShowSvgs] = useState(false);
     const [drawnCards, setDrawnCards] = useState<Card[]>([]);
     const [redrawKey, setRedrawKey] = useState(Date.now().toString());
 
+    // 2. Unwrap the params using React.use()
     const { id } = use(params);
-    const tool = getToolById(id);
+
+    // 3. Fix: Ensure ID matching works even if JSON has numbers
+    // We try to find the tool, and handle cases where getToolById might fail strictly
+    const tool = getToolById(id) || getToolById(Number(id));
+
     const toolTitle = tool?.title || 'Method';
 
     const handleDrawCards = () => {
@@ -26,7 +32,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
 
     return (
         <div className="relative flex flex-col min-h-screen bg-surface">
-            {/* Breadcrumb - Same as ToolDetail */}
+            {/* Breadcrumb */}
             <Breadcrumb
                 items={[
                     { label: 'Home', href: '/' },
@@ -37,7 +43,7 @@ export default function ToolGamePage({ params }: { params: Promise<{ id: string 
                 containerClassName="max-w-7xl mx-auto px-4 pt-6"
             />
 
-            {/* Hero - Same style as ToolDetail */}
+            {/* Hero */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

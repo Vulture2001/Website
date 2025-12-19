@@ -3,18 +3,27 @@
 import * as React from 'react'
 import { InfiniteCarousel } from '@components/carousel/InfiniteCarousel'
 import { SessionCard, type SessionCardData } from '@components/cards/SessionCard'
-import sessionsJson from '@/data/sessions.json' assert { type: 'json' }
+import sessionsJson from '@/data/sessions.json'
+
+// 1. Define the shape of the raw JSON data
+interface RawSessionData {
+    label: string;
+    value: string;
+    color: string;
+    homeDescription?: string;
+    description?: string;
+    track: string;
+}
 
 /* ----------------------------- Normalization ----------------------------- */
-const SESSIONS: SessionCardData[] = (sessionsJson as any[]).map((session) => ({
-    // Map label → title
+const SESSIONS: SessionCardData[] = (sessionsJson as unknown as RawSessionData[]).map((session) => ({
     title: session.label,
-    // Copy over other matching fields
     value: session.value,
     color: session.color,
     homeDescription: session.homeDescription,
     description: session.description,
-    track: session.track,
+    // FIX: Type assertion here tells TS "I promise this string is either 'Design' or 'Development'"
+    track: session.track as SessionCardData['track'],
 }))
 
 /* ----------------------------- Component ----------------------------- */

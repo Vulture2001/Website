@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import { Input } from '@components/inputs/Input';
+// import { Input } from '@components/inputs/Input'; // Optional: Comment out import if unused
 import { Tabs } from '@components/toolkit/Tabs';
 import { MotionSection } from '@components/layout/MotionSection';
 import { fadeInUp } from '@lib/animations';
@@ -24,7 +24,7 @@ type Tool = {
 
 export function ToolLibrary() {
     const [activeCategory, setActiveCategory] = useState('all');
-    const [searchTerm, setSearchTerm] = useState('');
+    // const [searchTerm, setSearchTerm] = useState(''); // 1. State commented out
 
     const categories = categoriesJson as Category[];
     const tools = toolsJson as Tool[];
@@ -49,12 +49,10 @@ export function ToolLibrary() {
         return counts;
     }, [normalizedTools]);
 
-    // NEW: Memoize the list of tabs that have tools
     const visibleTabs = useMemo(() => {
         return categories
             .filter((c) => {
                 const value = c.value.toLowerCase();
-                // Only include categories that have a count greater than 0
                 return (categoryCounts[value] ?? 0) > 0;
             })
             .map((c) => {
@@ -63,24 +61,28 @@ export function ToolLibrary() {
                     value,
                     label: c.label,
                     color: c.color,
-                    // The 'disabled' prop is no longer needed
                 };
             });
-    }, [categories, categoryCounts]); // Dependencies
+    }, [categories, categoryCounts]);
 
     const filteredTools = useMemo(() => {
-        const term = searchTerm.trim().toLowerCase();
+        // const term = searchTerm.trim().toLowerCase(); // 2. Search term logic commented out
         return normalizedTools.filter((t) => {
             const matchesCategory =
                 activeCategory === 'all' || t._category === activeCategory;
             if (!matchesCategory) return false;
+
+            /* 3. Search filtering block commented out
             if (!term) return true;
             const haystack = [t.title, t._blurb, t.purpose ?? '', t.overview ?? '']
                 .join(' ')
                 .toLowerCase();
             return haystack.includes(term);
+            */
+
+            return true;
         });
-    }, [normalizedTools, activeCategory, searchTerm]);
+    }, [normalizedTools, activeCategory /*, searchTerm */]); // 4. Dependency removed
 
     return (
         <MotionSection
@@ -98,7 +100,8 @@ export function ToolLibrary() {
                 <h2 className="text-2xl sm:text-3xl font-semibold text-fg">
                     Method Overview
                 </h2>
-                <div className="w-full md:w-96">
+                {/* 5. Search Input UI commented out */}
+                {/* <div className="w-full md:w-96">
                     <Input
                         aria-label="Search methods"
                         placeholder="Search methods, purposes, or overviews"
@@ -107,6 +110,7 @@ export function ToolLibrary() {
                         className="h-12 px-4 rounded-full border border-[hsl(var(--border))] bg-surface text-fg placeholder:text-muted-fg"
                     />
                 </div>
+                */}
             </motion.div>
 
             {/* Tabs */}
@@ -116,7 +120,6 @@ export function ToolLibrary() {
                 transition={{ delay: 0.2, duration: 0.4, ease: 'easeOut' }}
             >
                 <Tabs
-                    // UPDATED: Use the new 'visibleTabs' array
                     items={visibleTabs}
                     active={activeCategory}
                     onChange={setActiveCategory}
@@ -128,7 +131,7 @@ export function ToolLibrary() {
             <AnimatePresence mode="popLayout">
                 {filteredTools.length > 0 ? (
                     <motion.div
-                        key={activeCategory + searchTerm} // re-trigger animation on change
+                        key={activeCategory /* + searchTerm */} // 6. Removed searchTerm from key
                         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8"
                         initial="hidden"
                         animate="visible"

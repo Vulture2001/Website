@@ -1,16 +1,20 @@
 // app/projects/[slug]/page.tsx
-import { getProjectBySlug } from "@/lib/mdx"; // create this or alias from getCaseStudyBySlug
+import { getProjectBySlug } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import { ArticleLayout } from "@components/articles/ArticleLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@components/articles/MDXComponents";
 
 type PageProps = {
-    params: { slug: string };
+    // 1. Update type: params is now a Promise
+    params: Promise<{ slug: string }>;
 };
 
-export default async function ProjectSlugPage({ params }: PageProps) {
+export default async function ProjectSlugPage(props: PageProps) {
+    // 2. Await the params object before destructuring
+    const params = await props.params;
     const { slug } = params;
+
     const project = await getProjectBySlug(slug);
     if (!project) return notFound();
 
