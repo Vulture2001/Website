@@ -61,6 +61,8 @@ Access the container: The application should be available at http://localhost:30
 │   ├── png/       # for png files
 │   ├── svg/       # for svg files
 │   ├── video/       # for mp4 files (YouTube Link preffered)
+├── src/          # Static assets (images, files)
+│   ├── projects/       # put project mdx files here
 ```
 
 ## 🛠️ Tech Stack
