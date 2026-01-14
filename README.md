@@ -19,7 +19,7 @@ To set up the project locally (Docker is recommended):
 
 ```
 # clone the repository
-git clone https://github.com/your-username/website.git
+git clone https://github.com/ls1intum/RSI-Website.git
 cd website
 
 # install dependencies
