@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
     title: 'Responsible, Sustainable, and Inclusive Digital Product Creation',
     description: '—',
+
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
